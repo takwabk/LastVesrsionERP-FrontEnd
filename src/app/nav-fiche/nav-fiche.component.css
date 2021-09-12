@@ -1,0 +1,9 @@
+.opa {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.is-active {
+  background: linear-gradient(to right, #00ae81 50%, #e9e9e9 50%);
+  border-radius: 90px;
+  height: 70px;
+}

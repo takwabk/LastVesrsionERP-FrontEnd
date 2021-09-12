@@ -1,0 +1,44 @@
+.btn {
+  width: 100%;
+}
+.vertical-line {
+  border-left: 2px solid #00ae81;
+  display: inline-block;
+  height: 20px;
+  margin: 0 20px;
+}
+
+.vert-line {
+  border-left: 2px solid #00ae81;
+  display: inline-block;
+  height: 20px;
+  margin: 0 20px;
+}
+
+hr {
+  width: 40%;
+  margin-left: 0px;
+}
+td {
+  text-align: right;
+}
+
+.cc {
+  font-family: "Open Sans";
+  font-size: 11;
+  font-style: bold;
+  color: #00ae81;
+}
+
+.cc3 {
+  font-family: "Open Sans";
+  font-size: 9;
+  font-style: italic;
+  color: #2d7574;
+}
+.cc1 {
+  font-family: "Open Sans";
+  font-size: 10;
+  font-style: bold;
+  color: #6b6b6b;
+}

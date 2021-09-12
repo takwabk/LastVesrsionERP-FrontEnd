@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-4"> <button (click)="setMonth(-1)" style="float: left;">&lt;</button></div>
+      <div class="col-md-4"><span > {{date | date}}</span> </div>
+
+      <div class="col-md-4">  <button (click)="setMonth(+1)" style="float: right;">&gt;</button></div>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-12">
+      <ul>
+        <li class="days" *ngFor="let day of days"> {{day}} </li>
+        <li *ngFor="let date of dates" [ngClass]="{grey: !isSameMonth(date)}" (click)="selected.emit(date)">
+          {{date | date:'d'}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,1041 @@
+<div class="container-fluid"  >
+
+  <app-nav-fiche></app-nav-fiche>
+    <div class="row" style="margin-top: 40px;">
+      <div class="col-md-12" style="margin-bottom: 50px;" >
+
+        <div class="row">
+          <div class="col-md-12" style="margin-bottom: 30px;">
+
+            <h3 class="cc">Fiche Projet  <span class="vertical-line"></span><span class="cc1">Gisement</span>
+            </h3>
+
+
+          </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-12">
+      <div class="row" style="margin-bottom: 8px;">
+      <div class="col-md-9">
+            <div class="row"style="margin-bottom: 10px;">
+
+                <div class="col-md-2">NOM</div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-3"style="font-weight: bold;color: #000;">Nom du client </div>
+
+                <div class="col-md-1"style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+                <div  class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">QUOTATION</div>
+            </div>
+            <div class="row"style="margin-bottom: 10px;">
+
+                <div class="col-md-2">PRENOM</div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-3"style="font-weight: bold;color: #000;">prenom du client </div>
+                <div class="col-md-1"style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+                <div class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">ACCEDER A SA FICHE</div>
+            </div>
+            <div class="row"style="margin-bottom: 10px;">
+
+              <div class="col-md-2">VILLE</div>
+              <div class="col-md-1">:</div>
+              <div class="col-md-3"style="font-weight: bold;color: #000;">Ville du projet </div>
+              <div class="col-md-1"style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+              <div class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">IMPRIMER</div>
+
+          </div>
+          <div class="row"style="margin-bottom: 10px;">
+
+            <div class="col-md-2">Puissance</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-3"style="font-weight: bold;color: #000;">200 Nm3</div>
+
+        </div>
+
+            </div>
+            </div>
+    </div>
+
+<form class="needs-validation" #f="ngForm">
+<div class="row">
+  <div class="col-md-12">
+    <h3 style="color: #00AE81;">Caractéristique des intrants</h3>
+<div class="row">
+  <div class="col-md-2">  <div class="form-group">
+    <label for="formGroupExampleInput">Intrant catégorie 1</label>
+    <select id="formGroupExampleInput"
+     #myselectType (change)="listenType($event.target.value)" [(ngModel)]="infos.IC1"
+    name="IC1" type="text" class="form-control" id="validationCustom01"
+
+    required>
+
+    <option *ngFor="let item of infotrie" [value]="item">{{item}}
+    </option>
+
+  </select>
+  </div></div>
+  <div class="col-md-2">   <div class="form-group">
+    <label for="formGroupExampleInput">Intrant catégorie 2</label>
+     <select id="formGroupExampleInput" (change)="listenIc1($event.target.value)"
+      [(ngModel)]="infos.IC2"
+                name="IC2" type="text"
+                 class="form-control" id="validationCustom01"
+                required>
+                <option value="" disabled selected></option>
+                <option *ngFor="let item of infotrie2" [value]="item">{{item}}
+                </option>
+
+              </select>
+  </div></div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Intrant catégorie 3</label>
+      <select id="formGroupExampleInput" (change)="listenIc2($event.target.value)" [(ngModel)]="infos.IC3"
+      name="IC3" type="text" class="form-control" id="validationCustom01"
+      required>
+      <option value="" disabled selected></option>
+      <option *ngFor="let item of infotrie3" [value]="item">{{item}}
+      </option>
+
+    </select>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Description biblio</label>
+      <select id="formGroupExampleInput" (change)="listenDesc($event.target.value)" [(ngModel)]="infos.Description"
+      name="Description" type="text" class="form-control" id="validationCustom01" required>
+      <option value="" disabled selected></option>
+      <option *ngFor="let item of infotrie4" [value]="item">
+
+        {{item}}
+
+
+      </option>
+
+    </select>
+    </div>
+  </div>
+
+
+
+
+  <div class="col-md-2">
+
+    <div class="form-group">
+      <label for="formGroupExampleInput">Unité de mesure</label>
+      <input
+                  [(ngModel)]="infos.Unitee" name="Unitee" type="text" class="form-control"
+      id="formGroupExampleInput" required value="{{infotrie5?.Unitee}}" >
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="row">
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">MB/u</label>
+      <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+      id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">MS/u</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" required
+      [(ngModel)]="infos.Effluent_Delevage" name="Effluent_Delevage"
+                  value="{{infotrie5?.Effluent_Delevage}}">
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">%MS </label>
+      <input type="text" [(ngModel)]="infos.MS" class="form-control" id="formGroupExampleInput"
+      name="MS" value="{{infotrie5?.MS}}">
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">% MO/MS</label>
+      <input type="text" [(ngModel)]="infos.MO_MS" class="form-control" id="formGroupExampleInput"
+      value="{{infotrie5?.MO_MS}}" name="MO_MS">
+    </div>
+  </div>
+
+  <div class="col-md-2">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Nm3 CH4/t MO</label>
+    <input type="text" [(ngModel)]="infos.Nm3_CH4_t_MO" name="Nm3_CH4_t_MO" class="form-control"
+    id="formGroupExampleInput" required value="{{infotrie5?.Nm3_CH4_t_MO}}" class="form-control"
+   >
+  </div>
+</div>
+
+
+
+
+</div>
+<div class="row">
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput"> Description Client</label>
+      <input (keydown.enter)="$event.preventDefault()" class="form-control"
+      id="validationCustom01" required id="formGroupExampleInput" type="text"
+      [(ngModel)]="description" name="description" >
+    </div>
+
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Quantité</label>
+      <input
+
+      (change)="listenQuantute($event.target.value)" [(ngModel)]="quantite" name="quantite" class="form-control">
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput"> Tot MB</label>
+      <input [(ngModel)]="t_MB_an" name="t_MB_an" type="text" class="form-control"
+
+  id="formGroupExampleInput"  value="{{prod}}" >
+    </div>
+
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Tot MS</label>
+      <input [(ngModel)]="t_MS_an" name="t_MS_an" type="text" class="form-control"
+      id="formGroupExampleInput"  value="{{prod1}}">
+    </div>
+
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Nm3 Ch4/an</label>
+      <input [(ngModel)]="Nm3_CH4_an" name="Nm3_CH4_an" type="text" class="form-control"
+      id="formGroupExampleInput"  value="{{prod2}}">
+    </div>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Prix</label>
+
+        <input (keydown.enter)="$event.preventDefault()" #x (change)="formule(x.value)"
+          [(ngModel)]="prix" name="prix" value="prix" class="form-control">
+
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Base</label>
+      <select (keydown.enter)="$event.preventDefault()" #x (change)="formule(x.value)"class="form-control"
+      [(ngModel)]="base_prix" name="base_prix">
+      <option *ngFor="let o of options">
+       {{o.data}}
+      </option>
+
+    </select>
+
+
+
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Prix [€/t MB]</label>
+      <input type="text"
+      class="form-control" id="formGroupExampleInput"
+       (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MB" name="t_MB"
+      value="{{t_MB}}">
+    </div>
+
+
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Prix [€/t MS]</label>
+      <input type="text"
+      class="form-control" id="formGroupExampleInput"
+      (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MS" name="t_MS"
+      value="{{t_MS}}">
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Total</label>
+      <input type="text"
+      class="form-control" id="formGroupExampleInput"
+      (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MS" name="t_MS"
+      value="{{t_MS}}">
+    </div>
+  </div>
+</div>
+
+  <i class="entypo-plus-circled" type="submit" (click)="saveContent(f.value)"
+
+  style=" font-size: 30px;border-radius: 60px; background-color: #2D7574;color:white;float:left;"></i>
+
+
+
+<div style="margin-top: 50px;">
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-striped " >
+
+
+        <thead>
+          <tr>
+
+
+            <th >Description Client</th>
+
+            <th  >Quantité</th>
+            <th >Tot MB</th>
+            <th  >Tot MS</th>
+            <th >Nm3/h</th>
+            <th >KWe/h</th>
+            <th >Action</th>
+
+
+
+
+
+
+
+            <!-- <th></th>
+              <th>Sous tt d'expoloitation lavage II </th>
+              <th>sous tt autre</th>
+              <th>Grand tt d'exploitation i+ii</th> -->
+          </tr>
+          <tr>
+
+            <th style="background-color: #2D7574;"></th>
+            <th style="background-color: #2D7574;"></th>
+            <th style="background-color: #2D7574;"></th>
+            <th style="background-color: #2D7574;"></th>
+            <th style="background-color: #2D7574;"></th>
+            <th style="background-color: #2D7574;"></th>
+             <th style="background-color: #2D7574;"></th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let newFiche of newFiche ;let i=index" >
+
+
+
+                <td>
+                  <span  *ngIf="!isVisible">{{newFiche?.description}}</span>
+                  <input  [(ngModel)]="newFiche.description" name="description" *ngIf="isVisible" />
+                 </td>
+
+
+
+
+              <td>
+                <span  *ngIf="!isVisible">{{newFiche?.quantite}}</span>
+                <input  [(ngModel)]="newFiche.quantite" name="quantite" *ngIf="isVisible"/>
+            </td>
+
+
+              <td>
+                <span  *ngIf="!isVisible">{{newFiche?.t_MB_an}}</span>
+                <input  [(ngModel)]="newFiche.t_MB_an" name="t_MB_an" *ngIf="isVisible"/>
+            </td>
+
+
+
+
+              <td>
+                <span  *ngIf="!isVisible">{{newFiche?.t_MS_an}}</span>
+                <input  [(ngModel)]="newFiche.t_MS_an"  name="newFiche.t_MS_an" *ngIf="isVisible"/>
+            </td>
+
+
+
+
+
+             <td>
+              <span  *ngIf="!isVisible">{{newFiche?.Nm3_CH4_an}}</span>
+              <input  [(ngModel)]="newFiche.Nm3_CH4_an"  name="newFiche.Nm3_CH4_an" *ngIf="isVisible"/>
+          </td>
+
+
+            <td>
+              <span  *ngIf="!isVisible" >{{newFiche?.KWe_h}}</span>
+              <input  [(ngModel)]="newFiche.KWe_h" name="newFiche.KWe_h" *ngIf="isVisible"/>
+            </td>
+            <td colspan="2">
+              {{f.value}}
+              <i class="entypo-pencil" style="font-size:15px ;margin-left: 15px; color: #2D7574;" (click)="editDomain()" ></i>
+              <i class="entypo-trash" style="font-size:15px ;margin-left: 15px; color: red;"   (click)="delete(newFiche)" title="Delete"></i>
+              <i class="entypo-check" style="font-size:15px ;margin-left: 15px; color: green;" ></i>
+            </td>
+
+
+            <!-- <td><input value="{{newFiche?.quantite}}"></td> -->
+            <!-- <td><input value="{{newFiche?.unite}}"></td>
+
+
+            <td><input value="{{newFiche?.uMB_an}}"></td>
+            <td><input value="{{newFiche?.Unitee}}"></td>
+            <td><input value="{{newFiche?.Type}}"></td>
+            <td><input value="{{newFiche?.MS}}"></td>
+            <td><input value="{{newFiche?.MO_MS}}"></td>
+            <td><input value="{{newFiche?.Nm3_CH4_t_MO}}"></td>
+            <td><input value="{{newFiche?.Commentaire}}"></td>
+            <td><input value="{{newFiche?.t_MB_an}}"></td>
+            <td><input value="{{newFiche?.t_MS_an}}"></td>
+            <td><input value="{{newFiche?.Nm3_CH4_an}}"></td>
+            <td><input value="{{newFiche?.CH4percentMS}}"></td>
+            <td><input value="{{newFiche?.u_N_t}}"></td>
+            <td><input value="{{newFiche?.u_P2O5_t}}"></td>
+            <td><input value="{{newFiche?.u_K2O_t}}"></td>
+            <td><input value="{{newFiche?.ration}}"></td>
+            <td><input value="{{newFiche?.N}}"></td>
+            <td><input value="{{newFiche?.P}}"></td>
+            <td><input value="{{newFiche?.K}}"></td>
+            <td><select #x (change)="formule(x.value)" [(ngModel)]="base_prix" name="base_prix">
+                <option *ngFor="let o of options">
+                  {{o.data}}
+                </option>
+              </select>
+            </td>
+            <td><input (keydown.enter)="$event.preventDefault()" #x (change)="formule(x.value)"
+                [(ngModel)]="prix" name="prix" value="prix"></td>
+
+            <td><input (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MB" name="t_MB"
+                value="{{t_MB}}"></td>
+            <td><input (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MS" name="t_MS"
+                value="{{t_MS}}"></td>
+            <td><input (keydown.enter)="$event.preventDefault()" [(ngModel)]="prix_intrants_MB"
+                name="prix_intrants_MB" value="{{prix_intrants_MB}}">
+            </td>
+            <td><input (keydown.enter)="$event.preventDefault()" [(ngModel)]="prix_intrants_MS"
+                name="prix_intrants_MS" value="{{prix_intrants_MS}}">
+            </td> -->
+
+
+
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <!-- <td>{{sum_of_Animal_TMB}}</td>
+            <td>{{sum_of_Animal_TMS}}</td>
+            <td>{{sum_of_Animal_NM3}}</td> -->
+          </tr>
+
+        </tbody>
+
+        <br>
+
+
+
+
+      </table>
+
+      <!-- <div style="margin-top: 20px; float: right">
+        <button class="btn btn-success mr-5" (click)="addFiche(newFiche)">Save</button>
+        <button class="btn btn-warning">Cancel</button>
+      </div> -->
+
+
+    </div>
+
+  </div>
+</div>
+
+<div style="margin-top: 50px;">
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-striped " >
+
+
+        <thead>
+          <tr>
+
+
+            <th >Total MS</th>
+
+            <th  >Total MB</th>
+            <th >Total Nm3CH4/h</th>
+            <th  >Total KWe/h</th>
+
+          </tr>
+          <tr>
+
+            <th style="background-color: #2D7574;"></th>
+            <th style="background-color: #2D7574;"></th>
+            <th style="background-color: #2D7574;"></th>
+            <th style="background-color: #2D7574;"></th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>{{somme_MS}}</td>
+            <td>{{somme_MB}}</td>
+            <td>{{volume_Nm3_CH4_an}}</td>
+            <td>{{somme_KWH}}</td> </tr>
+        </tbody>
+
+      </table>
+
+      <div style="margin-top: 20px; float: right">
+        <button class="btn btn-success mr-5" (click)="addFiche()">Save</button>
+        <button class="btn btn-warning">Cancel</button>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- <h3 style="color: #00AE81;">Production Gaz</h3>
+
+<div class="row " style="background-color: #F2F2F2;"   >
+  <div class="col-md-3 " style="margin-bottom: 20px;">
+
+    <div class="form-group">
+      <label for="formGroupExampleInput"></label>
+
+    </div>
+  </div>
+  <div class="col-md-3"style="margin-bottom: 20px;">
+    <div class="form-group">
+      <label for="formGroupExampleInput"></label>
+
+    </div>
+
+  </div>
+  <div class="col-md-3"style="margin-bottom: 20px;">
+
+
+    <div class="form-group">
+      <label for="formGroupExampleInput"></label>
+      <input [(ngModel)]="infos.Nm3_CH4_an" name="Nm3_CH4_an" type="text" class="form-control"
+      id="formGroupExampleInput" placeholder="0" [value]="prod2">
+
+    </div>
+
+
+  </div>
+  <div class="col-md-3"style="margin-bottom: 20px;">
+
+    <div class="form-group">
+      <label for="formGroupExampleInput">Nm3/h</label>
+      <input [(ngModel)]="infos.t_MS_an" name="t_MS_an" type="text" class="form-control"
+      id="formGroupExampleInput" placeholder="0" [value]="infos?.Nm3_CH4_an">
+    </div>
+  </div>
+
+</div>
+
+<h3 style="color: #00AE81;">Prix des intrants</h3>
+
+
+<h3 style="color: #00AE81;">Coût du transport des intrants</h3>
+<div class="row">
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Base Forfait</label>
+      <select id="formGroupExampleInput" (change)="listenDesc($event.target.value)" [(ngModel)]="infos.Description"
+      name="Description" type="number" class="form-control" id="validationCustom01" required>
+
+      <option *ngFor="let item of infotrie4" value="{{item}}">
+
+        {{item}}
+
+
+      </option>
+
+    </select>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Extra</label>
+      <input type="text"
+      class="form-control" id="formGroupExampleInput"
+     >
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Prix au Km</label>
+      <input type="text"
+      class="form-control" id="formGroupExampleInput"
+      >
+    </div>
+
+
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Nombre de Km</label>
+      <input type="text"
+      class="form-control" id="formGroupExampleInput"
+     >
+    </div>
+  </div>
+</div> -->
+  </div>
+</div>
+</form>
+</div>
+</div>
+
+
+
+
+<!--
+  <div class="row">
+<div class="col-md-12">
+    <div class="col-md-5">
+        <h3 style="color: #00AE81;">Caractéristique des intrants</h3>
+
+        <div class="row">
+          <div class="col-md-4">  <div class="form-group">
+            <label for="formGroupExampleInput">Intrant catégorie 1</label>
+            <select id="formGroupExampleInput"
+             #myselectType (change)="listenType($event.target.value)" [(ngModel)]="infos.IC1"
+            name="IC1" type="number" class="form-control" id="validationCustom01"
+            placeholder="First name"
+            required>
+            <option *ngFor="let item of infotrie" [value]="item">{{item}}
+            </option>
+
+          </select>
+          </div></div>
+          <div class="col-md-4">   <div class="form-group">
+            <label for="formGroupExampleInput">N/ha</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" required
+                        value="{{infotrie5?.Effluent_Delevage}}">
+          </div></div>
+          <div class="col-md-4">  <div class="form-group">
+            <label for="formGroupExampleInput">MS %</label>
+            <input type="text" [(ngModel)]="infos.MS" class="form-control" id="formGroupExampleInput"
+            name="MS" value="{{infotrie5?.MS}}">
+          </div></div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">   <div class="form-group">
+            <label for="formGroupExampleInput">Intrant catégorie 2</label>
+             <select id="formGroupExampleInput" (change)="listenIc1($event.target.value)"
+              [(ngModel)]="infos.IC2"
+                        name="IC2" type="number"
+                         class="form-control" id="validationCustom01" placeholder="First name"
+                        required>
+
+                        <option *ngFor="let item of infotrie2" [value]="item">{{item}}
+                        </option>
+
+                      </select>
+          </div></div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">uMb/an</label>
+              <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+              id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">% MO/MS</label>
+              <input type="text" [(ngModel)]="infos.MO_MS" class="form-control" id="formGroupExampleInput"
+              value="{{infotrie5?.MO_MS}}" name="MO_MS">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Intrant catégorie 3</label>
+              <select id="formGroupExampleInput" (change)="listenIc2($event.target.value)" [(ngModel)]="infos.IC3"
+              name="IC3" type="number" class="form-control" id="validationCustom01" placeholder="First name"
+              required>
+
+              <option *ngFor="let item of infotrie3" [value]="item">{{item}}
+              </option>
+
+            </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Unité de mesure</label>
+              <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+              id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}" >
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Nm3 CH4/t MO</label>
+              <input type="text" [(ngModel)]="infos.Nm3_CH4_t_MO" name="Nm3_CH4_t_MO" class="form-control"
+              id="formGroupExampleInput" required value="{{infotrie5?.Nm3_CH4_t_MO}}" class="form-control"
+             >
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Description biblio</label>
+              <select id="formGroupExampleInput" (change)="listenDesc($event.target.value)" [(ngModel)]="infos.Description"
+              name="Description" type="number" class="form-control" id="validationCustom01" required>
+
+              <option *ngFor="let item of infotrie4" value="{{item}}">
+
+                {{item}}
+
+
+              </option>
+
+            </select>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Description Client</label>
+              <input (keydown.enter)="$event.preventDefault()" class="form-control"
+                          id="validationCustom01" required id="formGroupExampleInput">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Quantité</label>
+              <input [(ngModel)]="infos.quantite" name="quantite" type="text" class="form-control"
+              id="formGroupExampleInput" placeholder="0" required>
+            </div>
+
+
+
+          </div>
+
+          <div class="col-md-8">
+            <div class="row" style="margin-bottom: 20px;">
+              <div class="col-md-3"> t MB/an</div>
+              <div class="col-md-7">
+                <input [(ngModel)]="infos.t_MB_an" name="t_MB_an" type="text" class="form-control"
+                id="formGroupExampleInput" placeholder="0" required style="background-color:#E1EBEB;border-radius:3%;">
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 20px;">
+              <div class="col-md-3"> t MS/an</div>
+              <div class="col-md-7">
+                <input [(ngModel)]="infos.t_MS_an" name="t_MS_an" type="text" class="form-control"
+                id="formGroupExampleInput" placeholder="0" required style="background-color:#E1EBEB;border-radius:3%;">
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 20px;">
+              <div class="col-md-3"> Nm3 Ch4/an</div>
+              <div class="col-md-7">
+                <input [(ngModel)]="infos.quantite" name="quantite" type="text" class="form-control"
+                id="formGroupExampleInput" placeholder="0" required style="background-color:#E1EBEB;border-radius:3%;">
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 20px;">
+              <div class="col-md-3"> Nm3/h</div>
+              <div class="col-md-7">
+                <input [(ngModel)]="infos.quantite" name="quantite" type="text" class="form-control"
+                id="formGroupExampleInput" placeholder="0" required style="background-color:#E1EBEB;border-radius:3%;">
+              </div>
+            </div>
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+        <h3 style="color: #00AE81;">Prix des intrants</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Base Prix</label>
+                        <select (keydown.enter)="$event.preventDefault()" #x (change)="formule(x.value)"class="form-control"
+                        [(ngModel)]="base_prix" name="base_prix">
+                        <option *ngFor="let o of options">
+                         {{o.data}}
+                        </option>
+
+                      </select>
+
+
+
+                      </div>
+
+                      <div class="form-group">
+                        <label for="formGroupExampleInput">Prix de base</label>
+
+                          <input (keydown.enter)="$event.preventDefault()" #x (change)="formule(x.value)"
+                            [(ngModel)]="prix" name="prix" value="prix" class="form-control">
+
+                      </div>
+
+                </div>
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Prix [€/t MB]</label>
+                        <input type="text"
+                        class="form-control" id="formGroupExampleInput"
+                         (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MB" name="t_MB"
+                        value="{{t_MB}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="formGroupExampleInput">Prix [€/t MS]</label>
+                        <input type="text"
+                        class="form-control" id="formGroupExampleInput"
+                        (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MS" name="t_MS"
+                        value="{{t_MS}}">
+                      </div>
+                </div>
+
+            </div>
+
+        </div>
+
+   <div class="row">
+            <div class="col-md-12">
+              <h3 style="color: #00AE81;">Coût du transport des intrants</h3>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Base Forfait</label>
+                    <select id="formGroupExampleInput" (change)="listenDesc($event.target.value)" [(ngModel)]="infos.Description"
+                    name="Description" type="number" class="form-control" id="validationCustom01" required>
+
+                    <option *ngFor="let item of infotrie4" value="{{item}}">
+
+                      {{item}}
+
+
+                    </option>
+
+                  </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Prix de base</label>
+                    <input type="text"
+                    class="form-control" id="formGroupExampleInput"
+                  >
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Extra</label>
+                    <input type="text"
+                    class="form-control" id="formGroupExampleInput"
+                   >
+                  </div>
+                </div>
+                <div class="col-md-4">
+
+                  <div class="form-group">
+                      <label for="formGroupExampleInput">Prix au Km</label>
+                      <input type="text"
+                      class="form-control" id="formGroupExampleInput"
+                      >
+                    </div>
+
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Nombre de Km</label>
+                      <input type="text"
+                      class="form-control" id="formGroupExampleInput"
+                     >
+                    </div>
+              </div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="col-md-3" *ngIf="_openPopUp">
+      <div class="row">
+    <p></p>
+        <div class="col-md-12">
+          <div id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-content" style="border-left:3px solid #00AE81;border-radius: 10px;">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"(click)="closePopUp() ">&times;</button>
+            <h4 class="modal-title">Récuperation des eaux usées </h4>
+          </div>
+
+
+            <div class="modal-body">
+              <div class="form-group row ">
+                <label for="formGroupExampleInput" class="col-sm-7 col-form-label">Fumier Ef(si non couverte)</label>
+                <div class="col-sm-5">
+                  <select id="formGroupExampleInput" (change)="listenDesc($event.target.value)" [(ngModel)]="infos.Description"
+                  name="Description" type="number" class="form-control" id="validationCustom01" required>
+
+                  <option *ngFor="let item of infotrie4" value="{{item}}">
+
+                    {{item}}
+
+
+                  </option>
+
+                </select>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="formGroupExampleInput"class="col-sm-7 col-form-label">Pluviométrie(Litres annuelles par m2)</label>
+                <div class="col-sm-5">
+                  <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+                  id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="formGroupExampleInput"class="col-sm-7 col-form-label">Evaporisation[%]</label>
+                <div class="col-sm-5">
+                  <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+                  id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+                </div>
+
+              </div>
+              <hr style="width: 100%;  border-top: 1px solid #00AE81;">
+
+              <div class="form-group row">
+                <label for="formGroupExampleInput"class="col-sm-7 col-form-label">
+                 Mois de stockage fumier</label>
+                <div class="col-sm-5">
+                  <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+                  id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="formGroupExampleInput"class="col-sm-7 col-form-label">
+                 Densité du fumier [kg/m3]
+                </label>
+                <div class="col-sm-5">
+                  <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+                  id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="formGroupExampleInput"class="col-sm-7 col-form-label">
+                Hauteur de stockage Fumiére[m]
+                </label>
+                <div class="col-sm-5">
+                  <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+                  id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+                </div>
+
+              </div>
+
+              <hr style="width: 100%;  border-top: 1px solid #00AE81;">
+
+              <div class="form-group row">
+                <label for="formGroupExampleInput"class="col-sm-7 col-form-label">
+                 Mois de stockage Silo</label>
+                <div class="col-sm-5">
+                  <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+                  id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="formGroupExampleInput"class="col-sm-7 col-form-label">
+                  Densité en Silo [kg/m3]
+                </label>
+                <div class="col-sm-5">
+                  <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+                  id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="formGroupExampleInput"class="col-sm-7 col-form-label">
+                  Hauteur de stockage Silo [m]
+                </label>
+                <div class="col-sm-5">
+                  <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+                  id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+       </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</div>
+
+</div>
+-->
+
+
+<div style="margin-top: 20px; float: right" >
+  <button class="btn" (click)="openPopUp()" style="border-left: 5px solid #2D7574;background-color: white;">Eaux usées Parametres</button>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+

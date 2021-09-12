@@ -1,0 +1,10 @@
+.btn {
+  margin-right: 35.2px;
+  width: 100%;
+  color: white;
+
+  background-color:#9E9E9E ;
+}
+.is-active{
+  background-color: #00AE81;
+}

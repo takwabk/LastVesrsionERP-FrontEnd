@@ -1,0 +1,333 @@
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12" style="margin-bottom: 30px;">
+
+      <h3 class="cc">Fiche Client  <span class="vertical-line"></span><span class="cc1">Nouveau</span>
+      </h3>
+
+
+    </div>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <form [formGroup]="formClient" (ngSubmit)="signUpClient()">
+
+
+                  <hr style="color:#00AE81;">
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="last">Nom</label>
+                        <input type="text" formControlName="nom" class="form-control cc2" placeholder="" id="last" >
+                        <p *ngIf="fnNom.touched && !fnNom.valid" class=" text-danger">
+
+                          <span *ngIf="fnNom.errors.required" class=" text-danger">Nom is required</span>
+                          <span *ngIf="fnNom.errors.minlength" class=" text-danger">Nom should be minimum
+                            {{fnNom.errors.minlength.requiredLength}} characteres.</span>
+                          <span *ngIf="fnNom.errors.maxlength" class=" text-danger">Nom should be maximum
+                            {{fnNom.errors.maxlength.requiredLength}} characteres.</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="first">Prénom</label>
+                        <input type="text" formControlName="prenom" class="form-control cc2" placeholder="" id="first">
+                        <p *ngIf="fnPrenom.touched && !fnPrenom.valid" class=" text-danger">
+
+                          <span *ngIf="fnPrenom.errors.required" class=" text-danger">Nom is required</span>
+                          <span *ngIf="fnPrenom.errors.minlength" class=" text-danger">Nom should be minimum
+                            {{fnPrenom.errors.minlength.requiredLength}} characteres.</span>
+                          <span *ngIf="fnPrenom.errors.maxlength" class=" text-danger">Nom should be maximum
+                            {{fnPrenom.errors.maxlength.requiredLength}} characteres.</span>
+                        </p>
+
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="fonction">Fonction</label>
+                        <input type="text" formControlName="fonction" class="form-control" id="fonction"
+                          placeholder="fonction">
+                        <p *ngIf="fnFonction.touched && !fnFonction.valid" class=" text-danger">
+
+                          <span *ngIf="fnFonction.errors.required" class=" text-danger">Fonction is required</span>
+
+
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" formControlName="email" class="form-control" placeholder="email@gmail.com"
+                          id="email">
+
+                        <p *ngIf="fnEmail.touched && !fnEmail.valid" class=" text-danger">
+
+                          <span *ngIf="fnEmail.errors.required" class=" text-danger">email is required</span>
+                          <span *ngIf="fnEmail.errors.email" class=" text-danger">should be an email</span>
+
+                        </p>
+                      </div>
+
+
+                    </div>
+                    <div class="col-md-4">
+
+                      <div class="form-group">
+                        <label for="phone">Tel Portable</label>
+                        <input type="tel" formControlName="tel" class="form-control" id="phone" placeholder="Tel">
+
+                        <p *ngIf="fnTel.touched && !fnTel.valid" class=" text-danger">
+
+                          <span *ngIf="fnTel.errors.required" class=" text-danger">Tel is required</span>
+
+
+                        </p>
+
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="password">Tél Domicile</label>
+                        <input type="tel" formControlName="tel_Domicile" class="form-control" placeholder="tel"
+                          id="password">
+
+
+                      </div>
+
+
+                    </div>
+                    <span style="margin: 20px;">Ces informations restent confidentielles et ne seront jamais partagés</span>
+                  </div>
+
+
+
+
+
+
+                  <div class="row " style="margin-top: 30px;">
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label for="rue">Adresse</label>
+                        <input type="text" formControlName="adresse" class="form-control" id="rue" placeholder="Rue">
+
+
+                      </div>
+
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Complément</label>
+                        <input type="text" formControlName="complement" class="form-control" placeholder="Complément ">
+
+                      </div>
+
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="code">Code Postal</label>
+                        <input type="number" formControlName="codePostal" class="form-control" id="code"
+                          placeholder="code postal">
+                        <p *ngIf="fnCodePostal.touched && !fnCodePostal.valid" class=" text-danger">
+
+                          <span *ngIf="fnCodePostal.errors.required" class=" text-danger">Code Postal is required</span>
+
+
+                        </p>
+                      </div>
+
+                    </div>
+                    <div class="col-md-2">
+
+                      <div class="form-group">
+                        <label for="ville">ville</label>
+                        <input type="text" formControlName="ville" class="form-control" id="ville" placeholder="ville">
+                        <p *ngIf="fnVille.touched && !fnVille.valid" class=" text-danger">
+
+                          <span *ngIf="fnVille.errors.required" class=" text-danger">Ville is required</span>
+
+
+                        </p>
+
+                      </div>
+                    </div>
+                    <!--  col-md-6   -->
+
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label>pays</label>
+                        <select value="France" type="text" formControlName="pays" class="form-control" placeholder="pays ">
+                          <option value="France">France</option>
+                          <option value="Espagne">Espagne</option>
+                          <option value="Italie">Italie</option>
+
+                        </select>
+                        <p *ngIf="fnPays.touched && !fnPays.valid" class=" text-danger">
+
+                          <span *ngIf="fnPays.errors.required" class=" text-danger">Pays is required</span>
+
+
+                        </p>
+                      </div>
+
+                    </div>
+
+
+                    <!--  col-md-6   -->
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="etat"> Status</label>
+
+                        <select #s (change)="listenEtat(s.value)" class="form-control">
+
+                          <option *ngFor="let s of etats" [ngValue]="s" >
+
+                            {{s.nom}}
+                          </option>
+
+                        </select>
+                        </div>
+                        </div>
+                  </div>
+
+                        <div class="row">
+                          <div class="col-md-2">
+                            <label for="validationCustom01 color1">Date_Q</label>
+                            <input formControlName="Date_StatQ" type="text" class="form-control" id="validationCustom03">
+
+                          </div>
+
+                          <div class="col-md-3">
+                            <label for="validationCustom01 color1">Date_CC</label>
+                            <input formControlName="Date_StatCC" type="text" class="form-control" id="validationCustom03">
+
+                          </div>
+                          <div class="col-md-2">
+                            <label for="validationCustom01 color1">Date_CP</label>
+                            <input formControlName="Date_StatCp" type="text" class="form-control" id="validationCustom03">
+
+                          </div>
+                          <div class="col-md-3">
+                            <label for="validationCustom01 color1">Date_CS</label>
+                            <input formControlName="Date_StatCs" type="text" class="form-control" id="validationCustom03">
+
+                          </div>
+                          <div class="col-md-2">
+                            <label for="validationCustom01 color1">Date_ES</label>
+                            <input formControlName="Date_StatEs" type="text" class="form-control" id="validationCustom03">
+
+                          </div>
+                        </div>
+
+
+
+
+
+
+    <div style="margin-top: 40px; ">
+
+      <button  type="submit"  style="background-color: #00ae81 ;color:#eee;
+      width: 120px;
+      height: 50px;
+      border: 0.5px solid #00ae81;
+      border-radius: 15px;">Enregistrer</button>
+
+
+                      </div>
+                      <br/>
+
+                      <div >
+                        <button  type="submit"  style="background-color: #00ae81 ; color: #eee;
+                        width: 120px;
+                        height: 50px;
+                        border: 0.5px solid #00ae81;
+                        border-radius: 15px;">Fiche Projet</button>
+                    </div>
+                </form>
+              </div>
+              <div class="col-md-6">
+                <div class="panel panel-primary " style="box-shadow: 0px -8px 10px lightgrey;" data-collapsed="0">
+
+                  <!-- panel head -->
+                  <div class="panel-heading">
+                    <div class="panel-title cc" style="text-align: center;"><B >Notes</B>
+                      <i class="fas fa-plus" style="font-size:15px;margin-left: 300px;"></i>
+                    </div>
+
+                  </div>
+
+                  <!-- panel body -->
+                  <div class="panel-body">
+                    <div>
+                    <div class="panel-title cc" ><B >Note1</B>
+                      <i class="entypo-pencil" style="font-size:15px ;margin-left: 15px;"></i>
+                      <i class="fas fa-times-circle"></i>
+                    </div>
+
+                    <p>Difficulty on insensible reasonable in. From as went he they.
+                       Preference themselves me as thoroughly partiality considered on in estimating.</p>
+                  </div>
+                  <hr>
+                  <div>
+                    <div class="panel-title cc" ><B >Note2</B>
+                      <i class="entypo-pencil" style="font-size:15px ;margin-left: 15px;"></i>
+                      <i class="fas fa-times-circle"></i></div>
+
+
+                    <p>Difficulty on insensible reasonable in. From as went he they. Preference themselves me as thoroughly partiality considered on in estimating.</p>
+                  </div>
+                  <hr>
+                  <div>
+                    <div class="panel-title cc" ><B >Note3</B>
+                      <i class="entypo-pencil" style="font-size:15px ;margin-left: 15px;"></i>
+                      <i class="fas fa-times-circle"></i></div>
+
+
+                    <p>Difficulty on insensible reasonable in. From as went he they. Preference themselves me as thoroughly partiality considered on in estimating.</p>
+                  </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>

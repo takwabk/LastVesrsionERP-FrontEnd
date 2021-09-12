@@ -1,0 +1,189 @@
+
+
+
+
+
+
+<ul id="main-menu"  class="main-menu" style="background-color: #6B6B6B;" >
+  <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+  <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+
+
+    <div class="row"  style="background-color: #979797; margin: 7px; -webkit-box-shadow: 3px 5px 3px 5px #D3D3D3;
+    box-shadow: 3px 5px 3px 5px #D3D3D3;">
+      <div class="col-md-2">
+
+        <img src="assets/images/thumb-1@2x.png" alt="" class="img-circle" width="40" height="100%"  />
+
+      </div>
+      <div class="col-md-10">
+        <span style="color: white;margin-left: 10px; ">John Henderson
+         <br/> <span style="color: white;margin-left: 15px;">  Responsable</span>
+            </span>
+
+
+
+        </div>
+
+
+
+  </div>
+  <div style="color: white; padding-left: 20px; margin-top: 30px;">
+  <ul  style="color: white; "  ><B>Menu Principal</B> </ul>
+</div>
+
+<li class="active opened active has-sub" style="margin-top: 25px;">
+  <a  >
+
+    <i class="entypo-cd" ></i>
+    <span>Base de Données</span>
+
+  </a>
+
+  <ul >
+    <li  >
+      <a  [routerLink]="['/Construction-data']" routerLinkActive="is-active" >
+
+        <span class="title" style="margin-left: 40px;" >Conception</span>
+
+      </a>
+    </li>
+    </ul>
+    <ul>
+    <li>
+      <a  [routerLink]="['/construction']" routerLinkActive="is-active"  >
+
+        <span class="title" style="margin-left: 40px;" >Construction</span>
+
+      </a>
+    </li>
+  </ul>
+  <ul>
+    <li >
+      <a  [routerLink]="['/Exploitation-data']" routerLinkActive="is-active"  >
+
+        <span class="title" style="margin-left: 40px;">
+          Exploitation</span>
+
+      </a>
+    </li>
+
+
+  </ul>
+</li>
+
+
+  <li class="active opened active has-sub" >
+    <a>
+      <i class="entypo-cd" ></i>
+      <span class="title">Staff</span>
+    </a>
+
+    <ul >
+      <li >
+        <a    [routerLink]="['/add-staff']" routerLinkActive="is-active">
+
+          <span class="title" style="margin-left: 40px;">Ajouter un staff</span>
+        </a>
+      </li>
+      </ul>
+      <ul>
+      <li>
+        <a  [routerLink]="['/liste-staff']" routerLinkActive="is-active">
+
+          <span class="title" style="margin-left: 40px;">Liste staff</span>
+        </a>
+      </li>
+
+
+    </ul>
+    </li>
+
+  <li class="active opened active has-sub ">
+    <a routerLink="/liste-client">
+      <i class="entypo-cd" ></i>
+      <span class="title"> Liste Client</span>
+    </a>
+
+    <ul >
+      <li  >
+        <a  [routerLink]="['/add-client']" routerLinkActive="is-active">
+
+          <span class="title" style="margin-left: 40px;">Fiche Client</span>
+        </a>
+      </li>
+      </ul>
+
+         <ul>
+      <li>
+        <a  [routerLink]="['/fiche']" routerLinkActive="is-active">
+
+          <span class="title" style="margin-left: 40px;">Fiche Projet</span>
+        </a>
+      </li>
+
+    </ul>
+  </li>
+
+  <li class="has-sub">
+    <a >
+
+      <i class="entypo-cd" ></i>
+      <span class="title">Liste Fournisseurs</span>
+    </a>
+
+  </li>
+
+  <li class="has-sub">
+    <a href="ui-panels.html">
+      <i class="entypo-cd" ></i>
+      <span class="title">Taches</span>
+    </a>
+
+  </li>
+  <li class="has-sub">
+    <a href="extra-google-maps.html">
+      <i class="entypo-cd" ></i>
+      <span class="title">Maps</span>
+    </a>
+    <ul>
+      <li>
+        <a href="extra-google-maps.html">
+          <i class="entypo-cd" ></i>
+          <span class="title">Google Maps</span>
+        </a>
+      </li>
+      <li>
+        <a href="extra-vector-maps.html">
+          <i class="entypo-cd" ></i>
+          <span class="title">Vector Maps</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="has-sub">
+    <a href="forms-main.html">
+      <i class="entypo-cd" ></i>
+      <span class="title">Messages</span>
+    </a>
+
+  </li>
+
+  <li class="has-sub">
+    <a href="forms-main.html">
+      <i class="entypo-cd" ></i>
+      <span class="title">Mon espace</span>
+    </a>
+
+  </li>
+
+
+
+
+
+
+
+
+
+</ul>

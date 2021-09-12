@@ -1,0 +1,303 @@
+<div class="app-inner-layout">
+
+  <div class="card main-card mb-3">
+    <h5 class="card-header " style="color:#00AE81;">
+      Ajouter un nouveau Staff
+    </h5>
+    <div class="card-body">
+
+      <div class="card main-card mb-3">
+        <div class="card-body">
+          <form style="margin-top: 60px;" [formGroup]="formStaff" (ngSubmit)="signUpStaff()">
+            <div class=" row">
+
+
+
+              <div class="col text-center color1 ">
+                <h3>Ajouter Staff</h3>
+
+              </div>
+            </div>
+            <!-- <div class="row" style="margin-top: 20px;">
+                        <div>
+                            <h5 style="margin-left: 12px;">Porteur de projet</h5>
+
+                        </div>
+                    </div> -->
+            <hr>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="first">Prénom</label>
+                  <input type="text" formControlName="prenom" class="form-control" placeholder="" id="first">
+
+
+                </div>
+              </div>
+              <!--  col-md-6   -->
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="last">Nom</label>
+                  <input type="text" formControlName="nom" class="form-control" placeholder="" id="last">
+
+                </div>
+              </div>
+              <!--  col-md-6   -->
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" formControlName="email" class="form-control" placeholder="email@gmail.com"
+                    id="email">
+
+
+
+                </div>
+
+
+              </div>
+              <!--  col-md-6   -->
+
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <label for="phone">Tel</label>
+                  <input type="tel" formControlName="tel" class="form-control" id="phone" placeholder="Tel">
+
+
+
+                </div>
+              </div>
+              <!--  col-md-6   -->
+            </div>
+            <!--  row   -->
+            <div class="row">
+
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <label for="fonction">Date D'embauche</label>
+                  <input type="text" formControlName="dateEmbauche" class="form-control" id="dateEmbauche"
+                    placeholder="01/01/1990">
+
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <label for="fonction">Fonction</label>
+                  <input type="text" formControlName="fonction" class="form-control" id="fonction"
+                    placeholder="fonction">
+
+
+
+                </div>
+              </div>
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <label for="fonction">Manager</label>
+                  <input type="text" formControlName="manager" class="form-control" id="manager" placeholder="manager">
+
+                </div>
+              </div>
+              <!--  col-md-6   -->
+
+
+              <!--  col-md-6   -->
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+
+                <div class="form-group">
+
+
+                </div>
+              </div>
+              <div class="col-md-6">
+
+                <div class="form-group">
+
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+
+                <div class="form-group">
+                  <label for="projet">Secteur</label>
+                  <input type="text" formControlName="secteur" class="form-control" id="projet">
+
+
+
+
+
+                </div>
+              </div>
+              <div class="col-md-4">
+
+                <div class="form-group">
+                  <label for="projet">Role</label>
+                  <input type="text" formControlName="role" class="form-control" id="projet">
+
+
+
+
+
+                </div>
+              </div>
+              <div class="col-md-4">
+
+                <div class="form-group">
+                  <label for="cp"> CP</label>
+                  <input type="text" formControlName="cp" class="form-control" id="cp">
+
+
+
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="form-group">
+                  <label for="rue">Rue</label>
+                  <input type="text" formControlName="rue" class="form-control" id="rue" placeholder="Rue">
+
+                </div>
+              </div>
+              <!--  col-md-6   -->
+
+
+              <!--  col-md-6   -->
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="code">Complement d'adresse</label>
+                  <input type="text" formControlName="Complement_adresse" class="form-control" id="code"
+                    placeholder="adresse">
+
+                </div>
+
+              </div>
+              <div class="col-md-4">
+
+                <div class="form-group">
+                  <label for="ville">ville</label>
+                  <input type="text" formControlName="ville" class="form-control" id="ville" placeholder="ville">
+
+
+                </div>
+              </div>
+              <!--  col-md-6   -->
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>pays</label>
+                  <select value="France" type="text" formControlName="pays" class="form-control" placeholder="pays ">
+                    <option value="France">France</option>
+                    <option value="Espagne">Espagne</option>
+                    <option value="Italie">Italie</option>
+
+                  </select>
+
+                </div>
+
+              </div>
+              <!--  col-md-6   -->
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="ville">Tel 2</label>
+                  <input type="text" formControlName="tel2" class="form-control" id="ville" placeholder="tel">
+
+
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="ville">Email 2</label>
+                  <input type="text" formControlName="email2" class="form-control" id="ville" placeholder="email">
+
+
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="ville">contact d'Urgence (nom prenom)</label>
+                  <input type="text" formControlName="contactUrgence1" class="form-control" id="ville"
+                    placeholder="nom et prenom">
+
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="ville">contact d'Urgence (relation)</label>
+                    <input type="text" formControlName="contactUrgence2" class="form-control" id="ville"
+                      placeholder="relation">
+
+
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="ville">contact d'Urgence (Tel)</label>
+                    <input type="text" formControlName="contactUrgence3" class="form-control" id="ville"
+                      placeholder="Tel">
+
+
+                  </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <button type="submit" class="btn btn-success">Ajouter</button>
+          </form>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>

@@ -1,0 +1,280 @@
+<div class="container-fluid">
+
+  <app-nav-fiche></app-nav-fiche>
+  <div class="row" style="margin-top: 40px;">
+    <div class="col-md-12" style="margin-bottom: 30px;">
+
+      <h3 class="cc" style="font-weight: bold;color: #00AE81;">Fiche Projet
+        <span class="vertical-line"></span><span class="cc1">Scenario</span>
+      </h3>
+
+
+    </div>
+    <div class="col-md-12" style="margin-bottom: 60px;">
+      <div class="row" style="margin-bottom: 8px;">
+        <div class="col-md-9">
+          <div class="row" style="margin-bottom: 10px;">
+
+            <div class="col-md-2">NOM</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-3" style="font-weight: bold;color: #000;">Nom du client </div>
+
+            <div class="col-md-1" style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+            <div class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">QUOTATION</div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+
+            <div class="col-md-2">PRENOM</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-3" style="font-weight: bold;color: #000;">prenom du client </div>
+            <div class="col-md-1" style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+            <div class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">ACCEDER A SA FICHE</div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+
+            <div class="col-md-2">VILLE</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-3" style="font-weight: bold;color: #000;">Ville du projet </div>
+            <div class="col-md-1" style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+            <div class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">IMPRIMER</div>
+
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+
+            <div class="col-md-2">Puissance</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-3" style="font-weight: bold;color: #000;">200 Nm3</div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <hr class="horizontalline">
+
+
+    <div class="row">
+
+      <div class="row" style="margin-top: 60px;">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            Date prev. De signature du contrat
+            d'achat de biométhane
+          </div>
+          <div class="col-md-3">
+            <input class="form-control autogrow" id="field-ta" placeholder=""
+              [(ngModel)]="Date_signature_contrat_achat_biomethane" name="Date_signature_contrat_achat_biomethane"
+              value="{{selected | date:'dd/MM/yyyy'}}">
+            <!--
+        <app-calendar (selected)="selected = $event"></app-calendar>
+    -->
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            Contrainte règlementaire respectée
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group">
+
+              <input class="form-control autogrow" id="field-ta" value="injection">
+              <span class=" input-group-addon " style="background-color:white;">
+                <i class="entypo-check" style="background-color:green;color: white;"></i></span>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+
+              <input class="form-control autogrow" id="field-ta" value="Cogeneration">
+              <span class=" input-group-addon" style="background-color: white;">
+                <i class="entypo-cancel" style="background-color:red;color: white;"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            Montant Total du Capex
+          </div>
+
+          <div class="col-md-4">
+            <input class="form-control autogrow" id="field-ta">
+          </div>
+          <div class="col-md-4">
+            <input class="form-control autogrow" id="field-ta">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            Réparation du financement
+          </div>
+
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="exampleInputEmail1">BANQUE</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">FONDS PROPRES</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="exampleInputEmail1">BANQUE</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">FONDS PROPRES</label>
+              <input type="text" class="form-control">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            Part financée en compte courant par le porteur de projet
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="exampleInputEmail1"> En pourcentage %</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Montant en £</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="exampleInputEmail1"> En pourcentage %</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Montant en £</label>
+              <input type="text" class="form-control">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            Part restante à financer
+          </div>
+
+
+
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="exampleInputEmail1"> En pourcentage %</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Montant en £</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="exampleInputEmail1"> En pourcentage %</label>
+              <input type="text" class="form-control">
+
+            </div>
+
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Montant en £</label>
+              <input type="text" class="form-control">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="row" style="margin-top: 50px;">
+      <table class="table">
+        <thead style="background-color: #1E4F6F;">
+          <tr>
+            <th style="color: white;">#</th>
+
+            <th style="color: white; margin-right: 50px;">Avec Subvention</th>
+            <th style="color: white; margin-right: 20px;">Sans Subventions</th>
+          </tr>
+        </thead>
+
+      </table>
+    </div>
+
+  </div>

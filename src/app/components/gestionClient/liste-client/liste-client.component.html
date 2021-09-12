@@ -1,0 +1,131 @@
+<h3 style="color: #00AE81;">Liste Client</h3>
+
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="main-card mb-3 card">
+      <div class="card-header color">
+        <div class="btn-actions-pane-right">
+          <div role="group" class="btn-group-sm btn-group">
+
+            <button class="active btn btn-success" style="font-family: open Sans;"
+              [routerLink]="['/addClient']">Ajouter Nouveau</button>
+
+
+
+            <input class="form-control" type="text" #query (keyup)="filterClient(query.value)" style="margin-left: 200px;">
+          </div>
+        </div>
+      </div>
+      <div class="table table-bordered table-striped datatable">
+        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">matricule</th>
+              <th>Prénom</th>
+              <th>Nom</th>
+              <th class="text-center">Pays</th>
+              <th class="text-center">Etat</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Tel</th>
+              <th class="text-center">Fonction</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of clientFilter">
+              <td class="text-center text-muted">#{{c?.matricule}}</td>
+              <td>
+                <div class="widget-content p-0">
+                  <div class="widget-content-wrapper">
+
+                    <div class="widget-content-left flex2">
+                      <div class="widget-heading">{{c?.prenom}}</div>
+                      <div class="widget-subheading opacity-7"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="widget-content p-0">
+                  <div class="widget-content-wrapper">
+
+                    <div class="widget-content-left flex2">
+                      <div class="widget-heading">{{c?.nom}}</div>
+                      <div class="widget-subheading opacity-7"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center">{{c?.pays}}</td>
+              <td class="text-center">
+                <div class="badge badge-warning">{{c?.etat.nom}}</div>
+              </td>
+              <td>
+                <div class="widget-content p-0">
+                  <div class="widget-content-wrapper">
+
+                    <div class="widget-content-left flex2">
+                      <div class="widget-heading">{{c?.email}}</div>
+                      <div class="widget-subheading opacity-7"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="widget-content p-0">
+                  <div class="widget-content-wrapper">
+
+                    <div class="widget-content-left flex2">
+                      <div class="widget-heading">{{c?.tel}}</div>
+                      <div class="widget-subheading opacity-7"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+
+              <td>
+                <div class="widget-content p-0">
+                  <div class="widget-content-wrapper">
+
+                    <div class="widget-content-left flex2">
+                      <div class="widget-heading">{{c?.fonction}}</div>
+                      <div class="widget-subheading opacity-7"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a href="#" class="btn btn-default btn-sm btn-icon icon-left">
+                  <i class="entypo-pencil"></i>
+                  Edit
+                </a>
+
+                <a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
+                  <i class="entypo-cancel"></i>
+                  Delete
+                </a>
+
+                <a href="#" class="btn btn-info btn-sm btn-icon icon-left">
+                  <i class="entypo-info"></i>
+                  Profile
+                </a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="d-block text-center card-footer">
+        <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
+          <i class="pe-7s-trash btn-icon-wrapper"> </i>
+        </button>
+        <button class="btn-wide btn btn-success">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
