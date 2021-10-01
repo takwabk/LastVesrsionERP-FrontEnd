@@ -12,13 +12,13 @@ export class Intercept {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // let token = this.userSRV.getToken();
-    // if (token) {
-    //   const _reqCloned = req.clone({
-    //     headers: req.headers.set("x-auth-token", token),
-    //   });
-    //   return next.handle(_reqCloned);
-    // }
+    let token = this.userSRV.getToken();
+    if (token) {
+      const _reqCloned = req.clone({
+        headers: req.headers.set("x-auth-token", token),
+      });
+      return next.handle(_reqCloned);
+    }
     return next.handle(req);
   }
 }

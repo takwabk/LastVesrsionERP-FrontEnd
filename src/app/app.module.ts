@@ -48,6 +48,8 @@ import { AffichageComponent } from './capex/affichage/affichage.component';
 import { NavFicheComponent } from './nav-fiche/nav-fiche.component';
 import { ScenarioComponent } from './scenario/scenario.component';
 import { FicheProjetComponent } from './fiche-projet/fiche-projet.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +89,8 @@ import { FicheProjetComponent } from './fiche-projet/fiche-projet.component';
     NavFicheComponent,
     ScenarioComponent,
     FicheProjetComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,7 +104,7 @@ import { FicheProjetComponent } from './fiche-projet/fiche-projet.component';
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHundler },
-    //   { provide: HTTP_INTERCEPTORS, useClass: Intercept, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: Intercept, multi: true },
   ],
   bootstrap: [AppComponent],
 })

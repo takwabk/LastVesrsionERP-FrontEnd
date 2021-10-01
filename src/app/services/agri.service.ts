@@ -66,6 +66,7 @@ export class AgriService {
   delete(id: any) {
     return this.http.delete(this.config.baseURL + "/clients/" + id);
   }
+
   //construction
   getDataConstruction(){
     return this.http.get(this.config.baseURL + "/getDonnees");
@@ -73,21 +74,25 @@ export class AgriService {
   getData(){
     return this.http.get(this.config.baseURL + "/getconstructions");
   }
+  getDataExploitation(){
+    return this.http.get(this.config.baseURL + "/getexploitations");
+  }
   SubmitDataConception(value){
     return this.http.post(this.config.baseURL + "/donnees", value);
   }
+
   updateDataconceptionByID(id,val){
     console.log("sstraitance",id,val);
-    return this.http.post(this.config.baseURL + "/updateDate/" + "6139238a07299040c8e22876",val);
-
-
+    return this.http.post(this.config.baseURL + "/updateDate/" + id,val);
     }
+
     updateDataconstructionByID(id,val){
-      console.log("sstraitance",id,val);
       return this.http.post(this.config.baseURL + "/updateConstruction/" + id,val);
-
-
       }
+
+      updateDataexploitationByID(id,val){
+       return this.http.post(this.config.baseURL + "/updateexploitation/" + id,val);
+        }
 
 
 }

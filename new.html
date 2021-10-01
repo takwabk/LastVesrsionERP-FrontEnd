@@ -1,1858 +1,291 @@
 <div class="row">
-  <div class="col-md-12" style="margin-bottom: 30px;">
+  <div class="col-md-6">
 
-    <h1> <span class="vertical-line"></span> Données Construction</h1>
 
+
+    <div class="panel " >
+
+
+
+
+
+
+
+
+          <form role="form" class="form-horizontal ">
+
+            <div class="form-group">
+              <label for="field-1" class="col-sm-6  a">Volume produit de méthane(Nm³
+                CH4/an)</label>
+
+              <div class="col-sm-5">
+                <input type="text" [(ngModel)]="volume_Nm3_CH4_an" name="volume_Nm3_CH4_an"
+                  class="form-control" id="field-1" value={{volume_Nm3_CH4_an}}>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-2" class="col-sm-6 a ">Total heure d'une année</label>
+
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="field-2" [(ngModel)]="tt_heure_annee"
+                  name="tt_heure_annee" value="8760">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-3" class="col-sm-6 a ">Débit horaire produit(Nm³ CH4/h)</label>
+
+              <div class="col-sm-5">
+                <input type="text" [(ngModel)]="debit_horaire_Nm3_CH4_an " name="debit_horaire_Nm3_CH4_an "
+                  class="form-control" id="field-3" placeholder="Placeholder ">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-1" class="col-sm-6 a ">Débit horaire injecté(Nm³ CH4/h)</label>
+
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="field-file" placeholder="Placeholder"
+                  [(ngModel)]="debit_horaire_injecte_Nm3_CH4_an " name="debit_horaire_injecte_Nm3_CH4_an ">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Pouvoir calorifique supérieur
+                CH4(PCS)</label>
+
+              <div class="col-sm-5">
+                <input class="form-control" id="field-ta" placeholder="numberarea"
+                  [(ngModel)]="pvoir_calorfiq_sup_CH4 " name="pvoir_calorfiq_sup_CH4 " value="10.80">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Sous-Total KWh/h</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="s_tt_KWH_h "
+                  name="s_tt_KWH_h ">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Heure de fonctionnement</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder=""
+                  [(ngModel)]="heure_fonction " name="heure_fonction ">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Energie produite KWh/an</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_KWH_an "
+                  name="enrg_KWH_an ">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Energie produite MWh/an</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_MWH_an "
+                  name="enrg_MWH_an ">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Energie produite GWh/an</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_GWH_an "
+                  name="enrg_GWH_an ">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">% d'Effluent d'elevage</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder=""
+                  [(ngModel)]="Effluent_Delevage" name="Effluent_Delevage" value="{{Effluent_Delevage}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a " disabled>Tarif au début du contrat
+                [c€/kwh PCS]</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder=""
+                  [(ngModel)]="Tarif_debut_contrat1 " name="Tarif_debut_contrat ">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Tarif au début du contrat [€/kwh
+                PCS]</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder=""
+                  [(ngModel)]="Tarif_debut_contrat2 " name="Tarif_debut_contrat2 ">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Recette /an de la vente de biométhane[€]
+              </label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow " style="background-color: #87CEEB ;" id="field-ta"
+                  placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
+              </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-5">
+                <button type="submit" class="btn btn-default">Ajouter</button>
+              </div>
+            </div>
+          </form>
+
+
+
+
+
+    </div>
   </div>
-  <div class="col-md-12">
-    <div class="col-md-2"> <button class=" b hoverFocusBtn btn btn-lg" data-toggle="tab" type="button" role="tablist"
-        href="#tab1">
 
-        Gisement
-      </button></div>
-    <div class="col-md-2"> <button class=" b hoverFocusBtn btn btn-lg" data-toggle="tab" type="button" role="tablist"
-        href="#tab2">scenario</button></div>
-    <div class="col-md-2"> <button class=" b hoverFocusBtn btn btn-lg" data-toggle="tab" type="button" role="tablist"
-        href="#tab7">Digestat</button>
+
+
+  <div class="col-md-6">
+    <div class="row">
+
+      <div class="col_md-6">
+
+        <div class="panel">
+          <div class="panel " style="background-color: #00AE81; border-radius: 20px 20px 0px 0px;"  data-collapsed="0">
+
+            <!-- panel head -->
+            <div class="panel-heading">
+              <div class="panel-title" style="color: white;">calcul des recettes de la vente de digestat </div>
+
+            </div>
+
+        </div>
+
+          <form role="form" class="form-horizontal ">
+
+
+
+
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Vente du digestat</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="vente_digestat"
+                  name="vente_digestat">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Prix du digestat Liquide[€/m³]</label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder=""
+                  [(ngModel)]="Prix_digestat_Liquide" name="Prix_digestat_Liquide">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a " disabled>Prix du digestat Solide[€/t]
+              </label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder=""
+                  [(ngModel)]="Prix_digestat_Solide" name="Prix_digestat_Solide">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Quantité du digestat Liquide (m3)
+              </label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder=""
+                  [(ngModel)]="Quantite_digestat_Liquide" name="Quantite_digestat_Liquide">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Quantité du digestat Solise (t)
+              </label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow" id="field-ta" placeholder=""
+                  [(ngModel)]="Quantite_digestat_Solise" name="Quantite_digestat_Solise">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-ta" class="col-sm-6 a ">Recette/an de la vente de digestat[€]
+              </label>
+
+              <div class="col-sm-5">
+                <input class="form-control autogrow " style="background-color: #87CEEB ;" id="field-ta"
+                  placeholder="" [(ngModel)]="Recette_vente_digestat" name="Recette_vente_digestat">
+              </div>
+            </div>
+
+
+
+
+
+          </form>
+
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col_md-6">
+
+        <div class="panel">
+          <div class="panel " style="background-color: #00AE81; border-radius: 20px 20px 0px 0px;"  data-collapsed="0">
+
+            <!-- panel head -->
+            <div class="panel-heading">
+              <div class="panel-title" style="color: white;">Autres Produits
+                 </div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+          <label for="field-ta" class="col-sm-6 a ">Revedance de traitement des déchets[€]</label>
+
+          <div class="col-sm-5">
+            <input class="form-control autogrow" id="field-ta" placeholder="" disabled>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col_md-6">
+        <div class="form-group">
+          <label for="field-ta" class="col-sm-6 a ">TOTAL DES RECETTES</label>
+
+          <div class="col-sm-5">
+            <input class="form-control autogrow" id="field-ta" placeholder="" disabled>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="col-md-2"> <button class="b hoverFocusBtn btn btn-lg"  data-toggle="tab"
-        type="button" role="tablist" href="#tab3">Produit</button></div>
-    <div class="col-md-2"> <button class=" b hoverFocusBtn btn btn-lg"  data-toggle="tab"
-        type="button" role="tablist" href="#tab4">CAPEX</button></div>
-
-    <div class="col-md-1"> <button class="b hoverFocusBtn btn btn-lg"  data-toggle="tab"
-        type="button" role="tablist" href="#tab5">
-        OPEX</button></div>
-
-    <div class="col-md-1"> <button class="b hoverFocusBtn  btn btn-lg "  data-toggle="tab"
-        type="button" role="tablist" href="#tab6">BP</button></div>
   </div>
-
 
 
 </div>
-
-
-
-<div class="row" style="margin-top: 30px;">
-  <div class="col-md-12 ml-auto col-xl-12">
-
-    <div class="card-body">
-      <!-- Tab panes -->
-      <div class="tab-content ">
-        <div class="tab-pane active" id="tab1">
-
-          <h3 class="card-header">
-
-            Données à renseigner
-          </h3>
-          <div class="card-body">
-
-            <form class="needs-validation" #f="ngForm" novalidate (ngSubmit)="saveContent(f.value)">
-
-              <div class="row">
-                <div class="col-md-4  ">
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label">
-                        IC1</label>
-
-                      <div class="col-sm-7">
-                        <select #myselectType (change)="listenType($event.target.value)" [(ngModel)]="infos.IC1"
-                          name="IC1" type="number" class="form-control" id="validationCustom01" placeholder="First name"
-                          required>
-                          <option *ngFor="let item of infotrie" [value]="item">{{item}}
-                          </option>
-
-                        </select>
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="col-md-12">
-
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label">
-                        IC2</label>
-
-                      <div class="col-sm-7">
-                        <select #myselectIc1 (change)="listenIc1($event.target.value)" [(ngModel)]="infos.IC2"
-                          name="IC2" type="number" class="form-control" id="validationCustom01" placeholder="First name"
-                          required>
-
-                          <option *ngFor="let item of infotrie2" [value]="item">{{item}}
-                          </option>
-
-                        </select>
-                      </div>
-                    </div>
-
-
-                  </div>
-                  <div class="col-md-12">
-
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label">
-                        IC3</label>
-
-                      <div class="col-sm-7">
-                        <select #myselectIc2 (change)="listenIc2($event.target.value)" [(ngModel)]="infos.IC3"
-                          name="IC3" type="number" class="form-control" id="validationCustom01" placeholder="First name"
-                          required>
-
-                          <option *ngFor="let item of infotrie3" [value]="item">{{item}}
-                          </option>
-
-                        </select>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-                <div class="col-md-4  ">
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label"> Description
-                        biblio</label>
-
-                      <div class="col-sm-7">
-                        <select #myselectDesc (change)="listenDesc($event.target.value)" [(ngModel)]="infos.Description"
-                          name="Description" type="number" class="form-control" id="validationCustom01" required>
-
-                          <option *ngFor="let item of infotrie4" value="{{item}}">
-
-                            {{item}}
-
-
-                          </option>
-
-                        </select>
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label">
-                        Description
-                        Client</label>
-
-                      <div class="col-sm-7">
-                        <input (keydown.enter)="$event.preventDefault()" type="number" class="form-control"
-                          id="validationCustom01" required>
-
-
-
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label">
-                        quantité</label>
-
-                      <div class="col-sm-7">
-                        <input [(ngModel)]="infos.quantite" name="quantite" type="text" class="form-control"
-                          id="validationCustom03" placeholder="0" required>
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label">
-                        unite
-                        qté</label>
-
-                      <div class="col-sm-7">
-                        <input [(ngModel)]="infos.unite" name="unite" #myselectUnite type="text" class="form-control"
-                          id="validationCustom03" placeholder="0" required value="{{infotrie5.unite}}">
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-                <div class="col-md-4  ">
-                  <div class="col-md-12">
-
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label"> Base Prix</label>
-
-                      <div class="col-sm-3">
-                        <select (keydown.enter)="$event.preventDefault()" #x (change)="formule(x.value)"
-                          [(ngModel)]="base_prix" name="base_prix">
-                          <option *ngFor="let o of options">
-                            {{o.data}}
-                          </option>
-                        </select>
-                      </div>
-
-                      <div class="col-sm-4">
-                        <input (keydown.enter)="$event.preventDefault()" #x (change)="formule(x.value)"
-                          [(ngModel)]="prix" name="prix" value="prix">
-                      </div>
-                    </div>
-
-                  </div>
-
-
-                  <div class="col-md-12">
-
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label"> Prix [€/t MB]</label>
-
-                      <div class="col-sm-7">
-                        <input (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MB" name="t_MB"
-                          value="{{t_MB}}">
-                      </div>
-                    </div>
-
-
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label"> Prix [€/t MS]</label>
-
-                      <div class="col-sm-7">
-                        <input (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MS" name="t_MS"
-                          value="{{t_MS}}">
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-5  col-form-label"> Transport [€/t
-                        MB]</label>
-
-                      <div class="col-sm-7">
-                        <input name="IC3" type="text" class="form-control" id="validationCustom01">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-
-
-
-
-
-
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-              <div class="row">
-                <h3>Données automatiques modifiables</h3>
-                <div class="col-md-4">
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-4 col-form-label">Effluent d'élevage</label>
-                      <div class="col-sm-4">
-                        <input [(ngModel)]="infos.Effluent_Delevage" name="Effluent_Delevage" type="text"
-                          class="form-control" id="validationCustom03" required
-                          value="{{infotrie5?.Effluent_Delevage}}">
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-4 col-form-label">Taux_de_Presence</label>
-                      <div class="col-sm-4">
-                        <input [(ngModel)]="infos.Taux_de_Presence_Rendement_par_ha"
-                          name="Taux_de_Presence_Rendement_par_ha" type="text" class="form-control"
-                          id="validationCustom03" required value="{{infotrie5?.Taux_de_Presence_Rendement_par_ha}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-4 col-form-label">N/ha</label>
-                      <div class="col-sm-4">
-                        <input type="text" class="form-control" id="validationCustom03" required
-                          value="{{infotrie5?.Effluent_Delevage}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-
-                      <label for="validationCustom01 color1" class="col-sm-4 col-form-label">uMB/an par unité</label>
-                      <div class="col-sm-4">
-                        <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
-                          id="validationCustom03" required value="{{infotrie5?.uMB_an}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-
-                      <label for="validationCustom01 color1" class="col-sm-4 col-form-label">Unité
-                        de mesure</label>
-                      <div class="col-sm-4">
-                        <input [(ngModel)]="infos.Unitee" name="Unitee" type="text" class="form-control"
-                          id="validationCustom03" required value="{{infotrie5?.Unitee}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group row">
-                      <label for="validationCustom01 color1" class="col-sm-4 col-form-label">Type</label>
-                      <div class="col-sm-4">
-                        <input [(ngModel)]="infos.Type" name="Type" type="text" class="form-control"
-                          id="validationCustom03" required value="{{infotrie5?.Type}}">
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div class="col-md-4">
-                  <div class="col-md-12">
-                    <div class="col-md-12">
-                      <div class="form-group row">
-                        <label for="validationCustom01 " class="col-sm-4 col-form-label">% MS</label>
-                        <div class="col-sm-4">
-                          <input type="text" [(ngModel)]="infos.MS" class="form-control" id="validationCustom03"
-                            name="MS" value="{{infotrie5?.MS}}">
-                        </div>
-
-
-
-
-
-
-
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group row">
-                        <label for="validationCustom01 color1" class="col-sm-4 col-form-label">% MS / MO</label>
-                        <div class="col-sm-4">
-                          <input type="text" [(ngModel)]="infos.MO_MS" class="form-control" id="validationCustom03"
-                            value="{{infotrie5?.MO_MS}}" name="MO_MS">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group row">
-                        <label for="validationCustom01 color1" class="col-sm-4 col-form-label">Nm3 CH4/t MO</label>
-                        <div class="col-sm-4">
-                          <input type="text" [(ngModel)]="infos.Nm3_CH4_t_MO" name="Nm3_CH4_t_MO" class="form-control"
-                            id="validationCustom03" required value="{{infotrie5?.Nm3_CH4_t_MO}}" class="form-control"
-                            id="validationCustom03">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 text-center">
-
-
-                </div>
-
-              </div>
-
-
-
-
-
-              <!--
-
-                        <div class="col-md-2">
-
-                      <label for="validationCustom01 color1">%MS</label>
-                      <input [(ngModel)]="infos.MS" name="MS" type="text" class="form-control" id="validationCustom03"
-                        required value="{{infotrie5?.MS}}">
-                    </div>
-                    <div class="col-md-2">
-                      <label for="validationCustom01 color1">%MO/MS</label>
-                      <input [(ngModel)]="infos.MO_MS" name="MO_MS" type="text" class="form-control"
-                        id="validationCustom03" required value="{{infotrie5?.MO_MS}}">
-                    </div>
-                    <div class="col-md-2">
-
-                      <label for="validationCustom01 color1">Nm3 CH4/t MO</label>
-                      <input [(ngModel)]="infos.Nm3_CH4_t_MO" name="Nm3_CH4_t_MO" type="text" class="form-control"
-                        id="validationCustom03" required value="{{infotrie5?.Nm3_CH4_t_MO}}">
-                    </div>
-                    <div class="col-md-2">
-                      <label for="validationCustom01 color1">Commentaire</label>
-                      <input [(ngModel)]="infos.Commentaire" name="Commentaire" type="text" class="form-control"
-                        id="validationCustom03" required value="{{infotrie?.Commentaire}}">
-
-                    </div>
-
-
-
-                    <div class="col-md-4  ">
-
-
-                    </div>
-                    -->
-              <div class="row">
-                <div class="col-md-2"> <button class=" b btn btn-lg " style="background-color: #6b6b6b;"
-                    type="button">Reset</button></div>
-                <div class="col-md-2"> <button class=" b btn btn-lg ml-2 " type="submit">Ajouter</button></div>
-                <div class="col-md-2"></div>
-                <div class="col-md-2"></div>
-                <div class="col-md-2"></div>
-                <div class="col-md-2"></div>
-              </div>
-
-
-
-
-            </form>
-            <button class="btn btn-success" (click)="popAlert()" style="float:rights">Créer Nouveau </button>
-
-          </div>
-          <div class="tab-pane" style="margin-top: 50px;">
-            <div class="row">
-              <div class="col-lg-12">
-                <table class="table table-responsive table-striped  table-sm" style="display: block;
-overflow-x: auto;
-white-space: nowrap;">
-
-
-                  <thead>
-                    <tr>
-
-                      <th scope="col">#1</th>
-                      <th scope="col">#2</th>
-                      <th scope="col">#3</th>
-                      <th scope="col">Description Biblio</th>
-
-                      <th scope="col">EF</th>
-                      <th scope="col">Quantité</th>
-                      <th scope="col">Unité</th>
-                      <th scope="col">%</th>
-
-                      <th>uMB/an</th>
-                      <th>Unité</th>
-                      <th>Type</th>
-                      <th>%MS</th>
-                      <th>%MO/MS</th>
-                      <th>Nm3/CH4(t) MO</th>
-
-                      <th>Commentaire</th>
-                      <th>t MB/an</th>
-                      <th>t MS/an</th>
-                      <th>NM3 CH4/an</th>
-                      <th>CH4(%MS)</th>
-                      <th>u N/t</th>
-                      <th>u P2O5/</th>
-                      <th>u K2O/t</th>
-
-                      <th>%Ration</th>
-                      <th>N</th>
-                      <th>P</th>
-                      <th>K</th>
-                      <th>base de Prix</th>
-                      <th>prix(t)</th>
-                      <th>€/t MB</th>
-                      <th>€/t MS</th>
-                      <th>Prix des intrants</th>
-                      <th>Prix des intrants</th>
-
-
-
-                      <!-- <th></th>
-                        <th>Sous tt d'expoloitation lavage II </th>
-                        <th>sous tt autre</th>
-                        <th>Grand tt d'exploitation i+ii</th> -->
-                    </tr>
-                    <tr>
-
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                      <th style="background-color: #73fad6;"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                    <tr *ngFor="let newFiche of newFiche;let i=index">
-
-
-
-
-                      <td>
-                        <select>
-                          <option>{{newFiche?.IC1}}</option>
-                        </select>
-
-                      </td>
-                      <td>
-                        <select>
-                          <option>{{newFiche?.IC2}}</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select>
-                          <option>{{newFiche?.IC3}}</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select>
-                          <option>{{newFiche?.Description}}</option>
-                        </select>
-                      </td>
-
-
-
-                      <td><input value="{{newFiche?.Effluent_Delevage}}"></td>
-                      <td><input value="{{newFiche?.quantite}}"></td>
-                      <td><input value="{{newFiche?.unite}}"></td>
-                      <td><input value="{{newFiche?.Taux_de_Presence_Rendement_par_ha}}"></td>
-
-                      <td><input value="{{newFiche?.uMB_an}}"></td>
-                      <td><input value="{{newFiche?.Unitee}}"></td>
-                      <td><input value="{{newFiche?.Type}}"></td>
-                      <td><input value="{{newFiche?.MS}}"></td>
-                      <td><input value="{{newFiche?.MO_MS}}"></td>
-                      <td><input value="{{newFiche?.Nm3_CH4_t_MO}}"></td>
-                      <td><input value="{{newFiche?.Commentaire}}"></td>
-                      <td><input value="{{newFiche?.t_MB_an}}"></td>
-                      <td><input value="{{newFiche?.t_MS_an}}"></td>
-                      <td><input value="{{newFiche?.Nm3_CH4_an}}"></td>
-                      <td><input value="{{newFiche?.CH4percentMS}}"></td>
-                      <td><input value="{{newFiche?.u_N_t}}"></td>
-                      <td><input value="{{newFiche?.u_P2O5_t}}"></td>
-                      <td><input value="{{newFiche?.u_K2O_t}}"></td>
-                      <td><input value="{{newFiche?.ration}}"></td>
-                      <td><input value="{{newFiche?.N}}"></td>
-                      <td><input value="{{newFiche?.P}}"></td>
-                      <td><input value="{{newFiche?.K}}"></td>
-                      <td><select #x (change)="formule(x.value)" [(ngModel)]="base_prix" name="base_prix">
-                          <option *ngFor="let o of options">
-                            {{o.data}}
-                          </option>
-                        </select>
-                      </td>
-                      <td><input (keydown.enter)="$event.preventDefault()" #x (change)="formule(x.value)"
-                          [(ngModel)]="prix" name="prix" value="prix"></td>
-
-                      <td><input (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MB" name="t_MB"
-                          value="{{t_MB}}"></td>
-                      <td><input (keydown.enter)="$event.preventDefault()" [(ngModel)]="t_MS" name="t_MS"
-                          value="{{t_MS}}"></td>
-                      <td><input (keydown.enter)="$event.preventDefault()" [(ngModel)]="prix_intrants_MB"
-                          name="prix_intrants_MB" value="{{prix_intrants_MB}}">
-                      </td>
-                      <td><input (keydown.enter)="$event.preventDefault()" [(ngModel)]="prix_intrants_MS"
-                          name="prix_intrants_MS" value="{{prix_intrants_MS}}">
-                      </td>
-
-
-
-                    </tr>
-                    <tr>
-
-
-
-                      <th style="font-size: 20;">Sous tt elevage I</th>:
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-
-
-
-                      <td>{{sum_of_Animal_TMB}}</td>
-                      <td>{{sum_of_Animal_TMS}}</td>
-                      <td>{{sum_of_Animal_NM3}}</td>
-                    </tr>
-                    <tr>
-                      <td style="font-size: 20;">Sous tt culture lavage II</td>:
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>{{sum_of_vegTable_TMB}}</td>
-                      <td>{{sum_of_vegTable_TMS}}</td>
-                      <td>{{sum_of_vegTable_NM3}}</td>
-                    </tr>
-                    <tr>
-                      <td style="font-size: 20;">Autre </td>:
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td> {{sum_of_Autre_TMB}}</td>
-                      <td>{{sum_of_Autre_TMS}}</td>
-                      <td>{{sum_of_Autre_NM3}}</td>
-                    </tr>
-
-                    <tr>
-                      <td style="font-size: 20;">Grand tt d'exploitation I+II+III</td>:
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>{{res2}}</td>
-                      <td>{{res3}}</td>
-                      <td>{{res4}}</td>
-                    </tr>
-                  </tbody>
-
-                  <br>
-
-
-
-
-                </table>
-
-
-
-
-
-
-
-                <div style="margin-top: 20px; float: right">
-                  <button class="btn btn-success mr-5" (click)="addFiche(newFiche)">Save</button>
-                  <button class="btn btn-warning">Cancel</button>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-        <div class="tab-pane" id="tab2">
-          <div class="row">
-
-
-
-            <div class="panel-body">
-              <h5 style="color: #9E9E9E
-                ;">Financement du projet </h5>
-              <form role="form" class="form-horizontal ">
-                <div class="col-md-6">
-
-
-
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a ">L'installation bénéficie t-elle d’une aide de
-                      l’Agence de l'environnement et de la maîtrise
-
-                      de l'énergie (ADEME) ? </label>
-
-                    <div class="col-sm-5">
-                      <select class="form-control autogrow" id="field-ta" placeholder=""
-                        [(ngModel)]="installation_beneficie_aide_Agence_environnement_maitrise_energie"
-                        name="installation_beneficie_aide_Agence_environnement_maitrise_energie">
-                        <option *ngFor="let o of installations">
-                          {{o.data}}
-                        </option>
-                      </select>
-
-                    </div>
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a ">Date prev. De signature du contrat
-                      d'achat de biométhane</label>
-
-                    <div class="col-sm-5">
-                      <input class="form-control autogrow" id="field-ta" placeholder=""
-                        [(ngModel)]="Date_signature_contrat_achat_biomethane"
-                        name="Date_signature_contrat_achat_biomethane" value="{{selected | date:'dd/MM/yyyy'}}">
-
-                      <app-calendar (selected)="selected = $event"></app-calendar>
-
-
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a " disabled>Tarif au début du contrat [c€ / kWh PCS]
-                    </label>
-
-                    <div class="col-sm-5">
-                      <input class="form-control autogrow" id="field-ta" placeholder=""
-                        [(ngModel)]="tarif_debut_contrat" name="tarif_debut_contrat">
-                    </div>
-                  </div>
-                  <hr>
-
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a ">Financement des Fonds Propres
-                    </label>
-
-                    <div class="col-sm-5">
-                      <select class="form-control autogrow" id="field-ta" [(ngModel)]="Financement_Fonds_Propres"
-                        name="Financement_Fonds_Propres" (change)="scenariFp(Financement_Fonds_Propres)">
-                        <option *ngFor="let o of financements">
-                          {{o.data}}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a ">Pourcentage des FP à Financer [%]
-                    </label>
-
-                    <div class="col-sm-5">
-                      <input class="form-control autogrow" id="field-ta" [(ngModel)]="Pourcentage_FP_Financer"
-                        name="Pourcentage_FP_Financer">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a ">Montant financé des FP Financés [€]
-                    </label>
-
-                    <div class="col-sm-5">
-                      <input class="form-control autogrow " id="field-ta" placeholder=""
-                        [(ngModel)]="Montant_finance_FP_Finance" name="Montant_finance_FP_Finance">
-                    </div>
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a ">Taux d'interet annuel obligatoire[%]
-                    </label>
-
-                    <div class="col-sm-5">
-                      <input class="form-control autogrow " id="field-ta" placeholder=""
-                        [(ngModel)]="taux_interet_obligatoire" name="taux_interet_obligatoire">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a "> Montant du prêt bancaire [€]
-
-                    </label>
-
-                    <div class="col-sm-5">
-                      <input class="form-control autogrow " id="field-ta" placeholder=""
-                        [(ngModel)]="Montant_pret_bancaire" name="Montant_pret_bancaire">
-                    </div>
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a "> ERIBOR 3 mois
-
-                    </label>
-
-                    <div class="col-sm-5">
-                      <input class="form-control autogrow " id="field-ta" placeholder="" [(ngModel)]="ERIBOR"
-                        name="ERIBOR">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="field-ta" class="col-sm-6 a "> Taux d'intérêt annuel [%]
-
-                    </label>
-
-                    <div class="col-sm-5">
-                      <input class="form-control autogrow " id="field-ta" placeholder=""
-                        [(ngModel)]="Taux_interet_annuel" name="Taux_interet_annuel">
-                    </div>
-                  </div>
-
-
-                </div>
-
-                <div class="col-md-6">
-                  <div class="row">
-
-                    <div class="col_md-6">
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Vente du digestat</label>
-
-                        <div class="col-sm-5">
-                          <select class="form-control autogrow" id="field-ta" placeholder=""
-                            [(ngModel)]="vente_digestat" name="vente_digestat" #x (change)="scenariDigestat(x.value)">
-                            <option *ngFor="let o of ventes">
-                              {{o.data}}
-                            </option>
-                          </select>
-
-                        </div>
-                      </div>
-                      <br>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Prix du digestat Liquide[€/m³]</label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder=""
-                            [(ngModel)]="Prix_digestat_Liquide" name="Prix_digestat_Liquide">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Prix du digestat Solide[€/t]
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder=""
-                            [(ngModel)]="Prix_digestat_Solide" name="Prix_digestat_Solide">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Montant annuel de la redevance [€]
-
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder=""
-                            [(ngModel)]="Montant_annuel_redevance" name="Montant_annuel_redevance">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Fumiére
-                        </label>
-
-                        <div class="col-sm-5">
-                          <select class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="fumier"
-                            name="fumier">
-                            <option *ngFor="let o of fumiers">
-                              {{o.data}}
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Pluviometrie(Littre annuelles par m2)
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="pluviometre"
-                            name="pluviometre">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Evaporation[%]
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="evaporation"
-                            name="evaporation">
-                        </div>
-                      </div>
-                      <hr width="12px">
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Mois de stockage fumiére
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="Mois_fumiere"
-                            name="Mois_fumiere">
-                        </div>
-                      </div>
-
-
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Densité du Fumier [Kg/m3]
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="Densite_Fumier"
-                            name="Densite_Fumier">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Hauteur de stockage Fumier [m]
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="hauteur_Fumier"
-                            name="hauteur_Fumier">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Mois de stockage Silo
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="mois_Silo"
-                            name="mois_Silo">
-                        </div>
-                      </div>
-
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Densité en silo [Kg/m3]
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="mois_Silo"
-                            name="mois_Silo">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Hauteur de stockage Silo [m]
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="hauteur_Silo"
-                            name="hauteur_Silo">
-                        </div>
-                      </div>
-
-
-
-                    </div>
-
-                  </div>
-
-
-                </div>
-              </form>
-
-
-            </div>
-
-
-
-
-
-
-
-
-          </div>
-        </div>
-        <div class="tab-pane" id="tab3">
-
-
-
-          <div class="row">
-            <div class="col-md-12" style="margin-bottom: 50px;">
-              <div class="panel "   data-collapsed="0">
-
-                <!-- panel head -->
-                <div class="panel-heading">
-                  <div class="panel-title " style="size: 350px; color: black;"><B>calcul des recettes de la vente de biométhane</B></div>
-
-                </div>
-
-            </div>
-
-                <div class="row" style="margin-bottom: 40px;">
-
-                  <div class="col-md-5">
-
-                    <button class=" btnn su" data-toggle="collapse" data-target="#demo" >
-                      Volume produit de méthane(Nm³CH4/an)
-                    </button>
-
-
-
-                  </div>
-                  <div class="col-md-4" >
-                    <button class="btnn su"   > €</button>
-                  </div>
-                </div>
-                <div class="row" >
-                  <div class="col-md-9">
-                    <form role="form" class="form-horizontal ">
-                  <div id="demo" class="collapse">
-
-
-
-
-                      <div class="form-group">
-                        <label for="field-1" class="col-sm-6  a">Volume produit de méthane(Nm³CH4/an)</label>
-
-                        <div class="col-sm-5">
-                          <input type="text" [(ngModel)]="volume_Nm3_CH4_an" name="volume_Nm3_CH4_an"
-                             id="field-1" value={{volume_Nm3_CH4_an}}
-                           >
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="field-2" class="col-sm-6 a ">Total heure d'une année</label>
-
-                        <div class="col-sm-5">
-                          <input type="text"  id="field-2" [(ngModel)]="tt_heure_annee"
-                            name="tt_heure_annee" value="8760">
-                        </div>
-                      </div>
-
-
-                      <div class="form-group">
-                        <label for="field-3" class="col-sm-6 a ">Débit horaire produit(Nm³ CH4/h)</label>
-
-                        <div class="col-sm-5">
-                          <input type="text" [(ngModel)]="debit_horaire_Nm3_CH4_an " name="debit_horaire_Nm3_CH4_an "
-                             id="field-3" placeholder=" ">
-
-
-                        </div>
-                      </div>
-
-
-                      <div class="form-group">
-                        <label for="field-3" class="col-sm-6 a ">Débit moyen annuel 88% (Nm3 CH4/h) </label>
-
-
-
-
-
-                        <div class="col-sm-5">
-                          <input type="text"
-                             id="field-3" placeholder=" ">
-                              <i class="entypo-plus-squared active" data-toggle="collapse" data-target="#demo1"></i>
-
-
-                        </div>
-                      </div>
-
-                      <div id="demo1" class="collapse" >
-
-                        <div class="form-group">
-                          <label for="field-1" class="col-sm-6 a " style="margin-left: 10px;">Auto-consommation 8% (Nm3 CH4/h)
-                          </label>
-
-                          <div class="col-sm-5">
-                            <input type="text"  id="field-file"  placeholder=""
-                             >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="field-1" class="col-sm-6 a " style="margin-left: 10px;">Poste à injection et pertes 4% (Nm3 CH4/h)
-
-                          </label>
-
-                          <div class="col-sm-5">
-                            <input type="text"  id="field-file" placeholder=""
-                             >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="field-1" class="col-sm-6 a " style="margin-left: 10px;">Débit moyen annuel (Nm3 CH4/h)
-
-
-                          </label>
-
-                          <div class="col-sm-5">
-                            <input type="text"  id="field-file" placeholder=""
-                             >
-                          </div>
-                        </div>
-                        </div>
-                      <div class="form-group">
-                        <label for="field-1" class="col-sm-6 a ">Débit horaire injecté(Nm³ CH4/h)</label>
-
-                        <div class="col-sm-5">
-                          <input type="text"  id="field-file" placeholder="Placeholder"
-                            [(ngModel)]="debit_horaire_injecte_Nm3_CH4_an " name="debit_horaire_injecte_Nm3_CH4_an ">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Pouvoir calorifique supérieur
-                          CH4(PCS)</label>
-
-                        <div class="col-sm-5">
-                          <input  id="field-ta" placeholder="numberarea"
-                            [(ngModel)]="pvoir_calorfiq_sup_CH4 " name="pvoir_calorfiq_sup_CH4 " value="10.80">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Sous-Total KWh/h</label>
-
-                        <div class="col-sm-5">
-                          <input class=" autogrow" id="field-ta" placeholder="" [(ngModel)]="s_tt_KWH_h "
-                            name="s_tt_KWH_h ">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Heure de fonctionnement</label>
-
-                        <div class="col-sm-5">
-                          <input class=" autogrow" id="field-ta" placeholder=""
-                            [(ngModel)]="heure_fonction " name="heure_fonction ">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Energie produite KWh/an</label>
-
-                        <div class="col-sm-5">
-                          <input class=" autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_KWH_an "
-                            name="enrg_KWH_an ">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Energie produite MWh/an</label>
-
-                        <div class="col-sm-5">
-                          <input class=" autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_MWH_an "
-                            name="enrg_MWH_an ">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Energie produite GWh/an</label>
-
-                        <div class="col-sm-5">
-                          <input class=" autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_GWH_an "
-                            name="enrg_GWH_an ">
-                        </div>
-                      </div>
-                    </div>
-                      <br>
-
-                      <div class="row" style="margin-bottom: 40px;">
-
-                        <div class="col-md-6" style="margin-right: 50px;">
-
-                          <button class=" btnn su" data-toggle="collapse" data-target="#demo2" >
-                            % d'Efluent d'élevage
-                          </button>
-
-
-
-                        </div>
-                        <div class="col-md-3" style="margin-right: 40px;" >
-                          <button class="btnn su"   > €</button>
-                        </div>
-                      </div>
-
-                      <div class="row" >
-                        <div class="col-md-10">
-                          <form role="form" class="form-horizontal ">
-                        <div id="demo2" class="collapse" style="margin-left: 90px;">
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">% d'Effluent d'elevage</label>
-
-                        <div class="col-sm-5">
-                          <input class=" autogrow" id="field-ta" placeholder=""
-                            [(ngModel)]="Effluent_Delevage" name="Effluent_Delevage" value="{{Effluent_Delevage}}">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a " disabled>Tarif au début du contrat
-                          [c€/kwh PCS]</label>
-
-                        <div class="col-sm-5">
-                          <input class=" autogrow" id="field-ta" placeholder=""
-                            [(ngModel)]="Tarif_debut_contrat1 " name="Tarif_debut_contrat ">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Tarif au début du contrat [€/kwh
-                          PCS]</label>
-
-                        <div class="col-sm-5">
-                          <input class=" autogrow" id="field-ta" placeholder=""
-                            [(ngModel)]="Tarif_debut_contrat2 " name="Tarif_debut_contrat2 ">
-                        </div>
-                      </div>
-
-
-
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">CA Annuel Energie (€) Injection
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="autogrow " id="field-ta"
-                            placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Vente du digestat
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="autogrow " id="field-ta"
-                            placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Prix du digestat Liquide
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="autogrow " id="field-ta"
-                            placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Prix du digestat Solide
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="autogrow " id="field-ta"
-                            placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Quantité du digestat Liquide (m3)
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="autogrow " id="field-ta"
-                            placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">Quantité du digestat Solide (t)
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="autogrow " id="field-ta"
-                            placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">CA Annuel Digestat (€)
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="autogrow " id="field-ta"
-                            placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="field-ta" class="col-sm-6 a ">CA Annuel TOTAL  (€)
-                        </label>
-
-                        <div class="col-sm-5">
-                          <input class="autogrow " id="field-ta"
-                            placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-                        </div>
-                      </div>
-                      </div>
-                      </form>
-                      </div>
-                      </div>
-
-
-
-
-                      <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-5">
-                          <button type="submit" class="btn btn-default">Ajouter</button>
-                        </div>
-                      </div>
-                    </form>
-
-
-
-
-
-
-
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-        </div>
-        </div>
-
-        <div class="tab-pane" id="tab7">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="panel panel-primary" data-collapsed="0">
-
-                <div class="panel-heading ">
-                  <div class="row">
-
-
-
-                    <div class="panel-body">
-                      <h5 style="color: #9E9E9E
-                    ;">Récupération des eaux usées
-                      </h5>
-                      <form role="form" class="form-horizontal ">
-                        <div class="col-md-6">
-
-
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Tas d'ensilage Fumière (m²)
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="tas_ensilage_Fumier" name="tas_ensilage_Fumier">
-
-
-                            </div>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Tas d'ensilage Silo (m²)
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="tas_ensilage_Silo" name="tas_ensilage_Silo">
-
-
-
-
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a " disabled>Récupération eaux usées Fumière (m3)
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="recup_eaux_uses_Fumier" name="recup_eaux_uses_Fumier">
-                            </div>
-                          </div>
-                          <hr>
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Récupération eaux usées Silo (m3)
-
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" [(ngModel)]="recup_eaux_uses_Silo"
-                                name="recup_eaux_uses_Silo">
-
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Total eaux usées récupérées (m3)
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" [(ngModel)]="total_eaux_uses"
-                                name="total_eaux_uses">
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-primary" data-collapsed="0">
-
-                <div class="panel-heading ">
-                  <div class="row">
-
-
-
-                    <div class="panel-body">
-                      <h5 style="color: #9E9E9E
-                    ;">Voie de l’unité
-
-                      </h5>
-                      <form role="form" class="form-horizontal ">
-                        <div class="col-md-6">
-
-
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Effluents d’élevage
-
-                            </label>
-
-                            <div class="col-sm-2">
-                              <input class="form-control autogrow" id="field-ta" [(ngModel)]="sum_of_Animal_TMB"
-                                name="sum_of_Animal_TMB">
-                            </div>
-
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta"
-                                [(ngModel)]="sum_of_Animal_TMS" name="sum_of_Animal_TMS"></div>
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="f13"
-                                name="f13"></div>
-
-
-
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Culture
-
-                            </label>
-
-                            <div class="col-sm-2">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="sum_of_vegTable_TMB" name="sum_of_vegTable_TMB">
-                            </div>
-
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta"
-                                [(ngModel)]="sum_of_vegTable_TMS" name="sum_of_vegTable_TMS"></div>
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="F14"
-                                name="F14"></div>
-                          </div>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a " disabled>Total eaux usées récupérées (m3)
-
-                            </label>
-
-                            <div class="col-sm-2">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="total_eaux_uses" name="total_eaux_uses">
-                            </div>
-
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="f11"
-                                name="f11"></div>
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="f15"
-                                name="f15"></div>
-                          </div>
-                          <hr>
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Autres
-
-
-                            </label>
-
-                            <div class="col-sm-2">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="sum_of_Autre_TMB" name="sum_of_Autre_TMB">
-                            </div>
-
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta"
-                                [(ngModel)]="sum_of_Autre_TMS" name="sum_of_Autre_TMS"></div>
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="f16"
-                                name="f16"></div>
-                          </div>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Voie de l’unité
-
-                            </label>
-
-                            <div class="col-sm-2">
-                              <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="sum1"
-                                name="sum1">
-                            </div>
-
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="sum2"
-                                name="sum2"></div>
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="sum3"
-                                name="sum3"></div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-primary" data-collapsed="0">
-
-                <div class="panel-heading ">
-                  <div class="row">
-
-
-
-                    <div class="panel-body">
-                      <h5 style="color: #9E9E9E
-                    ;">Excédent / Déficit de Digestat
-
-
-                      </h5>
-                      <form role="form" class="form-horizontal ">
-                        <div class="col-md-6">
-
-
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Digestat Liquide(m3)
-
-                            </label>
-
-                            <div class="col-sm-2">
-                              <input class="form-control autogrow" id="field-ta" [(ngModel)]="sum_of_Animal_TMB"
-                                name="sum_of_Animal_TMB">
-                            </div>
-
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta"
-                                [(ngModel)]="sum_of_Animal_TMS" name="sum_of_Animal_TMS"></div>
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="f13"
-                                name="f13"></div>
-
-
-
-                          </div>
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Digestat Solide (t)
-
-
-                            </label>
-
-                            <div class="col-sm-2">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="sum_of_vegTable_TMB" name="sum_of_vegTable_TMB">
-                            </div>
-
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta"
-                                [(ngModel)]="sum_of_vegTable_TMS" name="sum_of_vegTable_TMS"></div>
-                            <div class="col-sm-2"> <input class="form-control autogrow" id="field-ta" [(ngModel)]="F14"
-                                name="F14"></div>
-                          </div>
-
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-
-              <div class="panel panel-primary" data-collapsed="0">
-
-                <div class="panel-heading ">
-                  <div class="row">
-
-
-
-                    <div class="panel-body">
-                      <h5 style="color: #9E9E9E
-                    ;">Digestat
-
-                      </h5>
-                      <form role="form" class="form-horizontal ">
-                        <div class="col-md-6">
-
-
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Digestat Brut
-
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="digistat_brut" name="digistat_brut">
-
-
-                            </div>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Digestat Liquide (m3)
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="digistat_liquide" name="digistat_liquide">
-
-
-
-
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a " disabled>Digestat Solide (t)
-
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="digistat_solide" name="digistat_solide">
-                            </div>
-                          </div>
-                          <hr>
-
-
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="panel panel-primary" data-collapsed="0">
-
-                <div class="panel-heading ">
-                  <div class="row">
-
-
-
-                    <div class="panel-body">
-                      <h5 style="color: #9E9E9E
-                    ;">Epandage
-
-                      </h5>
-                      <form role="form" class="form-horizontal ">
-                        <div class="col-md-6">
-
-
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Terrain culture dédié
-
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="Terrain_culture_dedie" name="Terrain_culture_dedie">
-
-
-                            </div>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Autre terrain
-
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="autre_terrain" name="autre_terrain">
-
-
-
-
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a " disabled>Quantité fraction liquide (m3/ha)
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" placeholder=""
-                                [(ngModel)]="Quantite_fraction_liquide" name="Quantite_fraction_liquide">
-                            </div>
-                          </div>
-                          <hr>
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Quantité fraction solide (t/ha)
-
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" [(ngModel)]="Quantite_fraction_solide"
-                                name="Quantite_fraction_solide">
-
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Digestat Liquide Requis
-
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" [(ngModel)]="digistat_liquide_requis"
-                                name="digistat_liquide_requis">
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="field-ta" class="col-sm-6 a ">Digestat Solide Requis
-
-                            </label>
-
-                            <div class="col-sm-5">
-                              <input class="form-control autogrow" id="field-ta" [(ngModel)]="digistat_solide_requis"
-                                name="digistat_solide_requis">
-                            </div>
-                          </div>
-
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-
-       <!--
-         Conception
-       -->
-
-       <!--Construction-->
-
-
- <!--Exploitation-->
-
-
-
-        <div class="tab-pane" id="tab4">
-          <p>hello2</p>
-        </div>
-        <div class="tab-pane" id="tab5">
-          <p>hello3</p>
-        </div>
-        <div class="tab-pane" id="tab6">
-          <p>hello4</p>
-        </div>
-
-
-
-
-
-        <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ajouter nouveau Description/MS</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <form #g="ngForm" (ngSubmit)="readFormModal(g.value,f.value)">
-                <div class="modal-body row">
-
-                  <label for="validationCustom01 " class="col-sm-6 col-form-label">Description
-                    biblio</label>
-                  <div class="col-sm-6">
-
-                    <input type="number" [(ngModel)]="Description" name="Description"
-                      id="validationCustom03">
-                    <p style=" color:  red;" *ngIf="msg"> {{msg}}</p>
-
-                  </div>
-                  <label for="validationCustom01 " class="col-sm-6 col-form-label">
-                    MS</label>
-                  <div class="col-sm-6">
-                    <input type="number" [(ngModel)]="MS" name="MS"  id="validationCustom03">
-                  </div>
-                  <label for="validationCustom01 " class="col-sm-6 col-form-label">Taux de
-                    présence</label>
-                  <div class="col-sm-6">
-                    <input type="number" [(ngModel)]="Taux_de_Presence_Rendement_par_ha"
-                      name="Taux_de_Presence_Rendement_par_ha"  id="validationCustom03">
-                  </div>
-                  <label for="validationCustom01 " class="col-sm-6 col-form-label">N/ha
-                  </label>
-                  <div class="col-sm-6">
-                    <input type="number" [(ngModel)]="Effluent_Delevage" name="Effluent_Delevage"
-                      id="validationCustom03">
-                  </div>
-                  <label for="validationCustom01 " class="col-sm-6 col-form-label">MB/an par unité
-                  </label>
-                  <div class="col-sm-6">
-                    <input type="number" [(ngModel)]="uMB_an" name="uMB_an"
-                      id="validationCustom03">
-                  </div>
-                  <label for="validationCustom01 " class="col-sm-6 col-form-label">%MO/Ms
-                  </label>
-                  <div class="col-sm-6">
-                    <input type="number" [(ngModel)]="MO_MS" name="MO_MS"  id="validationCustom03">
-                  </div>
-                  <label for="validationCustom01 " class="col-sm-6 col-form-label">
-                    Nm3 CH4/t MO
-                  </label>
-                  <div class="col-sm-6">
-                    <input type="number" [(ngModel)]="Nm3_CH4_t_MO" name="Nm3_CH4_t_MO"
-                      id="validationCustom03">
-                  </div>
-
-
-
-                </div>
-
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Save
-                    changes</button>
-                </div>
-              </form>
-
-            </div>
-          </div>
-        </div>
+</div>

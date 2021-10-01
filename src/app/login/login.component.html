@@ -1,0 +1,105 @@
+
+<body class="page-body login-page boxed-layout">
+  <div class="login-container" style="background-color: #2d7574">
+    <div class="login-content">
+      <div class="logo">
+        <a>
+          <img src="assets/images/logo-enragri.png" width="85" alt="" />
+        </a>
+      </div>
+      <p class="description" style="color: white; margin-top: 15px">
+        Bienvenu,connecter pour acceder à votre espace dans ENRagri
+      </p>
+    </div>
+
+    <!-- <div class="login-progressbar">
+      <div></div>
+    </div>-->
+
+    <div class="login-form">
+      <div class="login-content">
+        <div class="form-login-error">
+          <h3>Invalid login</h3>
+          <p>
+            Enter <strong>demo</strong>/<strong>demo</strong> as login and
+            password.
+          </p>
+
+          {{ msgError }}
+        </div>
+
+        <form
+          method="post"
+          role="form"
+          id="form_login"
+          [formGroup]="formLogin"
+          (ngSubmit)="login()"
+        >
+          <div class="form-group">
+            <div class="input-group" style="background-color: white">
+              <div class="input-group-addon">
+                <i class="entypo-user"></i>
+              </div>
+
+              <input
+                formControlName="email"
+                style="color: #000"
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Email"
+              />
+              <p *ngIf="fnEmail.touched && !fnEmail.valid" class="text-danger">
+                <span *ngIf="fnEmail.errors.email">is not an email</span>
+                <span *ngIf="fnEmail.errors.required">email is required</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group" style="background-color: white">
+              <div class="input-group-addon">
+                <i class="entypo-key"></i>
+              </div>
+
+              <input
+                formControlName="password"
+                style="color: #000"
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
+              />
+              <p *ngIf="fnPwd.touched && !fnPwd.valid" class="text-danger">
+                <span *ngIf="fnPwd.errors.required">password is required</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-primary btn-block btn-login"
+              style="background-color: #00ae81; text-align: center"
+            >
+              <i class="entypo-login"></i>
+              Login In
+            </button>
+          </div>
+        </form>
+
+        <div class="login-bottom-links">
+          <a href="extra-forgot-password.html" class="link"
+            >Mot de passe oublié</a
+          >
+          <br />
+          <a [routerLink]="['/register']" class="link">s'inscrire </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom scripts (common) -->
+</body>

@@ -93,7 +93,7 @@
 
        </div>
        <div class="col-md-4">
-         <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >182 000 £</button>
+         <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >{{conceptions[0]?.totaux_prixVente_Total}}</button>
        </div>
      </div>
      <div class="row">
@@ -118,13 +118,13 @@
                  1/ Intérêt du porteur de projet </th>
                <td></td>
                <td></td>
-               <td >5.000 £
+               <td >{{conceptions[0]?.Interet_porteur_projet?.Sous_Total_Prix_vente_Concep}} €
              </tr>
              <div class="col-md-9" id="demo1" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 20px;">
                  <p scope="row">1.1. Etude préléminaire de la biomasse
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.Interet_porteur_projet?.Etude_preleminaire_biomasse?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -133,7 +133,7 @@
                  <div style="margin-left: 60px;margin-top: 10px;">
                    <p scope="row">1.2. Rapport de préfaisabilité
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.Interet_porteur_projet?.Rapport_prefaisabilite?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -142,21 +142,21 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">1.3. Impact économique pour l'exploitant
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.Interet_porteur_projet?.Impact_economique_exploitant?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
                      <div style="margin-left: 60px;margin-top: 10px;">
                        <p scope="row">1.4. Bilan agronomique des sols
 
-                        <span style="float: right;">5.000 £</span>
+                        <span style="float: right;">{{conceptions[0]?.Interet_porteur_projet?.Bilan_agronomique_sols?.Prix_vente_Concep}} €</span>
                        </p>
 
                        </div>
                        <div style="margin-left: 60px;margin-top: 10px;">
                          <p scope="row">1.5. Après Avis favorable : Création SPV
 
-                          <span style="float: right;">5.000 £</span>
+                          <span style="float: right;">{{conceptions[0]?.Interet_porteur_projet?.Apres_Avis_favorable_Creation_SPV?.Prix_vente_Concep}} €</span>
                          </p>
 
                          </div>
@@ -170,14 +170,14 @@
                  2/ Etude préléminaire de la biomasse</th>
                <td></td>
                <td></td>
-               <td>5.000 £
+               <td>{{conceptions[0]?.Etude_biomasse_projet?.Sous_Total_Prix_vente_Concep}} €
              </tr>
 
              <span id="demo2" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 10px;">
                  <p scope="row">2.1. Cibler les besoins complémentaires nutritionnels
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.Etude_biomasse_projet?.Cibler_besoins_complementaires_nutritionnels?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -186,7 +186,7 @@
                  <div style="margin-left: 60px;margin-top: 10px;">
                    <p scope="row">2.2. Rapport d'étude approfondi du pouvoir méthanogène
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.Etude_biomasse_projet?.Rapport_etude_approfondi_pouvoir_meethanogeene?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -195,14 +195,14 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">2.3. Apport supplémentaire d'intrants réseau ENR Agri
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.Etude_biomasse_projet?.Apport_supplementaire_intrants_reseau_ENR_Agri?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
                      <div style="margin-left: 60px;margin-top: 10px;">
                        <p scope="row">2.4. Assistance Juridique : Apporteur substrat & SPV
 
-                        <span style="float: right;">5.000 £</span>
+                        <span style="float: right;">{{conceptions[0]?.Etude_biomasse_projet?.Assistance_juridique_Apporteur_substrat_SPV?.Prix_vente_Concep}} €</span>
                        </p>
 
                        </div>
@@ -215,14 +215,14 @@
                   3/ Étude foncière du projet</th>
                <td></td>
                <td> </td>
-               <td>5.000 £</td>
+               <td>{{conceptions[0]?.Etude_fonciere_projet?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
 
              <span id="demo3" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 10px;">
                  <p scope="row">3.1. Optimisation de l'emplacement du site
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.Etude_fonciere_projet?.Optimisation_emplacement_site?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -231,7 +231,7 @@
                  <div style="margin-left: 60px;margin-top: 10px;">
                    <p scope="row">3.2. Relevé topographique
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.Etude_fonciere_projet?.Releve_topographique?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -240,14 +240,14 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">3.3. Rapport du géomètre
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.Etude_fonciere_projet?.Rapport_geometre?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
                      <div style="margin-left: 60px;margin-top: 10px;">
                        <p scope="row">3.4. Plan de masse
 
-                        <span style="float: right;">5.000 £</span>
+                        <span style="float: right;">{{conceptions[0]?.Etude_fonciere_projet?.Plan_masse?.Prix_vente_Concep}} €</span>
                        </p>
 
                        </div>
@@ -255,14 +255,14 @@
                        <div style="margin-left: 60px;margin-top: 10px;">
                          <p scope="row">3.5. Analyse géotechnique primaire (G1 PGC)
 
-                          <span style="float: right;">5.000 £</span>
+                          <span style="float: right;">{{conceptions[0]?.Etude_fonciere_projet?.Analyse_geotechnique_primaire?.Prix_vente_Concep}} €</span>
                          </p>
 
                          </div>
                          <div style="margin-left: 60px;margin-top: 10px;">
                            <p scope="row">3.6. Analyse géotechnique approfondie (G2 AVP + G2 PRO)
 
-                            <span style="float: right;">5.000 £</span>
+                            <span style="float: right;">{{conceptions[0]?.Etude_fonciere_projet?.Analyse_geotechnique_approfondie?.Prix_vente_Concep}} €</span>
                            </p>
 
                            </div>
@@ -270,7 +270,7 @@
                            <div style="margin-left: 60px;margin-top: 10px;">
                              <p scope="row">3.7. Assistance juridique auprès du notaire : Propriétaire foncier & SPV
 
-                              <span style="float: right;">5.000 £</span>
+                              <span style="float: right;">{{conceptions[0]?.Etude_fonciere_projet?.Assistance_juridique_aupres_notaire_Proprietaire_foncier_SPV?.Prix_vente_Concep}} €</span>
                              </p>
 
                              </div>
@@ -284,13 +284,13 @@
                  4/ La sécurisation des droits gaziers</th>
                <td></td>
                <td></td>
-               <td>5.000 £
+               <td>{{conceptions[0]?.sercurisation_gaziers?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
              <span id="demo4" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 10px;">
                  <p scope="row">4.1. Étude détaillée auprès du réseau de transport et/ou de distribution de gaz
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.sercurisation_gaziers?.etude_detaille_reseau_transport__distribution_gaz?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -299,7 +299,7 @@
                  <div style="margin-left: 60px;margin-top: 10px;">
                    <p scope="row">4.2. Convention de raccordement auprès du gestionnaire de réseau
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.sercurisation_gaziers?.Convention_raccordement_gestionnaire_reseau?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -308,7 +308,7 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">4.3. Contrat de vente biométhane
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.sercurisation_gaziers?.Contrat_vente_biomethane?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
@@ -320,7 +320,7 @@
                  5/ La valorisation du digestat</th>
                <td></td>
                <td></td>
-               <td>5.000 £
+               <td>{{conceptions[0]?.valorisation_digestat?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
 
              <span id="demo5" class="collapse cc3">
@@ -328,7 +328,7 @@
                  <p scope="row">
                    5.1. Étude de la qualité du digestat
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.valorisation_digestat?.etude_qualite_digestat?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -338,7 +338,7 @@
                    <p scope="row">
                      5.2. Diagnostic de la zone épandable
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.valorisation_digestat?.Diagnostic_zone_epandable?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -347,7 +347,7 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">5.3. Chiffrage budget d’épandage
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.valorisation_digestat?.Chiffrage_budget_epandage?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
@@ -355,7 +355,7 @@
                      <div style="margin-left: 60px;margin-top: 10px;">
                        <p scope="row">5.4. Dossier et autorisation du plan d’épandage
 
-                        <span style="float: right;">5.000 £</span>
+                        <span style="float: right;">{{conceptions[0]?.valorisation_digestat?.Dossier_autorisation_plan_epandage?.Prix_vente_Concep}} €</span>
                        </p>
 
                        </div>
@@ -363,7 +363,7 @@
                        <div style="margin-left: 60px;margin-top: 10px;">
                          <p scope="row">5.5. Rendez-vous avec les exploitants qui recevront le digestat
 
-                          <span style="float: right;">5.000 £</span>
+                          <span style="float: right;">{{conceptions[0]?.valorisation_digestat?.Rendez_vous_exploitants_recevront_digestat?.Prix_vente_Concep}} €</span>
                          </p>
 
                          </div>
@@ -371,7 +371,7 @@
                          <div style="margin-left: 60px;margin-top: 10px;">
                            <p scope="row">5.6. Assistance juridique : Contrat d'épandage & SPV
 
-                            <span style="float: right;">5.000 £</span>
+                            <span style="float: right;">{{conceptions[0]?.valorisation_digestat?.Assistance_juridique_Contrat_epandage_SPV?.Prix_vente_Concep}} €</span>
                            </p>
 
                            </div>
@@ -383,14 +383,14 @@
                   6/ Réaspansation des supports Marketing</th>
                <td></td>
                <td> </td>
-               <td>5.000 £</td>
+               <td>{{conceptions[0]?.Realisation_Marketing?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
              <span id="demo6" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 10px;">
                  <p scope="row">
                    6.1. Plaquette de présentation
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.Realisation_Marketing?.Plaquette_presentation?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -400,7 +400,7 @@
                    <p scope="row">
                      6.2. Réalisation d'infographie en 3D
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.Realisation_Marketing?.Realisation_infographie_3D?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -409,7 +409,7 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">6.3. Film d'animation
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.Realisation_Marketing?.Film_animation?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
@@ -417,7 +417,7 @@
                      <div style="margin-left: 60px;margin-top: 10px;">
                        <p scope="row">6.4. Site internet
 
-                        <span style="float: right;">5.000 £</span>
+                        <span style="float: right;">{{conceptions[0]?.Realisation_Marketing?.Site_internet?.Prix_vente_Concep}} €</span>
                        </p>
 
                        </div>
@@ -429,14 +429,14 @@
                  7/ L’acceptabispanté locale du Projet</th>
                <td></td>
                <td> </td>
-               <td>5.000 £</td>
+               <td>{{conceptions[0]?.acceptabilite_projet?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
              <span id="demo7" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 10px;">
                  <p scope="row">
                    7.1. Diagnostic territorial
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.acceptabilite_projet?.Diagnostic_territorial?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -446,7 +446,7 @@
                    <p scope="row">
                      7.2. Réalisation des plans d’action
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.acceptabilite_projet?.Realisation_plans_action?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -455,7 +455,7 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">7.3. Formation des riverains aux bienfaits de la méthanisation
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.acceptabilite_projet?.Film_aniFormation_riverains_bienfaits_methanisationmation?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
@@ -463,7 +463,7 @@
                      <div style="margin-left: 60px;margin-top: 10px;">
                        <p scope="row">7.4. Défense et promotion du projet auprès des élus et de la population locale
 
-                        <span style="float: right;">5.000 £</span>
+                        <span style="float: right;">{{conceptions[0]?.acceptabilite_projet?.Defense_promotion_projet_elus_population_locale?.Prix_vente_Concep}} €</span>
                        </p>
 
                        </div>
@@ -471,7 +471,7 @@
                          <p scope="row">
                            7.5. Réponses aux questions lors des enquêtes publiques
 
-                          <span style="float: right;">5.000 £</span>
+                          <span style="float: right;">{{conceptions[0]?.acceptabilite_projet?.Reponses_questions_enquete_publiques?.Prix_vente_Concep}} €</span>
                          </p>
 
                          </div>
@@ -482,14 +482,14 @@
                  8/ La réaspansation de l’ingénierie du Projet</th>
                <td></td>
                <td> </td>
-               <td>5.000 £</td>
+               <td>{{conceptions[0]?.realisation_Projet?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
              <span id="demo8" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 10px;">
                  <p scope="row">
                    8.1. Dimensionnement du Projet
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.realisation_Projet?.Dimensionnement_Projet?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -499,7 +499,7 @@
                    <p scope="row">
                      8.2. Étude dispersion d'odeur éventuelle
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.realisation_Projet?.etude_dispersion_odeur_eventuelle?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -508,7 +508,7 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">8.3. Proposition de choix du process
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.realisation_Projet?.Proposition_choix_process?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
@@ -517,7 +517,7 @@
                        <p scope="row">
                          8.4. Dossier de consultation des Entreprises (DCE)
 
-                        <span style="float: right;">5.000 £</span>
+                        <span style="float: right;">{{conceptions[0]?.realisation_Projet?.Dossier_consultation_Entreprises?.Prix_vente_Concep}} €</span>
                        </p>
 
                        </div>
@@ -525,7 +525,7 @@
                          <p scope="row">
                            8.5. Contrat TRC / TRME / Exploitation négocié
 
-                          <span style="float: right;">5.000 £</span>
+                          <span style="float: right;">{{conceptions[0]?.realisation_Projet?.Contrat_TRC_TRME_Exploitation_negociee?.Prix_vente_Concep}} €</span>
                          </p>
 
                          </div>
@@ -533,7 +533,7 @@
                            <p scope="row">
                              8.6. Business Plan détaillé
 
-                            <span style="float: right;">5.000 £</span>
+                            <span style="float: right;">{{conceptions[0]?.realisation_Projet?.Business_Plan_detaille?.Prix_vente_Concep}} €</span>
                            </p>
 
                            </div>
@@ -541,7 +541,7 @@
                              <p scope="row">
                                8.7. Contrat prestataire : MOE, SPS, Contrôle technique
 
-                              <span style="float: right;">5.000 £</span>
+                              <span style="float: right;">{{conceptions[0]?.realisation_Projet?.Contrat_prestataire_Controle_technique?.Prix_vente_Concep}} €</span>
                              </p>
 
                              </div>
@@ -553,7 +553,7 @@
                   9/ L’obtention des autorisations d’urbanisme et d’exploitation du Projet</th>
                <td></td>
                <td> </td>
-               <td>5.000 £</td>
+               <td>{{conceptions[0]?.obtention_autorisations_urbanisme_exploitation_Projet?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
 
              <span id="demo9" class="collapse cc3">
@@ -561,7 +561,7 @@
                  <p scope="row">
                    9.1. Diagnostic environnemental
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.obtention_autorisations_urbanisme_exploitation_Projet?.Diagnostic_environnemental?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -571,7 +571,7 @@
                    <p scope="row">
                      9.2. Obtention de l'agrément sanitaire
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.obtention_autorisations_urbanisme_exploitation_Projet?.Obtention_agrement_sanitaire?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -580,7 +580,7 @@
                    <div style="margin-left: 60px;margin-top: 10px;">
                      <p scope="row">9.3. Étude de loi sur l’eau
 
-                      <span style="float: right;">5.000 £</span>
+                      <span style="float: right;">{{conceptions[0]?.obtention_autorisations_urbanisme_exploitation_Projet?.etude_loi_eau?.Prix_vente_Concep}} €</span>
                      </p>
 
                      </div>
@@ -589,7 +589,7 @@
                        <p scope="row">
                          9.4. Étude de foudre
 
-                        <span style="float: right;">5.000 £</span>
+                        <span style="float: right;">{{conceptions[0]?.obtention_autorisations_urbanisme_exploitation_Projet?.etude_foudre?.Prix_vente_Concep}} €</span>
                        </p>
 
                        </div>
@@ -597,7 +597,7 @@
                          <p scope="row">
                            9.5. Dossier ICPE
 
-                          <span style="float: right;">5.000 £</span>
+                          <span style="float: right;">{{conceptions[0]?.obtention_autorisations_urbanisme_exploitation_Projet?.Dossier_ICPE?.Prix_vente_Concep}} €</span>
                          </p>
 
                          </div>
@@ -605,7 +605,7 @@
                            <p scope="row">
                              9.6. Obtention de l'arrêté du PC / Passage huissier
 
-                            <span style="float: right;">5.000 £</span>
+                            <span style="float: right;">{{conceptions[0]?.obtention_autorisations_urbanisme_exploitation_Projet?.Obtention_arret_PC_Passage_huissier?.Prix_vente_Concep}} €</span>
                            </p>
 
                            </div>
@@ -613,7 +613,7 @@
                              <p scope="row">
                                9.7. Rendez-vous avec le service instructeur
 
-                              <span style="float: right;">5.000 £</span>
+                              <span style="float: right;">{{conceptions[0]?.obtention_autorisations_urbanisme_exploitation_Projet?.Rendez_vous_service_instructeur?.Prix_vente_Concep}} €</span>
                              </p>
 
                              </div>
@@ -625,7 +625,7 @@
                  10/ L’obtention des subventions du Projet</th>
                <td></td>
                <td> </td>
-               <td>5.000 £</td>
+               <td>{{conceptions[0]?.obtention_subvention_Projet?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
              <span id="demo10" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 10px;">
@@ -633,7 +633,7 @@
 
                    10.1. Réunion avec les organismes
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.obtention_subvention_Projet?.Reunion_organismes?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -643,7 +643,7 @@
                    <p scope="row">
                      10.2. Dépôt du dossier de subventions
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.obtention_subvention_Projet?.Depot_dossier_subventions?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -656,14 +656,14 @@
                11/ L’obtention du financement du Projet</th>
                <td></td>
                <td> </td>
-               <td>5.000 £</td>
+               <td>{{conceptions[0]?.obtention_financement_Projet?.Sous_Total_Prix_vente_Concep}} €</td>
              </tr>
              <span id="demo11" class="collapse cc3">
                <div style="margin-left: 60px;margin-top: 10px;">
                  <p scope="row">
                    11.1. Instruction du dossier bancaire
 
-                  <span style="float: right;">5.000 £</span>
+                  <span style="float: right;">{{conceptions[0]?.obtention_financement_Projet?.Instruction_dossier_bancaire?.Prix_vente_Concep}} €</span>
                  </p>
 
                  </div>
@@ -673,7 +673,7 @@
                    <p scope="row">
                      11.2. Suivi des instructions et négociations
 
-                    <span style="float: right;">5.000 £</span>
+                    <span style="float: right;">{{conceptions[0]?.obtention_financement_Projet?.Suivi_instructions_negociations?.Prix_vente_Concep}} €</span>
                    </p>
 
                    </div>
@@ -693,385 +693,762 @@
      </div>
    </div>
    <div style="margin-bottom: 50px;">
-     <div class="row">
-       <div class="col-md-5">
+    <div class="row">
+      <div class="col-md-5">
 
-         <button class="btn" style="background-color: white;border-left:8px solid #00AE81;"data-toggle="collapse" data-target="#capexCons" >
-           CAPEX-Construction
-         </button>
-
-
-
-       </div>
-       <div class="col-md-4">
-         <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >182 000 £</button>
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-md-9">
-       <div id="capexCons" class="collapse">
-
-
-         <table class="table">
-           <thead>
-             <tr>
-               <th scope="col"></th>
-               <th scope="col"></th>
-               <th scope="col"></th>
-               <th scope="col" ></th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <th scope="row">1/Intérêt du porteur de projet </th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">2/Etude préléminaire de la biomasse</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">3/Étude foncière du projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-
-
-             <tr>
-               <th scope="row">4/La sécurisation des droits gaziers</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">5/La valorisation du digestat</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">6/Réaspansation des supports Marketing</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-
-             <tr>
-               <th scope="row">7/ L’acceptabispanté locale du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">8/La réaspansation de l’ingénierie du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">9/ L’obtention des autorisations d’urbanisme et d’exploitation du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">10/ L’obtention des subventions du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">11/ L’obtention du financement du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-           </tbody>
-         </table>
+        <button class="btn" style="background-color: white;border-left:8px solid #00AE81;"data-toggle="collapse" data-target="#capexCons" >
+          CAPEX-Construction
+        </button>
 
 
 
+      </div>
+      <div class="col-md-4">
+        <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >{{Constructions[0]?.Tab_140?.totaux_prixVente_Total_140}} €</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+      <div id="capexCons" class="collapse">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col" ></th>
+            </tr>
+          </thead>
+          <tbody>
+
+           <tr
+           style="background-color: #fff;
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row" data-toggle="collapse" data-target="#demo22" >
+               <i class="entypo-right-open" style="color: #00AE81;"></i>
+               1/ Ouverture du Chantier</th>
+             <td></td>
+             <td></td>
+             <td >{{Constructions[0]?.Ouverture_chantier?.Sous_Total_Prix_vente}}€</td>
+           </tr>
+           <div class="col-md-9" id="demo22" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 20px;">
+               <p scope="row">1.1. Contrôle technique - SPS
+
+                <span style="float: right;">{{Constructions[0]?.Ouverture_chantier?.Controle_technique_SPS?.Prix_vente_Concep}}€</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">1.2. Frais de dossier
+
+                  <span style="float: right;">{{Constructions[0]?.Ouverture_chantier?.Frais_dossier?.Prix_vente_Concep}}€</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">1.3. Conseil et suivi
+
+                    <span style="float: right;">{{Constructions[0]?.Ouverture_chantier?.Conseil_suivi?.Prix_vente_Concep}}€</span>
+                   </p>
+
+                   </div>
+                   <div style="margin-left: 60px;margin-top: 10px;">
+                     <p scope="row">1.4. Aléas
+
+                      <span style="float: right;">{{Constructions[0]?.Ouverture_chantier?.Aleas?.Prix_vente_Concep}}€</span>
+                     </p>
+
+                     </div>
+                     <div style="margin-left: 60px;margin-top: 10px;">
+                       <p scope="row">1.5. TRCME
+
+                        <span style="float: right;">{{Constructions[0]?.Ouverture_chantier?.TRCME?.Prix_vente_Concep}}€</span>
+                       </p>
+
+                       </div>
+
+                       <div style="margin-left: 60px;margin-top: 10px;">
+                         <p scope="row">1.6. Achat Terrain
+
+                          <span style="float: right;">{{Constructions[0]?.Ouverture_chantier?.Achat_Terrain?.Prix_vente_Concep}}€</span>
+                         </p>
+
+                         </div>
+                         <div style="margin-left: 60px;margin-top: 10px;">
+                           <p scope="row">1.7. Frais de notaire
+
+                            <span style="float: right;">{{Constructions[0]?.Ouverture_chantier?.Frais_notaire?.Prix_vente_Concep}}€</span>
+                           </p>
+
+                           </div>
+
+                     </div>
+
+
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo23" >
+               <i class="entypo-right-open" style="color: #00AE81;"></i>
+               2/ Lot 1: Process méthanisation</th>
+             <td></td>
+             <td></td>
+             <td>{{Constructions[0]?.Lot_1_Process_methanisation?.Sous_Total_Prix_vente}}€</td>
+           </tr>
+
+           <span id="demo23" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">2.1. Cibler les besoins complémentaires nutritionnels
+
+                <span style="float: right;">{{Constructions[0]?.Lot_1_Process_methanisation?.Process_methanisation?.Sous_Total_Prix_vente}}€</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">2.2. Rapport d'étude approfondi du pouvoir méthanogène
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">2.3. Apport supplémentaire d'intrants réseau ENR Agri
+
+                    <span style="float: right;">5.000 £</span>
+                   </p>
+
+                   </div>
+                   <div style="margin-left: 60px;margin-top: 10px;">
+                     <p scope="row">2.4. Assistance Juridique : Apporteur substrat & SPV
+
+                      <span style="float: right;">5.000 £</span>
+                     </p>
+
+                     </div>
+
+
+           </span>
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo24">
+                <i class="entypo-right-open" style="color: #00AE81;"></i>
+                3/ Lot 2 : Valorisation</th>
+             <td></td>
+             <td> </td>
+             <td>5.000 £</td>
+           </tr>
+
+           <span id="demo24" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">3.1. Optimisation de l'emplacement du site
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">3.2. Relevé topographique
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">3.3. Rapport du géomètre
+
+                    <span style="float: right;">5.000 £</span>
+                   </p>
+
+                   </div>
+                   <div style="margin-left: 60px;margin-top: 10px;">
+                     <p scope="row">3.4. Plan de masse
+
+                      <span style="float: right;">5.000 £</span>
+                     </p>
+
+                     </div>
+
+                     <div style="margin-left: 60px;margin-top: 10px;">
+                       <p scope="row">3.5. Analyse géotechnique primaire (G1 PGC)
+
+                        <span style="float: right;">5.000 £</span>
+                       </p>
+
+                       </div>
+                       <div style="margin-left: 60px;margin-top: 10px;">
+                         <p scope="row">3.6. Analyse géotechnique approfondie (G2 AVP + G2 PRO)
+
+                          <span style="float: right;">5.000 £</span>
+                         </p>
+
+                         </div>
+
+                         <div style="margin-left: 60px;margin-top: 10px;">
+                           <p scope="row">3.7. Assistance juridique auprès du notaire : Propriétaire foncier & SPV
+
+                            <span style="float: right;">5.000 £</span>
+                           </p>
+
+                           </div>
+
+
+           </span>
+
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo25" >
+               <i class="entypo-right-open" style="color: #00AE81;"></i>
+               4/ Lot 3 : Terrassement Grande Masse - Talutage - VRD</th>
+             <td></td>
+             <td></td>
+             <td>5.000 £
+           </tr>
+           <span id="demo25" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">4.1. Étude détaillée auprès du réseau de transport et/ou de distribution de gaz
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">4.2. Convention de raccordement auprès du gestionnaire de réseau
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">4.3. Contrat de vente biométhane
+
+                    <span style="float: right;">5.000 £</span>
+                   </p>
+
+                   </div>
+
+           </span>
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row" data-toggle="collapse" data-target="#demo26">
+               <i class="entypo-right-open" style="color: #00AE81;"></i>
+               5/ Lot 4 : Génie Civil circulaire digestat liquide + couverture simple</th>
+             <td></td>
+             <td></td>
+             <td>5.000 £
+           </tr>
+
+           <span id="demo26" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">
+                 5.1. Étude de la qualité du digestat
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">
+                   5.2. Diagnostic de la zone épandable
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">5.3. Chiffrage budget d’épandage
+
+                    <span style="float: right;">5.000 £</span>
+                   </p>
+
+                   </div>
+
+                   <div style="margin-left: 60px;margin-top: 10px;">
+                     <p scope="row">5.4. Dossier et autorisation du plan d’épandage
+
+                      <span style="float: right;">5.000 £</span>
+                     </p>
+
+                     </div>
+
+                     <div style="margin-left: 60px;margin-top: 10px;">
+                       <p scope="row">5.5. Rendez-vous avec les exploitants qui recevront le digestat
+
+                        <span style="float: right;">5.000 £</span>
+                       </p>
+
+                       </div>
+
+                       <div style="margin-left: 60px;margin-top: 10px;">
+                         <p scope="row">5.6. Assistance juridique : Contrat d'épandage & SPV
+
+                          <span style="float: right;">5.000 £</span>
+                         </p>
+
+                         </div>
+
+           </span>
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo6">
+                <i class="entypo-right-open" style="color: #00AE81;"></i>
+                6/ Lot 5 : Génie Civil ouvrages périphériques</th>
+             <td></td>
+             <td> </td>
+             <td>5.000 £</td>
+           </tr>
+           <span id="demo6" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">
+                 6.1. Plaquette de présentation
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">
+                   6.2. Réalisation d'infographie en 3D
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">6.3. Film d'animation
+
+                    <span style="float: right;">5.000 £</span>
+                   </p>
+
+                   </div>
+
+                   <div style="margin-left: 60px;margin-top: 10px;">
+                     <p scope="row">6.4. Site internet
+
+                      <span style="float: right;">5.000 £</span>
+                     </p>
+
+                     </div>
+
+           </span>
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo7">
+               <i class="entypo-right-open" style="color: #00AE81;"></i>
+               7/ Lot 6 : Charpente - Batiment - Couverture</th>
+             <td></td>
+             <td> </td>
+             <td>5.000 £</td>
+           </tr>
+           <span id="demo7" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">
+                 7.1. Diagnostic territorial
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">
+                   7.2. Réalisation des plans d’action
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">7.3. Formation des riverains aux bienfaits de la méthanisation
+
+                    <span style="float: right;">5.000 £</span>
+                   </p>
+
+                   </div>
+
+                   <div style="margin-left: 60px;margin-top: 10px;">
+                     <p scope="row">7.4. Défense et promotion du projet auprès des élus et de la population locale
+
+                      <span style="float: right;">5.000 £</span>
+                     </p>
+
+                     </div>
+                     <div style="margin-left: 60px;margin-top: 10px;">
+                       <p scope="row">
+                         7.5. Réponses aux questions lors des enquêtes publiques
+
+                        <span style="float: right;">5.000 £</span>
+                       </p>
+
+                       </div>
+
+           </span>
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo8"> <i class="entypo-right-open" style="color: #00AE81;"></i>
+               8/ Lot 7 : Courant fort - Soutirage - Electricité Générale</th>
+             <td></td>
+             <td> </td>
+             <td>5.000 £</td>
+           </tr>
+           <span id="demo8" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">
+                 8.1. Dimensionnement du Projet
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">
+                   8.2. Étude dispersion d'odeur éventuelle
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">8.3. Proposition de choix du process
+
+                    <span style="float: right;">5.000 £</span>
+                   </p>
+
+                   </div>
+
+                   <div style="margin-left: 60px;margin-top: 10px;">
+                     <p scope="row">
+                       8.4. Dossier de consultation des Entreprises (DCE)
+
+                      <span style="float: right;">5.000 £</span>
+                     </p>
+
+                     </div>
+                     <div style="margin-left: 60px;margin-top: 10px;">
+                       <p scope="row">
+                         8.5. Contrat TRC / TRME / Exploitation négocié
+
+                        <span style="float: right;">5.000 £</span>
+                       </p>
+
+                       </div>
+                       <div style="margin-left: 60px;margin-top: 10px;">
+                         <p scope="row">
+                           8.6. Business Plan détaillé
+
+                          <span style="float: right;">5.000 £</span>
+                         </p>
+
+                         </div>
+                         <div style="margin-left: 60px;margin-top: 10px;">
+                           <p scope="row">
+                             8.7. Contrat prestataire : MOE, SPS, Contrôle technique
+
+                            <span style="float: right;">5.000 £</span>
+                           </p>
+
+                           </div>
+
+           </span>
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo9">
+                <i class="entypo-right-open" style="color: #00AE81;"></i>
+                9/ Maitrise d'œuvre</th>
+             <td></td>
+             <td> </td>
+             <td>5.000 £</td>
+           </tr>
+
+           <span id="demo9" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">
+                 9.1. Diagnostic environnemental
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">
+                   9.2. Obtention de l'agrément sanitaire
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+                 <div style="margin-left: 60px;margin-top: 10px;">
+                   <p scope="row">9.3. Étude de loi sur l’eau
+
+                    <span style="float: right;">5.000 £</span>
+                   </p>
+
+                   </div>
+
+                   <div style="margin-left: 60px;margin-top: 10px;">
+                     <p scope="row">
+                       9.4. Étude de foudre
+
+                      <span style="float: right;">5.000 £</span>
+                     </p>
+
+                     </div>
+                     <div style="margin-left: 60px;margin-top: 10px;">
+                       <p scope="row">
+                         9.5. Dossier ICPE
+
+                        <span style="float: right;">5.000 £</span>
+                       </p>
+
+                       </div>
+                       <div style="margin-left: 60px;margin-top: 10px;">
+                         <p scope="row">
+                           9.6. Obtention de l'arrêté du PC / Passage huissier
+
+                          <span style="float: right;">5.000 £</span>
+                         </p>
+
+                         </div>
+                         <div style="margin-left: 60px;margin-top: 10px;">
+                           <p scope="row">
+                             9.7. Rendez-vous avec le service instructeur
+
+                            <span style="float: right;">5.000 £</span>
+                           </p>
+
+                           </div>
+
+           </span>
+
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo10">
+               <i class="entypo-right-open" style="color: #00AE81;"></i>
+               10/ Assistance à maitrise d'ouvrage </th>
+             <td></td>
+             <td> </td>
+             <td>5.000 £</td>
+           </tr>
+           <span id="demo10" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">
+
+                 10.1. Réunion avec les organismes
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">
+                   10.2. Dépôt du dossier de subventions
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+           </span>
+           <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <th scope="row"data-toggle="collapse" data-target="#demo11">
+             <i class="entypo-right-open" style="color: #00AE81;"></i>
+         11/ Matériel</th>
+             <td></td>
+             <td> </td>
+             <td>5.000 £</td>
+           </tr>
+           <span id="demo11" class="collapse cc3">
+             <div style="margin-left: 60px;margin-top: 10px;">
+               <p scope="row">
+                 11.1. Instruction du dossier bancaire
+
+                <span style="float: right;">5.000 £</span>
+               </p>
+
+               </div>
+
+
+               <div style="margin-left: 60px;margin-top: 10px;">
+                 <p scope="row">
+                   11.2. Suivi des instructions et négociations
+
+                  <span style="float: right;">5.000 £</span>
+                 </p>
+
+                 </div>
+
+
+           </span>
+         </tbody>
+        </table>
 
 
 
-         </div>
-         </div>
-     </div>
-
-   </div>
-   <div style="margin-bottom: 50px;">
-     <div class="row">
-       <div class="col-md-5">
-
-         <button class="btn" style="background-color: white;border-left:8px solid #00AE81;"
-         data-toggle="collapse" data-target="#capexRacc" >
-           CAPEX-Raccordement
-         </button>
 
 
 
-       </div>
-       <div class="col-md-4">
-         <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >182 000 £</button>
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-md-9">
-       <div id="capexRacc" class="collapse">
+        </div>
+        </div>
+    </div>
+
+  </div>
+  <div style="margin-bottom: 50px;">
+    <div class="row">
+      <div class="col-md-5">
+
+        <button class="btn" style="background-color: white;border-left:8px solid #00AE81;"
+        data-toggle="collapse" data-target="#capexRacc" >
+          CAPEX-Raccordement
+        </button>
 
 
-         <table class="table">
-           <thead>
-             <tr>
-               <th scope="col"> Phase Clefs de la Construction</th>
-               <th scope="col"></th>
-               <th scope="col"></th>
-               <th scope="col" style="text-aspangn: right;">Prix HT5 £</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <th scope="row">1/Intérêt du porteur de projet </th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">2/Etude préléminaire de la biomasse</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">3/Étude foncière du projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
+
+      </div>
+      <div class="col-md-4">
+        <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >182 000 £</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+      <div id="capexRacc" class="collapse">
 
 
-             <tr>
-               <th scope="row">4/La sécurisation des droits gaziers</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">5/La valorisation du digestat</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">6/Réaspansation des supports Marketing</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"> Phase Clefs de la Construction</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col" style="text-aspangn: right;">Prix HT5 £</th>
+            </tr>
+          </thead>
 
-             <tr>
-               <th scope="row">7/ L’acceptabispanté locale du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">8/La réaspansation de l’ingénierie du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">9/ L’obtention des autorisations d’urbanisme et d’exploitation du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">10/ L’obtention des subventions du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">11/ L’obtention du financement du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-           </tbody>
-         </table>
+        </table>
 
 
 
 
 
 
-         </div>
-         </div>
-     </div>
+        </div>
+        </div>
+    </div>
 
-   </div>
-   <div style="margin-bottom: 50px;">
-     <div class="row">
-       <div class="col-md-5">
+  </div>
+  <div style="margin-bottom: 50px;">
+    <div class="row">
+      <div class="col-md-5">
 
-         <button class="btn" style="background-color: white;border-left:8px solid #00AE81;"
-         data-toggle="collapse" data-target="#capexAutreInv" >
-           CAPEX-Autres investissements
-         </button>
-
-
-
-       </div>
-       <div class="col-md-4">
-         <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >182 000 £</button>
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-md-9">
-       <div id="capexAutreInv" class="collapse">
+        <button class="btn" style="background-color: white;border-left:8px solid #00AE81;"
+        data-toggle="collapse" data-target="#capexAutreInv" >
+          CAPEX-Autres investissements
+        </button>
 
 
-         <table class="table">
-           <thead>
-             <tr>
-               <th scope="col"></th>
-               <th scope="col"></th>
-               <th scope="col"></th>
-               <th scope="col" style="text-aspangn: right;"></th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <th scope="row">1/Intérêt du porteur de projet </th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">2/Etude préléminaire de la biomasse</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">3/Étude foncière du projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
+
+      </div>
+      <div class="col-md-4">
+        <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >182 000 £</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+      <div id="capexAutreInv" class="collapse">
 
 
-             <tr>
-               <th scope="row">4/La sécurisation des droits gaziers</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">5/La valorisation du digestat</th>
-               <td></td>
-               <td></td>
-               <td>5.000 £
-             </tr>
-             <tr>
-               <th scope="row">6/Réaspansation des supports Marketing</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col" style="text-aspangn: right;"></th>
+            </tr>
+          </thead>
 
-             <tr>
-               <th scope="row">7/ L’acceptabispanté locale du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">8/La réaspansation de l’ingénierie du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">9/ L’obtention des autorisations d’urbanisme et d’exploitation du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">10/ L’obtention des subventions du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-             <tr>
-               <th scope="row">11/ L’obtention du financement du Projet</th>
-               <td></td>
-               <td> </td>
-               <td>5.000 £</td>
-             </tr>
-           </tbody>
-         </table>
+        </table>
 
 
 
 
 
 
-         </div>
-         </div>
-     </div>
+        </div>
+        </div>
+    </div>
 
-   </div>
-   <div style="margin-bottom: 50px;">
-     <div class="row">
-       <div class="col-md-5">
+  </div>
+  <div style="margin-bottom: 50px;">
+    <div class="row">
+      <div class="col-md-5">
 
-         <a class="btn" style="background-color: #00AE81;color: #fff;"
-        >
-           Grand Total CAPEX
-       </a>
-
-
-
-       </div>
-       <div class="col-md-4">
-         <a class="btn" style="background-color: #00AE81;float: right;color: #fff;font-weight: bold;color: #fff;" >182 000 £</a>
-       </div>
-     </div>
-
-
-   </div>
- </div>
- <div class="col-md-8" style="margin-top: 50px;">
-   <div class="row">
-     <div class="col-md-1">
-
-     </div>
-     <div class="col-md-8">
-       <div style="display: block">
-         <canvas baseChart
-                     [data]="doughnutChartData"
-                     [labels]="doughnutChartLabels"
-                     [chartType]="doughnutChartType"
-                     ></canvas>
-       </div>
-     </div>
-     <div class="col-md-3">
-
-     </div>
-   </div>
+        <a class="btn" style="background-color: #00AE81;color: #fff;"
+       >
+          Grand Total CAPEX
+      </a>
 
 
 
- </div>
+      </div>
+      <div class="col-md-4">
+        <a class="btn" style="background-color: #00AE81;float: right;color: #fff;font-weight: bold;color: #fff;" >182 000 £</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<div class="col-md-8" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-8">
+      <div style="display: block">
+        <canvas baseChart
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType"
+                    ></canvas>
+      </div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+  </div>
+
+
+
+</div>
 
 
 

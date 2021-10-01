@@ -7,6 +7,7 @@ import {
 } from "@angular/core";
 import { NgForm, FormGroup, FormBuilder } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
+
 import { ToastrService } from "ngx-toastr";
 import Swal from "sweetalert2";
 import { AgriService } from "../services/agri.service";
@@ -19,7 +20,7 @@ declare var $: any;
 export class FicheProjetComponent implements OnInit {
   @ViewChild("f", { static: false }) form: NgForm;
   conceptions;
-  Construction_140;
+  constructions;
   clients;
   id;
   infos;
@@ -33,7 +34,7 @@ export class FicheProjetComponent implements OnInit {
   res4;
   MO_MS;
   Nm3_CH4_t_MO;
-
+ss;
   prod;
   prod1;
   prod2;
@@ -58,6 +59,11 @@ export class FicheProjetComponent implements OnInit {
   somme_MB;
   tt_heure_annee;
   debit_horaire_Nm3_CH4_an;
+  debit_moyen_annuel;
+  Auto_consommation;
+Poste_injection_pertes;
+percent_eff_elevage;
+
   debit_horaire_injecte_Nm3_CH4_an;
   pvoir_calorfiq_sup_CH4;
   s_tt_KWH_h;
@@ -128,11 +134,49 @@ export class FicheProjetComponent implements OnInit {
   sum3;
 
   //Feuille Digestat
+  total_type_intrant;
+  total_digestat;
+  total_quantite_vegetal;
+  total_terrain;
+  terrain_Autre;
+  Digestat_Liquide_Requis ;
+  Digestat_Solide_Requis ;
+  total_Epandage;
+  digistat_liquide_exedent;
+  digistat_solide_exedent;
+  total_quantite_total;
+  percent_rapport_NPK;
+  total_percent;
+  total_N;
+  avec_Subvention;
+  total_P;
+  total_K;
+  Digestat_Brut_quantite;
+  Digestat_Brut_percent;
+  Digestat_Brut_N;
+  Digestat_Brut_P;
+  Digestat_Brut_K;
+  Digestat_LIQUIDE_quantite;
+  Digestat_LIQUIDE_percent;
+  Digestat_LIQUIDE_N;
+  Digestat_LIQUIDE_P;
+  Digestat_LIQUIDE_K;
+  Digestat_SOLIDE_quantite;
+  Digestat_SOLIDE_percent;
+  Digestat_SOLIDE_N;
+  Digestat_SOLIDE_P;
+  Digestat_SOLIDE_K;
+  InputValue;
+  InputValue_liquide;
+  InputValue_solide;
+
+//------------
   tas_ensilage_Fumier;
   tas_ensilage_Silo;
   recup_eaux_uses_Fumier;
   recup_eaux_uses_Silo;
   total_eaux_uses = 0;
+
   culture;
   autres;
   voie_unite;
@@ -146,8 +190,7 @@ export class FicheProjetComponent implements OnInit {
   digistat_liquide_requis;
   digistat_solide_requis;
 
-  digistat_liquide_exedent;
-  digistat_solide_exedent;
+
   isVisible: boolean = false;
   //capexScenario
   Mtn_Total_Concep_Contruc_inj;
@@ -160,7 +203,26 @@ export class FicheProjetComponent implements OnInit {
   rep_Financement_Fp_cog;
   part_financier_percent=undefined;
   part_financier_Montant=undefined;
+  montant_total;
+  montant_total_cog;
 
+  Constructions;
+  exploitations;
+  c;
+  D;
+
+//PERCENT DEGISTAT
+  perDegestat:any[]
+  totPercentDegest;
+
+
+
+
+
+  //
+  isNanFunction(val) {
+    return isNaN(val) ? 0 : parseFloat(val);
+  }
 
 
   //**
@@ -176,11 +238,13 @@ export class FicheProjetComponent implements OnInit {
   ngOnInit() {
     this.getDataConstruction();
     this.getData();
-    console.log("base_prix", this.base_prix);
-    this.Mtn_Total_Concep_Contruc_inj=6305500;
+    this.getDataExploitation();
+
+
+
     this.cout_racc_inj=300000;
 
-    this.Mtn_Total_Concep_Contruc_cog=5540000;
+
     this.cout_racc_cog=60000;
 
     this.tt_heure_annee = "8760";
@@ -215,6 +279,25 @@ export class FicheProjetComponent implements OnInit {
     });
     this.getFichesInfo();
   }
+  setvalue(value) {
+    this.InputValue = value.replace('%','')+"%";
+
+     }
+     setvalue_liquide(value) {
+      this.InputValue_liquide=value.replace('%','')+"%";
+
+       }
+       setvalue_solide(value) {
+
+        this.InputValue_solide=value.replace('%','')+"%";
+         }
+  getDataExploitation(){
+    this.agriSrv.getDataExploitation().subscribe((data) => {
+      this.exploitations = data;
+    console.log("exloiData",data);
+    });
+  }
+
   listenBase(event) {
     console.log("eveeeeeeeeeeeeent", event);
     this.bases = this.base_prix.find((x) => x.data == event);
@@ -284,7 +367,7 @@ export class FicheProjetComponent implements OnInit {
       +this.infotrie5.MS.replace(",", ".").replace("%", "") / 100,
       +this.prod
     );
-    this.Nm3_CH4_an = this.prod2;
+    this.Nm3_CH4_an = this.quotion(this.prod2, 8760).toFixed(2);
 
     this.KWe_h = this.produit(+this.prod2, 10.8, 0.4);
     console.log("kwh", this.KWe_h);
@@ -331,6 +414,9 @@ export class FicheProjetComponent implements OnInit {
   res2;
   val;
   valuesaveContent;
+  N;
+  P;
+  K;
   resetForm() {
     this.form.reset();
   }
@@ -362,6 +448,7 @@ export class FicheProjetComponent implements OnInit {
 
     this.MO_MS = v.MO_MS = this.infotrie5.MO_MS;
     this.quantite = v.quantite;
+    this.InputValue=v.InputValue;
 
     this.description = v.description;
     v.Nm3_CH4_t_MO = this.infotrie5.Nm3_CH4_t_MO;
@@ -388,6 +475,8 @@ export class FicheProjetComponent implements OnInit {
     this.t_MB_an = this.prod.toFixed(2);
     console.log("tmb", v.t_MB_an);
 
+
+
     this.prod1 = this.produit2(
       +v.t_MB_an,
       +v.MS.replace(",", ".").replace("%", "") / 100
@@ -401,6 +490,7 @@ export class FicheProjetComponent implements OnInit {
       +v.MS.replace(",", ".").replace("%", "") / 100,
       +v.t_MB_an
     );
+    this.Nm3_CH4_an = this.quotion(this.prod2, 8760).toFixed(2);
 
     this.Nm3_CH4_an = v.Nm3_CH4_an = this.prod2.toFixed(2);
 
@@ -411,18 +501,21 @@ export class FicheProjetComponent implements OnInit {
     // console.log("Prod2", this.prod2);
     this.prod3 = this.produit2(+v.t_MB_an, +v.u_N_t.replace(",", "."));
 
-    v.N = this.prod3.toFixed(2);
+    v.N =this.N=this.prod3.toFixed(2);
 
     //P
     this.prod4 = this.produit2(+v.t_MB_an, +v.u_P2O5_t.replace(",", "."));
 
-    v.P = this.prod4.toFixed(2);
+    v.P =this.P=this.prod4.toFixed(2);
     //K
     this.prod5 = this.produit2(+v.t_MB_an, +v.u_K2O_t.replace(",", "."));
 
-    v.K = this.prod5.toFixed(2);
+    v.K =this.K =this.prod5.toFixed(2);
     console.log("v", v);
-    v.Nm3_CH4_an = this.Nm3_CH4_an = this.prod2.toFixed(2);
+
+    v.Nm3_CH4_an = this.Nm3_CH4_an = this.quotion(this.prod2, 8760).toFixed(2);
+
+
     console.log("yarab", v.Nm3_CH4_an);
 
     this.volume_Nm3_CH4_an = this.newFiche
@@ -461,100 +554,66 @@ export class FicheProjetComponent implements OnInit {
 
     console.log("somme_MB", this.somme_MB);
 
-    this.debit_horaire_Nm3_CH4_an = this.quotion(
-      this.volume_Nm3_CH4_an,
-      this.tt_heure_annee
-    ).toFixed(2);
-
-    console.log("debit", this.debit_horaire_Nm3_CH4_an);
-
-    this.debit_horaire_injecte_Nm3_CH4_an = this.produit2(
-      this.debit_horaire_Nm3_CH4_an,
-      0.92
-    ).toFixed(2);
+  //////////////////////////////////la place de debit horaire ancien
 
     this.scenarioEmetteur.emit(this.debit_horaire_injecte_Nm3_CH4_an);
     console.log("debit555", this.debit_horaire_injecte_Nm3_CH4_an);
     this.Taux_interet_annuel = this.ERIBOR + 0.0215;
     console.log("Taux_interet_annuel", this.Taux_interet_annuel);
 
-    this.s_tt_KWH_h = this.produit2(
-      this.debit_horaire_injecte_Nm3_CH4_an,
-      this.pvoir_calorfiq_sup_CH4
-    );
-    console.log("s_tt_KWH_h", this.s_tt_KWH_h);
-    this.enrg_KWH_an = this.produit2(
-      this.s_tt_KWH_h,
-      this.heure_fonction
-    ).toFixed(2);
-    console.log("enrg_KWH_an", this.enrg_KWH_an);
-    this.enrg_MWH_an = this.quotion(this.enrg_KWH_an, 1000).toFixed(2);
-    console.log("enrg_MWH_an", this.enrg_MWH_an);
-    this.enrg_GWH_an = this.quotion(this.enrg_MWH_an, 1000).toFixed(2);
-    console.log("enrg_MWH_an", this.enrg_GWH_an);
 
-    this.Tarif_debut_contrat2 = this.quotion(this.Tarif_debut_contrat1, 100);
 
-    this.Recette_vente_biomethane = this.produit2(
-      this.Tarif_debut_contrat2,
-      this.s_tt_KWH_h
-    );
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
-    this.sum_of_Animal_TMB = this.newFiche
-      .filter((x) => x.IC1 == "1.Animal")
-      .reduce(
-        (accumulator, current) => accumulator + parseFloat(current.t_MB_an),
-        0
-      );
 
     // var res = this.sum_of_Animal_TMB.toFixed(2);
     console.log("sum", this.sum_of_Animal_TMB);
-    //bloc Digestat Calcul
-    let p = this.produit2(12, this.Mois_fumiere);
-    if (this.Densite_Fumier != 0 && p != 0 && this.hauteur_Fumier != 0) {
-      let q = this.quotion(this.sum_of_Animal_TMB, this.Densite_Fumier);
+    // //bloc Digestat Calcul
+    // let p = this.produit2(12, this.Mois_fumiere);
+    // if (this.Densite_Fumier != 0 && p != 0 && this.hauteur_Fumier != 0) {
+    //   let q = this.quotion(this.sum_of_Animal_TMB, this.Densite_Fumier);
 
-      let q1 = this.quotion(q, p);
-      this.tas_ensilage_Fumier = this.quotion(q1, this.hauteur_Fumier).toFixed(
-        2
-      );
-    }
-    //Calcul de tas_ensilage_Silo
-    let x1 = this.produit2(12, this.mois_Silo);
-    if (this.Densite_Silo != 0 && x1 != 0 && this.hauteur_Silo != 0) {
-      let q = this.quotion(this.sum_of_Animal_TMB, this.Densite_Silo);
+    //   let q1 = this.quotion(q, p);
+    //   this.tas_ensilage_Fumier = this.quotion(q1, this.hauteur_Fumier).toFixed(
+    //     2
+    //   );
+    // }
+    // //Calcul de tas_ensilage_Silo
+    // let x1 = this.produit2(12, this.mois_Silo);
+    // if (this.Densite_Silo != 0 && x1 != 0 && this.hauteur_Silo != 0) {
+    //   let q = this.quotion(this.sum_of_Animal_TMB, this.Densite_Silo);
 
-      let q1 = this.quotion(q, x1);
-      this.tas_ensilage_Silo = this.quotion(q1, this.hauteur_Silo).toFixed(2);
-    }
-    //Calcul de recup_eaux_uses_Fumier
-    let p2 = this.produit2(
-      parseFloat(this.tas_ensilage_Fumier),
-      parseFloat(this.pluviometre)
-    );
+    //   let q1 = this.quotion(q, x1);
+    //   this.tas_ensilage_Silo = this.quotion(q1, this.hauteur_Silo).toFixed(2);
+    // }
+    // //Calcul de recup_eaux_uses_Fumier
+    // let p2 = this.produit2(
+    //   parseFloat(this.tas_ensilage_Fumier),
+    //   parseFloat(this.pluviometre)
+    // );
 
-    let p3 = 1 - this.evaporation / 100;
+    // let p3 = 1 - this.evaporation / 100;
 
-    this.recup_eaux_uses_Fumier = this.produit2(p2, p3);
+    // this.recup_eaux_uses_Fumier = this.produit2(p2, p3);
 
-    //Calcul recup_eaux_uses_Silo
-    let p4 = this.produit2(
-      parseFloat(this.tas_ensilage_Silo),
-      parseFloat(this.pluviometre)
-    );
-    this.recup_eaux_uses_Silo = this.produit2(p4, p3);
-    //Calcul de total eaux usées
+    // //Calcul recup_eaux_uses_Silo
+    // let p4 = this.produit2(
+    //   parseFloat(this.tas_ensilage_Silo),
+    //   parseFloat(this.pluviometre)
+    // );
+    // this.recup_eaux_uses_Silo = this.produit2(p4, p3);
+    // //Calcul de total eaux usées
 
-    this.total_eaux_uses =
-      this.recup_eaux_uses_Fumier + this.recup_eaux_uses_Silo;
-    console.log("this.total_eaux_uses ", this.total_eaux_uses);
+    // this.total_eaux_uses =
+    //   this.recup_eaux_uses_Fumier + this.recup_eaux_uses_Silo;
+    // console.log("this.total_eaux_uses ", this.total_eaux_uses);
 
-    this.sum_of_vegTable_TMB = this.newFiche
-      .filter((x) => x.IC1 == "2.Vegetal")
-      .reduce(
-        (accumulator, current) => accumulator + parseFloat(current.t_MB_an),
-        0
-      );
+    // this.sum_of_vegTable_TMB = this.newFiche
+    //   .filter((x) => x.IC1 == "2.Vegetal")
+    //   .reduce(
+    //     (accumulator, current) => accumulator + parseFloat(current.t_MB_an),
+    //     0
+    //   );
 
     this.sum_of_Autre_TMB = this.newFiche
       .filter((x) => x.IC1 == "3.Autres")
@@ -576,6 +635,8 @@ export class FicheProjetComponent implements OnInit {
         (accumulator, current) => accumulator + parseFloat(current.t_MS_an),
         0
       );
+
+
 
     this.sum_of_vegTable_TMS = this.newFiche
       .filter((x) => x.IC1 == "2.Vegetal")
@@ -630,10 +691,10 @@ export class FicheProjetComponent implements OnInit {
 
 
 
-  this.rep_Financement_Fp=this.Mtn_Total_Concep_Contruc_inj - this.rep_Financement_bq ;
+  // this.rep_Financement_Fp=this.Mtn_Total_Concep_Contruc_inj - this.rep_Financement_bq ;
 
-  this.rep_Financement_bq_cog=this.produit2(0.75,this.Mtn_Total_Concep_Contruc_cog);
-  this.rep_Financement_Fp_cog=this.Mtn_Total_Concep_Contruc_cog - this.rep_Financement_bq_cog ;
+  // this.rep_Financement_bq_cog=this.produit2(0.75,this.Mtn_Total_Concep_Contruc_cog);
+  // this.rep_Financement_Fp_cog=this.Mtn_Total_Concep_Contruc_cog - this.rep_Financement_bq_cog ;
 
     //calcule de N
 
@@ -716,6 +777,7 @@ export class FicheProjetComponent implements OnInit {
       // this.newFiche.splice(this.position, 1);
       console.log("this.updateElem", this.updateElem);
       v.quantite = this.quantite;
+      v.InputValue=this.InputValue;
       v.volume_Nm3_CH4_an = this.volume_Nm3_CH4_an.toFixed(2);
       v.somme_MB = this.somme_MB.toFixed(2);
       v.somme_MS = this.somme_MS.toFixed(2);
@@ -723,7 +785,7 @@ export class FicheProjetComponent implements OnInit {
       this.newFiche.push(v);
       this.formValue = v;
       this.editMode = false;
-      this.form.reset();
+      this.resetForm();
       console.log("lol", this.newFiche);
     } else if (this.editMode == false) {
       console.log("this.editMode ", this.editMode);
@@ -731,51 +793,401 @@ export class FicheProjetComponent implements OnInit {
       v.somme_MB = this.somme_MB;
       v.somme_MS = this.somme_MS;
       v.somme_KWH = this.somme_KWH;
+      v.percent_rapport_NPK=this.percent_rapport_NPK;
+      console.log("NOOOOOOOOOO",this.percent_rapport_NPK);
+
       this.newFiche.push(v);
       this.formValue = v;
-      this.form.reset();
+      this.resetForm()
       this.getFichesInfo();
     }
+    console.log("arraaayForm", this.formValue);
 
     this.arrayForm.push(this.formValue);
+
+    //somme Nm3Ch4
     this.volume_Nm3_CH4_an = this.arrayForm
       .filter((x) => x.Nm3_CH4_an)
       .reduce(
-        (accumulator, current) => accumulator + parseFloat(current.Nm3_CH4_an),
+        (accumulator, current) => {
+          this.ss= accumulator + parseFloat(current.Nm3_CH4_an)
+
+return accumulator + parseFloat(current.Nm3_CH4_an)
+        },
         0
       );
     console.log("vol", this.volume_Nm3_CH4_an);
-    //somme kwh
-    this.somme_KWH = this.newFiche
-      .filter((x) => x.KWe_h)
+
+    ///////////////Nouveau calcul debit horaire
+    this.debit_horaire_Nm3_CH4_an = this.quotion(
+     parseFloat(this.volume_Nm3_CH4_an) ,
+      8760
+    );
+
+    console.log("debit", this.debit_horaire_Nm3_CH4_an);
+    this.debit_moyen_annuel=this.produit2(this.debit_horaire_Nm3_CH4_an,0.88);
+
+    this.Auto_consommation=this.produit2(this.debit_horaire_Nm3_CH4_an,0.08);
+    this.Poste_injection_pertes=this.produit2(this.debit_horaire_Nm3_CH4_an,0.04);
+
+    this.debit_horaire_injecte_Nm3_CH4_an = this.produit2(
+      this.debit_horaire_Nm3_CH4_an,
+      0.92
+    );
+    this.s_tt_KWH_h = this.produit2(
+      this.debit_horaire_injecte_Nm3_CH4_an,
+      this.pvoir_calorfiq_sup_CH4
+    );
+    console.log("s_tt_KWH_h", this.s_tt_KWH_h);
+    this.enrg_KWH_an = this.produit2(
+      this.s_tt_KWH_h,
+      this.heure_fonction
+    ).toFixed(2);
+    console.log("enrg_KWH_an", this.enrg_KWH_an);
+    this.enrg_MWH_an = this.quotion(this.enrg_KWH_an, 1000).toFixed(2);
+    console.log("enrg_MWH_an", this.enrg_MWH_an);
+    this.enrg_GWH_an = this.quotion(this.enrg_MWH_an, 1000).toFixed(2);
+    console.log("enrg_MWH_an", this.enrg_GWH_an);
+
+    this.Tarif_debut_contrat2 = this.quotion(this.Tarif_debut_contrat1, 100);
+
+    this.Recette_vente_biomethane = this.produit2(
+      this.Tarif_debut_contrat2,
+      this.s_tt_KWH_h
+    );
+
+
+  //somme kwh
+  this.somme_KWH = this.newFiche
+  .filter((x) => x.KWe_h)
+  .reduce(
+    (accumulator, current) => accumulator + parseFloat(current.KWe_h),
+    0
+  );
+
+console.log("som_KWH", this.somme_KWH);
+//somme MS
+this.somme_MS = this.newFiche
+  .filter((x) => x.t_MS_an)
+  .reduce(
+    (accumulator, current) => accumulator + parseFloat(current.t_MS_an),
+    0
+  );
+
+console.log("somme_MB", this.somme_MS);
+ //Somme MB
+ this.somme_MB = this.newFiche
+ .filter((x) => x.t_MB_an)
+ .reduce(
+   (accumulator, current) => accumulator + parseFloat(current.t_MB_an),
+   0
+ );
+
+console.log("somme_MB", this.somme_MB);
+console.log("ss",this.ss);
+
+//Calcul percentage Effluent_Delevage pour la feuille produit
+console.log("new aarayy formmap ");
+console.log("TMMMMMMMMMMMMMMBBBBBBBBBBBBBBBB",this.newFiche.filter((x)=>x.Effluent_Delevage=="Oui")
+.reduce(
+  (acc,curr)=>acc+ parseFloat(curr.t_MB_an),0
+
+
+));
+
+this.percent_eff_elevage=this.newFiche.filter((x)=>x.Effluent_Delevage=="Oui")
+.reduce(
+  (acc,curr)=>acc+ parseFloat(curr.t_MB_an),0
+
+
+);
+
+this.percent_eff_elevage=this.quotion( this.percent_eff_elevage,this.somme_MB);
+console.log("La SOMME ",this.somme_MB);
+
+console.log( "WHYYYYYYYYYYY",this.percent_eff_elevage);
+
+//-----------------fin calcul %eff elevage-----------------------------------------------
+
+this.sum_of_Animal_TMB = this.newFiche
+      .filter((x) => x.IC1 == "1.Animal")
       .reduce(
-        (accumulator, current) => accumulator + parseFloat(current.KWe_h),
+        (accumulator, current) => accumulator + parseFloat(current.t_MB_an),
         0
       );
-
-    console.log("som_KWH", this.somme_KWH);
-    //somme MS
-    this.somme_MS = this.newFiche
-      .filter((x) => x.t_MS_an)
-      .reduce(
-        (accumulator, current) => accumulator + parseFloat(current.t_MS_an),
-        0
-      );
-
-    console.log("somme_MB", this.somme_MS);
-    this.getFichesInfo();
-    //Somme MB
-    this.somme_MB = this.newFiche
-      .filter((x) => x.t_MB_an)
+      console.log("sumTMBAnimal", this.sum_of_Animal_TMB);
+      //Calcul Culture de feuille digestat
+      this.sum_of_vegTable_TMB = this.newFiche
+      .filter((x) => x.IC1 == "2.Vegetal")
       .reduce(
         (accumulator, current) => accumulator + parseFloat(current.t_MB_an),
         0
       );
 
-    console.log("somme_MB", this.somme_MB);
+       //bloc Digestat Calcul
+    let p = this.produit2(12, this.Mois_fumiere);
+    if (this.Densite_Fumier != 0 && p != 0 && this.hauteur_Fumier != 0) {
+      let q = this.quotion(this.sum_of_Animal_TMB, this.Densite_Fumier);
 
-    console.log("arrrrrrrayFORM", this.arrayForm);
+      let q1 = this.quotion(q, p);
+      this.tas_ensilage_Fumier = this.quotion(q1, this.hauteur_Fumier).toFixed(
+        2
+      );
+    }
+    //Calcul de tas_ensilage_Silo
+    let x1 = this.produit2(12, this.mois_Silo);
+    if (this.Densite_Silo != 0 && x1 != 0 && this.hauteur_Silo != 0) {
+      let q = this.quotion(this.sum_of_Animal_TMB, this.Densite_Silo);
+
+      let q1 = this.quotion(q, x1);
+      this.tas_ensilage_Silo = this.quotion(q1, this.hauteur_Silo).toFixed(2);
+    }
+    //Calcul de recup_eaux_uses_Fumier
+    let p2 = this.produit2(
+      parseFloat(this.tas_ensilage_Fumier),
+      parseFloat(this.pluviometre)
+    );
+
+    let p3 = 1 - this.evaporation / 100;
+
+    this.recup_eaux_uses_Fumier = this.produit2(p2, p3);
+
+    //Calcul recup_eaux_uses_Silo
+    let p4 = this.produit2(
+      parseFloat(this.tas_ensilage_Silo),
+      parseFloat(this.pluviometre)
+    );
+    this.recup_eaux_uses_Silo = this.produit2(p4, p3);
+    //Calcul de total eaux usées
+
+    this.total_eaux_uses =
+      this.recup_eaux_uses_Fumier + this.recup_eaux_uses_Silo;
+
+
+  this.total_type_intrant=this.total_eaux_uses + this.sum_of_Animal_TMB + this.sum_of_vegTable_TMB;
+
+
+
+this.digistat_liquide=this.produit2(this.total_digestat,this.quotion(80,100));
+this.digistat_solide=this.produit2(this.total_digestat,this.quotion(20,100));
+
+this.total_quantite_vegetal = this.newFiche
+.filter((x) => x.IC1 == "2.Vegetal")
+.reduce(
+  (accumulator, current) => accumulator + parseFloat(current.quantite),
+  0
+);
+
+
+this.terrain_Autre=0;
+this.total_terrain=this.total_quantite_vegetal + this.terrain_Autre;
+
+this.Digestat_Liquide_Requis=this.produit2(this.total_terrain,this.quotion(30,100));
+  this.Digestat_Solide_Requis=this.produit2(this.total_terrain,this.quotion(12,100));
+  this.total_Epandage=this.Digestat_Liquide_Requis + this.Digestat_Solide_Requis;
+
+  this.digistat_liquide_exedent= this.digistat_liquide - this.Digestat_Liquide_Requis;
+  this.digistat_solide_exedent=this.digistat_solide - this.Digestat_Solide_Requis;
+
+  let tabOfQuantite:any[]=[]
+  let tabOfTotQuantite:any[]=[]
+  this.total_quantite_total = this.newFiche
+.filter((x) => x.quantite)
+.reduce(
+  (accumulator, current) =>
+   {
+    tabOfQuantite.push(parseFloat(current.quantite))
+    tabOfTotQuantite.push(accumulator + parseFloat(current.quantite))
+    let tabOfPerc:any[]=[]
+
+    tabOfQuantite.map((x,index)=>{
+      tabOfPerc.push(this.quotion(x,tabOfTotQuantite[this.newFiche.length-1]))
+      this.perDegestat=tabOfPerc
+      console.log("tabOfPerc",tabOfPerc);
+      console.log("tab length ",tabOfPerc.length);
+      // if(tabOfPerc.length==1){
+      //   this.totPercentDegest =1
+      // }
+
+      // this.totPercentDegest= this.perDegestat.reduce((acc,current)=>{
+      //   console.log("tab acc,current,index",acc,current)
+      //     return this.totPercentDegest = acc+current
+
+      // })
+//console.log("tab sum per",this.totPercentDegest)
+let i;
+let b =0
+this.totPercentDegest=0
+for(i=0;i<tabOfPerc.length;i++){
+  console.log("tab i",i,tabOfPerc[i])
+
+  this.totPercentDegest+= tabOfPerc[i]
+
+
+  console.log("tab TAB totPercentDegest",this.totPercentDegest);
+
+
+}
+
+    })
+     return  accumulator + parseFloat(current.quantite)}
+  ,
+  0
+);
+
+
+// v.total_quantite_total=this.total_quantite_total;
+// console.log("HEEEEEEEEY",v.total_quantite_total);
+
+
+
+
+
+
+v.percent_rapport_NPK=this.percent_rapport_NPK;
+
+
+this.total_percent=this.newFiche
+.filter((x) => x.percent_rapport_NPK)
+.reduce(
+  (accumulator, current) => {
+
+     accumulator + parseFloat(current.percent_rapport_NPK)
+  },
+  0
+);
+
+
+this.total_N=this.newFiche
+.filter((x) => x.N)
+.reduce(
+  (accumulator, current) => accumulator + parseFloat(current.N),
+  0
+);
+this.total_N=this.total_N.toFixed(2);
+this.total_P=this.newFiche
+.filter((x) => x.P)
+.reduce(
+  (accumulator, current) => accumulator + parseFloat(current.P),
+  0
+);
+this.total_K=this.newFiche
+.filter((x) => x.K)
+.reduce(
+  (accumulator, current) => accumulator + parseFloat(current.K),
+  0
+);
+
+
+if(this.ss >=0  && this.ss <= 140 )
+{
+
+  this.D=this.exploitations[0];
+  this.c=this.constructions[0];
+
+  console.log("DOPEX,CCAPEX",this.D,this.c)
+  return  this.c && this.D;
+
+}
+else  if(this.ss>141 && this.ss <=190 )
+{
+  this.D=this.exploitations[1];
+  this.c=this.constructions[1];
+
+  return  this.c && this.D;
+
+}
+else  if(this.ss>191 && this.ss <=240 )
+{
+  this.D=this.exploitations[2];
+  this.c=this.constructions[2];
+
+  return  this.c && this.D;
+
+
+}
+else  if(this.ss>241 && this.ss <=280 )
+{
+  this.c=this.constructions[3];
+  this.D=this.exploitations[3];
+
+  return  this.c && this.D;
+
+
+}
+else  if(this.ss>281 && this.ss <=560 )
+{
+  this.D=this.exploitations[4];
+  this.c=this.constructions[4];
+
+  return  this.c && this.D;
+
+}
+else  if(this.ss>561 && this.ss <=760 )
+{
+  this.D=this.exploitations[5];
+  this.c=this.constructions[5];
+
+  return  this.c && this.D;
+}
+else  if(this.ss>761 && this.ss <=960 )
+{this.D=this.exploitations[6];
+  this.c=this.constructions[6];
+
+  return  this.c && this.D;
+}
+else  if(this.ss>961 && this.ss <=1120 )
+{this.D=this.exploitations[7];
+  this.c=this.constructions[7];
+
+  return  this.c && this.D;
+
+}
+
+this.calaculPrixDeBase(500);
+
+    this.getFichesInfo();
   }
+  listen_total_Quantite_NPK(event){
+    console.log("eve",event);
+    this.percent_rapport_NPK=this.quotion(this.formValue.quantite, event)
+    console.log("avant v",this.percent_rapport_NPK);
+    return  this.percent_rapport_NPK;
+
+
+
+}
+  listenInput_Percent(event) {
+    this.total_digestat=this.produit2(this.total_type_intrant,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_Brut_quantite=this.produit2(this.total_quantite_total,this.quotion((parseFloat(event)),100));
+    this.Digestat_Brut_percent=event;
+    this.Digestat_Brut_N=this.quotion(this.total_N,this.Digestat_Brut_quantite).toFixed(2);
+
+this.Digestat_Brut_P=this.quotion(this.total_P,this.Digestat_Brut_quantite).toFixed(2);
+this.Digestat_Brut_K=this.quotion(this.total_K,this.Digestat_Brut_quantite).toFixed(2);
+
+  }
+  listenInput_Deg_Liquide(event){
+    this.digistat_liquide=this.produit2(this.total_digestat,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_LIQUIDE_quantite=this.produit2(this.Digestat_Brut_quantite,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_LIQUIDE_percent=event;
+    this.Digestat_LIQUIDE_N=this.produit2(this.Digestat_Brut_N,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_LIQUIDE_P=this.produit2(this.Digestat_Brut_P,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_LIQUIDE_K=this.produit2(this.Digestat_Brut_K,this.quotion((parseFloat(event)),100)).toFixed(2);
+
+  }
+  listenInput_Deg_Solide(event){
+    this.digistat_solide=this.produit2(this.total_digestat,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_SOLIDE_quantite=this.produit2(this.Digestat_Brut_quantite,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_SOLIDE_percent=event;
+    this.Digestat_SOLIDE_N=this.produit2(this.Digestat_Brut_N,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_SOLIDE_P=this.produit2(this.Digestat_Brut_P,this.quotion((parseFloat(event)),100)).toFixed(2);
+    this.Digestat_SOLIDE_K=this.produit2(this.Digestat_Brut_K,this.quotion((parseFloat(event)),100)).toFixed(2);
+  }
+
+
+
+
   addFiche() {
     console.log("val val", this.formValue);
 
@@ -1039,35 +1451,6 @@ export class FicheProjetComponent implements OnInit {
   }
 
 
-  //somme total de sous_traitance
-  // sommePrixDeVente_140(){
-  //   return this.chantier_sum_Sous_Total_Prix_vente_Concep()+this.methanisation_sum_Sous_Total_Prix_vente_Concep()
-  //   +this.Valorisation_sum_Sous_Total_Prix_vente_Concep()
-  //   +this.Terrassement_sum_Sous_Total_Prix_vente_Concep()+
-  //   this.Genie_sum_Sous_Total_Prix_vente_Concep()
-  //   +this.supports_Marketing_sum_Sous_Total_Prix_vente_Concep()
-  //   +this.acceptabilite_locale_sum_Sous_Total_Prix_vente_Concep()
-  //   +this.realisation_de_l_ingenierie_sum_Sous_Total_Prix_vente_Concep()
-  //   +this.urbanisme_exploitation_sum_Sous_Total_Prix_vente_Concep()
-  //   +this.subvention_sum_Sous_Total_Prix_vente_Concep()
-  //   +this.negociations_sum_Sous_Total_Prix_vente_Concep()
-
-  // }
-
-  // sommeSS_Traitance_140(){
-  // return this.Tab_140.Sous_Total_Conception=
-  // this.Tab_140.Ouverture_chantier.Sous_Total_Conception
-  // +this.Tab_140.Lot_1_Process_methanisation.Sous_Total_Conception
-  // +this.Tab_140.Lot_2_Valorisation.Sous_Total_Conception
-  // +this.Tab_140.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Sous_Total_Conception
-  // +this.Tab_140.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Conception
-  // +this.Tab_140.Lot_5_Genie_Civil_ouvrages_peripheriques.Sous_Total_Conception
-  // +this.Tab_140.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Conception
-  // +this.Tab_140.Maitrise_oevre.Sous_Total_Conception
-  // +this.Tab_140.Assistance_maitrise_ouvrage.Sous_Total_Conception
-  // +this.Tab_140.Materiel.Sous_Total_Conception
-
-  // }
 
   _openPopUp: boolean = false;
   openPopUp() {
@@ -1084,77 +1467,60 @@ export class FicheProjetComponent implements OnInit {
   getDataConstruction(){
     this.agriSrv.getDataConstruction().subscribe((data) => {
       this.conceptions = data;
-      // this.id = this.conceptions[0]._id;
-      console.log("data-conceptionsVente", this.conceptions[0].totaux_prixVente_Total);
-      console.log("data-conceptions", data);
+
     });
   }
   getData(){
     this.agriSrv.getData().subscribe((data) => {
-      this.Construction_140 = data;
+      this.constructions = data;
       // this.id = this.conceptions[0]._id;
-      console.log("ya lalii ya la ", this.Construction_140[0].totaux_prixVente_Total);
 
     });
   }
 
+
+
+
+
 //calcul total capex de scenario
 
+
 calcul_Mtn(){
-  if(this.volume_Nm3_CH4_an <= 140 && this.volume_Nm3_CH4_an > 0)
+  if(this.volume_Nm3_CH4_an <= 140 && this.volume_Nm3_CH4_an >= 0)
   {
-    let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[0].totaux_prixVente_Total))
-    return x;
+   this.montant_total=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.constructions[0].Tab_140.totaux_prixVente_Total_140))
+
+    return this.montant_total;
   }
   else if(this.volume_Nm3_CH4_an <= 190 && this.volume_Nm3_CH4_an > 141){
-    let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[1].totaux_prixVente_Total_190))
-    return x;
+    this.montant_total=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.constructions[1].Tab_190.totaux_prixVente_Total_190))
+    return  this.montant_total;
   }
   else if(this.volume_Nm3_CH4_an <= 240 && this.volume_Nm3_CH4_an > 191){
-    let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[2].totaux_prixVente_Total_240))
-    return x;
+    this.montant_total=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.constructions[2].Tab_240.totaux_prixVente_Total_240))
+    return  this.montant_total;
   }
   else if(this.volume_Nm3_CH4_an <= 280 && this.volume_Nm3_CH4_an > 241){
-    let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[3].totaux_prixVente_Total_280))
-    return x;
+    this.montant_total=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.constructions[3].Tab_280.totaux_prixVente_Total_280))
+    return  this.montant_total;
   }
   else if(this.volume_Nm3_CH4_an <= 560 && this.volume_Nm3_CH4_an > 281){
-    let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[4].totaux_prixVente_Total_560))
-    return x;
+    this.montant_total=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.constructions[4].Tab_560.totaux_prixVente_Total_560))
+    return  this.montant_total;
   }
   else if(this.volume_Nm3_CH4_an <= 760 && this.volume_Nm3_CH4_an > 561){
-    let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[5].totaux_prixVente_Total_760))
-    return x;
+    this.montant_total=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.constructions[5].Tab_760.totaux_prixVente_Total_760))
+    return  this.montant_total;
   }
   else if(this.volume_Nm3_CH4_an <= 960 && this.volume_Nm3_CH4_an > 761){
-    let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[6].totaux_prixVente_Total_960))
-    return x;
+    this.montant_total=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.constructions[6].Tab_960.totaux_prixVente_Total_960))
+    return  this.montant_total;
   }
   else if(this.volume_Nm3_CH4_an <= 1120 && this.volume_Nm3_CH4_an > 961){
-    let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[7].totaux_prixVente_Total_1120))
-    return x;
+    this.montant_total=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.constructions[7].Tab_1120.totaux_prixVente_Total_1120))
+    return  this.montant_total;
   }
 }
-// calcul_Mtn_cog(){
-
-//    if(this.somme_KWH <= 560 && this.somme_KWH > 0){
-//     let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[4].totaux_prixVente_Total_560))
-//     return x;
-//   }
-//   else if(this.somme_KWH <= 760 && this.somme_KWH > 561){
-//     let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[5].totaux_prixVente_Total_760))
-//     return x;
-//   }
-//   else if(this.somme_KWH <= 960 && this.somme_KWH > 761){
-//     let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[6].totaux_prixVente_Total_960))
-//     return x;
-//   }
-//   else if(this.somme_KWH <= 1120 && this.somme_KWH > 961){
-//     let x=(parseFloat(this.conceptions[0].totaux_prixVente_Total)) + parseFloat((this.Construction_140[7].totaux_prixVente_Total_1120))
-//     return x;
-//   }
-// }
-
 
   financement_bq(){
 let x = this.rep_Financement_bq=this.produit2(0.75,(this.calcul_Mtn()));
@@ -1165,43 +1531,134 @@ let x = this. rep_Financement_Fp=(this.calcul_Mtn() - this.rep_Financement_bq);
 return x;
   }
   listenMontant(event){
+    console.log("event",event);
 
-if(this.part_financier_percent!=undefined &&this.part_financier_Montant==undefined)
-  this.part_financier_Montant=0;
-  {this.part_financier_percent=(this.part_financier_percent)
-  let x=this.part_financier_percent=this.quotion(this.produit2(this.part_financier_Montant,100),this.rep_Financement_bq);
-  console.log("percent1",this.part_financier_Montant);
-  console.log("percent2",this.rep_Financement_Fp);
+if(this.part_financier_percent==null &&this.part_financier_Montant!=null)
 
-  console.log("b",this.part_financier_percent);
+  {
 
-  return x;
+  this.part_financier_percent=this.quotion(this.produit2(this.part_financier_Montant,100),this.rep_Financement_bq);
+  console.log("this.part_financier_percent",this.part_financier_percent);
+
+
+
+  return this.part_financier_percent;
 }
   }
-listenPercent(event){
+listenPercent(E,l){
+  console.log("event",E);
 
-  if(this.part_financier_percent==undefined &&this.part_financier_Montant!=undefined)
-  console.log("1182",this.part_financier_Montant);
-  console.log("1183",this.part_financier_percent);
-{this.part_financier_percent=0;
+
+
+ let p_f_m =this.form.value
+
+ console.log("p_f_m",p_f_m);
+
+
+  if(E!=null &&this.part_financier_Montant==null)
+console.log("hello",this.part_financier_percent,this.part_financier_Montant);
+
+{
   this.part_financier_percent=parseFloat(this.part_financier_percent)
-  let x=this.part_financier_Montant=this.produit2(this.part_financier_percent/100,this.financement_Fp())
-  console.log("b",this.produit2(this.part_financier_percent/100,this.financement_Fp()));
+ this.part_financier_Montant=this.produit2(this.part_financier_percent/100,this.financement_Fp())
+  console.log("b",this.part_financier_Montant);
 
-  return x;
+  return this.part_financier_Montant;
 }
 
   }
-  Calcul_Montant_porteur(){
+
+
+  //CAPEX
+  public doughnutChartLabels = ["Etudes", "Gros oeuvres", "Raccordement"];
+  public doughnutChartData = [120, 150, 90];
+  public doughnutChartType = "doughnut";
+
+
+//Navbar Ts
+activeState = "assets/icon/gisement.png";
+
+states = [
+  { name: "Gisement", img: "assets/icon/gisement.png", tabs: "#tab1" },
+  { name: "Scenario", img: "assets/icon/28011.png", tabs: "#tab2" },
+  { name: "Digestat", img: "assets/icon/29011.png", tabs: "#tab3" },
+
+  { name: "Recettes", img: "assets/icon/recette.png", tabs: "#tab4" },
+  { name: "Conception", img: "assets/icon/conception.png", tabs: "#tab5" },
+
+  {
+    name: "Construction",
+    img: "assets/icon/exploitation.png",
+    tabs: "#tab6",
+  },
+  { name: "Exploitation", img: "assets/icon/capex.png", tabs: "#tab7" },
+
+  { name: "CAPEX", img: "assets/icon/opex.png", tabs: "#tab8" },
+  { name: "OPEX", img: "assets/icon/financement.png", tabs: "#tab9" },
+  { name: "Financement", img: "assets/icon/bp.png", tabs: "#tab10" },
+];
+
+setStateAsActive(state) {
+  this.activeState = state;
+}
 
 
 
+ monthDiff(d1, d2) {
+  var months;
+  months = (d2.getFullYear() - d1.getFullYear()) * 12;
+  months -= d1.getMonth() + 1;
+  months += d2.getMonth();
+  return months <= 0 ? 0 : months;
+}
+
+
+ prixdebase=0
+
+ prixtrim=0
+ prixpercent=0
+ prixLineaire=0
+calaculPrixDeBase(val){
+
+ let trimestres =this.monthDiff(new Date(2010, 0, 1),new Date(2010, 2, 12));
+
+ if(trimestres>3){
+console.log(trimestres,this.prixdebase*0.05);
+
+
+  return this.prixtrim=this.prixdebase*0.05
+ }
+
+
+if(this.percent_eff_elevage>0.6){
+  console.log(this.percent_eff_elevage,this.prixdebase + 2);
+  return this.prixpercent=this.prixdebase + 2
+}
+
+
+
+//cond trois
+
+let tabY=[50 ,100 ,150]
+let tabX=[12,2,10,8,10]
+
+let i ,j
+for(i=0;i<tabY.length;i++){
+  for(j=0;j<tabX.length;j++){
+    console.log("1649",this.volume_Nm3_CH4_an)
+    if(this.volume_Nm3_CH4_an<=i) {
+      console.log(this.volume_Nm3_CH4_an,this.prixLineaire=j);
+      return  this.prixLineaire=j
+    }
+    else {
+      console.log(this.volume_Nm3_CH4_an, i + this.quotion(this.prod2((val-j),((i+1)-i)), ((j+1)-j)));
+      return  this.prixLineaire=  i + this.quotion(this.prod2((val-j),((i+1)-i)), ((j+1)-j))
+    }
   }
-  Calcul_percent_porteur(){
-    // let x=this.part_financier_percent=this.produit2(this.part_financier_Montant,100)/this.financement_Fp()
-    // return x;
-  }
-
+}
+console.log(this.prixLineaire+this.prixpercent+this.prixtrim);
+return this.prixLineaire+this.prixpercent+this.prixtrim
+}
 
 
 

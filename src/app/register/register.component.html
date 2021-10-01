@@ -1,0 +1,230 @@
+
+<body class="page-body login-page boxed-layout">
+  <div class="login-container" style="background-color: #2d7574">
+    <div class="login-form">
+      <div class="login-content">
+        <div class="form-login-error">
+          <h3>Invalid login</h3>
+          <p>
+            Enter <strong>demo</strong>/<strong>demo</strong> as login and
+            password.
+          </p>
+        </div>
+
+        <div class="logo">
+          <a>
+            <img src="assets/images/logo-enragri.png" alt="" width="80px" />
+          </a>
+        </div>
+        <p class="description" style="color: white">
+          Bienvenu,inscrivez vous pour acceder à notre espace ENRagri
+        </p>
+
+        <form
+          id="form_login"
+          [formGroup]="formClient"
+          (ngSubmit)="signUpClient()"
+        >
+          <div class="form-group">
+            <div class="input-group" style="background-color: white">
+              <div class="input-group-addon">
+                <i class="entypo-user"></i>
+              </div>
+
+              <input
+                formControlName="nom"
+                style="color: #000"
+                type="text"
+                class="form-control"
+                id="nom"
+                placeholder="nom"
+              />
+            </div>
+            <div
+              *ngIf="fnNom.touched && !fnNom.valid"
+              style="font-size: large; color: red"
+            >
+              <div *ngIf="fnNom.errors.minLength">
+                Nom should be minimum
+                {{ fnNom.errors.minLength.requiredLength }}
+              </div>
+              <div *ngIf="fnNom.errors.maxLength">
+                Nom should be minimum
+                {{ fnNom.errors.maxLength.requiredLength }}
+              </div>
+              <div *ngIf="fnNom.errors.required">Nom is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group" style="background-color: white">
+              <div class="input-group-addon">
+                <i class="entypo-user"></i>
+              </div>
+
+              <input
+                formControlName="prenom"
+                style="color: #000"
+                type="text"
+                class="form-control"
+                id="prenom"
+                placeholder="prenom"
+              />
+            </div>
+            <p
+              *ngIf="fnPrenom.touched && !fnPrenom.valid"
+              style="font-size: large; color: red"
+            >
+              <span *ngIf="fnPrenom.errors.minLength"
+                >Name should be minimum
+                {{ fnPrenom.errors.minLength.requiredLength }}</span
+              >
+              <span *ngIf="fnPrenom.errors.maxLength"
+                >Prenom should be minimum
+                {{ fnPrenom.errors.maxLength.requiredLength }}</span
+              >
+              <span *ngIf="fnPrenom.errors.required">Prenom is required</span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group" style="background-color: white">
+              <div class="input-group-addon">
+                <i class="entypo-mail"></i>
+              </div>
+
+              <input
+                style="color: #000"
+                formControlName="email"
+                type="text"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+              />
+            </div>
+            <p
+              *ngIf="fnEmail.touched && !fnEmail.valid"
+              style="font-size: large; color: red"
+            >
+              <span *ngIf="fnEmail.errors.email">is not an email</span>
+
+              <span *ngIf="fnEmail.errors.required">email is required</span>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group" style="background-color: white">
+              <div class="input-group-addon">
+                <i class="entypo-phone"></i>
+              </div>
+
+              <input
+                style="color: #000"
+                formControlName="tel"
+                type="text"
+                class="form-control"
+                id="Telephone"
+                placeholder="Téléphone"
+              />
+            </div>
+            <div
+              *ngIf="fnTel.touched && !fnTel.valid"
+              style="font-size: large; color: red"
+            >
+              <span *ngIf="fnTel.errors.pattern"
+                >Verifiez votre numero de telephone</span
+              >
+              <span *ngIf="fnTel.errors.required"
+                >Remplisez votre num du Tel</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group" style="background-color: white">
+              <div class="input-group-addon">
+                <i class="entypo-key"></i>
+              </div>
+
+              <input
+                style="color: #000"
+                formControlName="password"
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <p
+              *ngIf="fnPassword.touched && !fnPassword.valid"
+              style="font-size: large; color: red"
+            >
+              <span *ngIf="fnPassword.errors.password"
+                >verifier votre mot de passe</span
+              >
+              <span *ngIf="fnPassword.errors.required"
+                >Remplisez votre mot de passe</span
+              >
+            </p>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group" style="background-color: white">
+              <div class="input-group-addon">
+                <i class="entypo-key"></i>
+              </div>
+
+              <input
+                style="color: #000"
+                formControlName="confirm_password"
+                type="password"
+                class="form-control"
+                name="confirmPassword"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                validateEqual="password"
+              />
+            </div>
+            <p
+              *ngIf="fnConfirmPassword.touched && !fnConfirmPassword.valid"
+              style="font-size: large; color: red"
+            >
+              <span *ngIf="fnConfirmPassword.errors.required"
+                >Remplisez votre mot de passe</span
+              >
+
+              <span *ngIf="fnConfirmPassword.errors.minLength"
+                >Name should be minimum
+                {{ fnConfirmPassword.errors.minLength.requiredLength }}</span
+              >
+              <span *ngIf="fnConfirmPassword.errors.maxLength"
+                >Prenom should be minimum
+                {{ fnConfirmPassword.errors.maxLength.requiredLength }}</span
+              >
+            </p>
+          </div>
+
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-primary btn-block btn-login"
+              style="
+                background-color: #00ae81;
+                text-align: center;
+                border-color: #00ae81;
+              "
+            >
+              <i class="entypo-user-add"></i>
+              Register
+            </button>
+          </div>
+        </form>
+
+        <div class="login-bottom-links">
+          <a [routerLink]="['/login']" class="link">Go to Page Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom scripts (common) -->
+</body>

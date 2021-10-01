@@ -1,3 +1,22 @@
+ul.horizontal {
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+}
+ul.horizontal p {
+  float: left;
+  cursor: pointer;
+  margin-right: 8px;
+}
+ul.horizontal p a {
+  opacity: 0.3;
+}
+ul.horizontal p a.active {
+  opacity: 1;
+}
+
+
+
 .A {
   border: 2px solid red;
 }
@@ -10,22 +29,12 @@
   height: 20px;
   margin: 0 20px;
 }
+
 h3 {
   color: #6b6b6b;
   margin-bottom: 40px;
 }
-.vert-line {
-  border-left: 2px solid #00ae81;
-  display: inline-block;
-  height: 20px;
-  margin: 0 20px;
-}
-.vert-line2 {
-  border-left: 5px solid white;
-  display: inline-block;
-  height: 30px;
-  margin: 0 20px;
-}
+
 .horizontalline {
   width: 100%;
   display: block;
@@ -40,25 +49,8 @@ h1 {
   /* font-family: "Open Sans"; */
 }
 
-.cc {
-  font-family: "Open Sans";
-  font-size: 11;
-  font-style: bold;
-  color: #00ae81;
-}
-.cc1 {
-  font-family: "Open Sans";
-  font-size: 10;
-  font-style: bold;
-  color: #6b6b6b;
-}
 
-.cc2 {
-  font-family: "Open Sans";
-  font-size: 9;
-  font-style: bold;
-  color: #353e41;
-}
+
 .sticky {
   display: flex;
   flex-direction: row;
@@ -70,4 +62,66 @@ h1 {
   top: 83px;
 }
 
+/*CSS CAPEX */
+.btn {
+  width: 100%;
+  background-color: white;
+}
+
+
+.vert-line {
+  border-left: 2px solid #00ae81;
+  display: inline-block;
+  height: 20px;
+  margin: 0 20px;
+}
+
+.vert-line2 {
+  border-left: 5px solid white;
+  display: inline-block;
+  height: 30px;
+  margin: 0 20px;
+}
+
+hr {
+  width: 40%;
+  margin-left: 0px;
+}
+td {
+  text-align: right;
+  vertical-align: middle;
+}
+th {
+  vertical-align: middle;
+}
+
+.cc {
+  font-family: "Open Sans";
+  font-size: 11;
+  font-style: bold;
+  color: #00ae81;
+}
+
+.cc3 {
+  font-family: "Open Sans";
+  font-size: 9;
+  font-style: italic;
+  color: #2d7574;
+}
+.cc1 {
+  font-family: "Open Sans";
+  font-size: 10;
+  font-style: bold;
+  color: #6b6b6b;
+}
+
+
+.vertical-lineOpex{
+  /* border-left: 10px solid #00ae81;
+                display: inline-block;
+                height: 30px;
+                margin: 0 10px; */
+  border-left: thick solid #6b6b6b;
+  margin-right: 8px;
+}
 

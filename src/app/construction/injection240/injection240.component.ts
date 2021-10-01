@@ -1,33 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { AgriService } from 'src/app/services/agri.service';
+import { Component, OnInit } from "@angular/core";
+import { AgriService } from "src/app/services/agri.service";
 
 @Component({
-  selector: 'app-injection240',
-  templateUrl: './injection240.component.html',
-  styleUrls: ['./injection240.component.css']
+  selector: "app-injection240",
+  templateUrl: "./injection240.component.html",
+  styleUrls: ["./injection240.component.css"],
 })
 export class Injection240Component implements OnInit {
-
   conceptions;
   id;
-  constructor(private agriSrv:
-    AgriService) {}
+  constructor(private agriSrv: AgriService) {}
 
   ngOnInit() {
-    this.id = "613b15cef7861b1f908569a2";
+    this.id = "61446b776c0478445c9082e9";
     this.getDataConstruction();
 
     console.log("id", this.id);
   }
   sendInteret(value) {
-    let id = this.conceptions[2]._id;
+    let id = this. conceptions[2]._id;
     //concatination hehi
     //let val = value;
 
     let val = value;
 
     this.agriSrv.updateDataconstructionByID(id, val).subscribe((data) => {
-      console.log("data5",data);
+      console.log("data5", data);
 
       this.getDataConstruction();
     });
@@ -38,13 +36,13 @@ export class Injection240Component implements OnInit {
   getDataConstruction() {
     this.agriSrv.getData().subscribe((data) => {
       this.conceptions = data;
-      // this.id = this.conceptions[2]._id;
+      // this.id = this. conceptions[2]._id;
       console.log("data-conceptions", data);
     });
   }
 
   //1----- Tab240
-  Tab_240:any= {
+  Tab_240: any = {
     Ouverture_chantier: {
       Controle_technique_SPS: {
         SS_Traitance: "",
@@ -98,7 +96,7 @@ export class Injection240Component implements OnInit {
       },
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
 
     //2
@@ -119,7 +117,7 @@ export class Injection240Component implements OnInit {
       },
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
 
     //3
@@ -140,7 +138,7 @@ export class Injection240Component implements OnInit {
       },
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
     //4
     Lot_3_Terrassement_Grande_Masse_Talutage_VRD: {
@@ -154,7 +152,7 @@ export class Injection240Component implements OnInit {
 
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
     //5
     Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple: {
@@ -168,7 +166,7 @@ export class Injection240Component implements OnInit {
 
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
     //6
     Lot_5_Genie_Civil_ouvrages_peripheriques: {
@@ -182,7 +180,7 @@ export class Injection240Component implements OnInit {
 
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
     //7
     Lot_6_Charpente_Batiment_Couverture: {
@@ -196,7 +194,7 @@ export class Injection240Component implements OnInit {
 
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
     //8
     Lot_7_Courant_fort_Soutirage_Electricite_Generale: {
@@ -210,7 +208,7 @@ export class Injection240Component implements OnInit {
 
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
     //9
     Maitrise_oevre: {
@@ -224,7 +222,7 @@ export class Injection240Component implements OnInit {
 
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
     //10
     Assistance_maitrise_ouvrage: {
@@ -238,7 +236,7 @@ export class Injection240Component implements OnInit {
 
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
     //11
     Materiel: {
@@ -274,2102 +272,1164 @@ export class Injection240Component implements OnInit {
 
       Sous_Total_Construction: "",
       Sous_Total_Prix_vente: "",
-       Marge_totaux: "",
+      Marge_totaux: "",
     },
-  }
-  totaux_SS_traitance_Total_240;
-  totaux_marge_Total_240;
-  totaux_prixVente_Total_240;
+    totaux_SS_traitance_Total_240: "",
+    totaux_marge_Total_240: "",
+    totaux_prixVente_Total_240: "",
+  };
+
+
   isNanFunction(val) {
     return isNaN(val) ? 0 : parseFloat(val);
   }
-  sommeDeMarge_chantier() {
-    if (
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance = 0;
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_percent =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_percent);
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_euro =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_euro);
-    }
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
-          .SS_Traitance);
-
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Ouverture_chantier.Controle_technique_SPS
-              .marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-        this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
-            .marge_percent),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_euro
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
-          .marge_euro);
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
-
-    return (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-
-
+  readFromUserElseFromBase(redByUser, redFromBase) {
+    return redByUser ? this.isNanFunction(redByUser) : parseFloat(redFromBase);
   }
-  somme_privVente_chantier(){
 
+  isNullOrVideGetFromBase(val, valueFromBase) {
+    if (val == null || val == "") return parseFloat(valueFromBase);
 
-    if (
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance);;
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale);
-    }
+    return this.readFromUserElseFromBase(val, valueFromBase);
+  }
 
-  var ssTraitance = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance
-  )
-  ? this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance
-    )
-  : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
-      .SS_Traitance);
+  sommeDeMarge_chantier() {
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .SS_Traitance
+        ));
 
-  var marge_totale = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale
-  )
-  ?
-      this.isNanFunction(
-        this.Tab_240.Ouverture_chantier.Controle_technique_SPS
-          .marge_totale)
+    let margePercent =
+      (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_percent,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .marge_percent
+        ));
 
-  :
-  this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
-        .marge_totale);
+    let margeEuro =
+      (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_euro =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_euro,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .marge_euro
+        ));
 
-console.log("l-379 m s p", typeof marge_totale,typeof ssTraitance,typeof this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente)
-  this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep =
-    this.isNanFunction(ssTraitance + marge_totale);
-    console.log("yeeeeessss", this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep);
+    this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale =
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro;
+    return this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale;
+  }
+  somme_privVente_chantier() {
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .SS_Traitance
+        ));
 
-return this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep;
+    var marge_totale =
+      (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .marge_totale
+        ));
 
+    this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep =
+      ssTraitance + marge_totale;
+
+    return this.Tab_240.Ouverture_chantier.Controle_technique_SPS
+      .Prix_vente_Concep;
   }
 
   sommeDeMarge_frais() {
-    if (
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance = 0;
-      this.Tab_240.Ouverture_chantier.Frais_dossier.marge_percent =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.marge_percent);
-      this.Tab_240.Ouverture_chantier.Frais_dossier.marge_euro =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.marge_euro);
-    }
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
+            .SS_Traitance
+        ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
-          .SS_Traitance);
+    let margePercent =
+      (this.Tab_240.Ouverture_chantier.Frais_dossier.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_dossier.marge_percent,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
+            .marge_percent
+        ));
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_dossier.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Ouverture_chantier.Frais_dossier
-              .marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-        this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
-            .marge_percent),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_dossier.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Frais_dossier.marge_euro
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
-          .marge_euro);
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let margeEuro = (this.Tab_240.Ouverture_chantier.Frais_dossier.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.Frais_dossier.marge_euro,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.marge_euro
+      ));
 
     return (this.Tab_240.Ouverture_chantier.Frais_dossier.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-
-
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro);
   }
-  somme_privVente_frais(){
 
+  somme_privVente_frais() {
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
+            .SS_Traitance
+        ));
 
-    if (
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance);
-      this.Tab_240.Ouverture_chantier.Frais_dossier.marge_totale =
+    let marge_totale =
+      (this.Tab_240.Ouverture_chantier.Frais_dossier.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_dossier.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
+            .marge_totale
+        ));
 
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.marge_totale);
-    }
-
-
-
-  var ssTraitance = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance
-  )
-  ? this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance
-    )
-  : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
-      .SS_Traitance);
-
-  var marge_totale = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Frais_dossier.marge_totale
-  )
-  ?
-      this.isNanFunction(
-        this.Tab_240.Ouverture_chantier.Frais_dossier
-          .marge_totale)
-
-  :
-  this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
-        .marge_totale);
-
-
-  return (this.Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep =
-    this.isNanFunction(ssTraitance + marge_totale));
-
-
+    return (this.Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep =
+      ssTraitance + marge_totale);
   }
 
   sommeDeMarge_conseil() {
-    if (
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance = 0;
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_percent =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.marge_percent);
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_euro =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.marge_euro);
-    }
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
+            .SS_Traitance
+        ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
-          .SS_Traitance);
+    let margePercent =
+      (this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_percent,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
+            .marge_percent
+        ));
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Ouverture_chantier.Conseil_suivi
-              .marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-        this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
-            .marge_percent),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_euro
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
-          .marge_euro);
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let margeEuro = (this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_euro,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.marge_euro
+      ));
 
     return (this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-
-
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro);
   }
-  somme_privVente_conseil(){
+  somme_privVente_conseil() {
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
+            .SS_Traitance
+        ));
 
+    let marge_totale =
+      (this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
+            .marge_totale
+        ));
 
-    if (
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance);
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale =
-
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale);
-    }
-
-
-
-  var ssTraitance = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance
-  )
-  ? this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance
-    )
-  : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
-      .SS_Traitance);
-
-  var marge_totale = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale
-  )
-  ?
-      this.isNanFunction(
-        this.Tab_240.Ouverture_chantier.Conseil_suivi
-          .marge_totale)
-
-  :
-  this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
-        .marge_totale);
-
-
-  return (this.Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep =
-    this.isNanFunction(ssTraitance + marge_totale));
-
-
+    return (this.Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep =
+      ssTraitance + marge_totale);
   }
   sommeDeMarge_aleas() {
-    if (
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance = 0;
-      this.Tab_240.Ouverture_chantier.Aleas.marge_percent =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas.marge_percent);
-      this.Tab_240.Ouverture_chantier.Aleas.marge_euro =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas.marge_euro);
-    }
+    let ssTraitance = (this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Aleas.SS_Traitance
+      ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas
-          .SS_Traitance);
+    let margePercent = (this.Tab_240.Ouverture_chantier.Aleas.marge_percent =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.Aleas.marge_percent,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Aleas.marge_percent
+      ));
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Aleas.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Ouverture_chantier.Aleas
-              .marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-        this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas
-            .marge_percent),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Aleas.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Aleas.marge_euro
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas
-          .marge_euro);
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let margeEuro = (this.Tab_240.Ouverture_chantier.Aleas.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.Aleas.marge_euro,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Aleas.marge_euro
+      ));
 
     return (this.Tab_240.Ouverture_chantier.Aleas.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-
-
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro);
   }
-  somme_privVente_aleas(){
+  somme_privVente_aleas() {
+    let ssTraitance = (this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Aleas.SS_Traitance
+      ));
 
+    let marge_totale = (this.Tab_240.Ouverture_chantier.Aleas.marge_totale =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Ouverture_chantier.Aleas.marge_totale,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Aleas.marge_totale
+      ));
 
-    if (
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas.SS_Traitance);
-      this.Tab_240.Ouverture_chantier.Aleas.marge_totale =
-
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas.marge_totale);
-    }
-
-
-
-  var ssTraitance = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance
-  )
-  ? this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance
-    )
-  : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas
-      .SS_Traitance);
-
-  var marge_totale = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Aleas.marge_totale
-  )
-  ?
-      this.isNanFunction(
-        this.Tab_240.Ouverture_chantier.Aleas
-          .marge_totale)
-
-  :
-  this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas
-        .marge_totale);
-
-
-  return (this.Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep =
-    this.isNanFunction(ssTraitance + marge_totale));
-
-
+    return (this.Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep =
+      ssTraitance + marge_totale);
   }
 
   sommeDeMarge_TRCME() {
-    if (
-      this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance = 0;
-      this.Tab_240.Ouverture_chantier.TRCME.marge_percent =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME.marge_percent);
-      this.Tab_240.Ouverture_chantier.TRCME.marge_euro =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME.marge_euro);
-    }
+    let ssTraitance = (this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance,
+        this. conceptions[2].Tab_240.Ouverture_chantier.TRCME.SS_Traitance
+      ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME
-          .SS_Traitance);
+    let margePercent = (this.Tab_240.Ouverture_chantier.TRCME.marge_percent =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.TRCME.marge_percent,
+        this. conceptions[2].Tab_240.Ouverture_chantier.TRCME.marge_percent
+      ));
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.TRCME.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Ouverture_chantier.TRCME
-              .marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-        this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME
-            .marge_percent),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.TRCME.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.TRCME.marge_euro
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME
-          .marge_euro);
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let margeEuro = (this.Tab_240.Ouverture_chantier.TRCME.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.TRCME.marge_euro,
+        this. conceptions[2].Tab_240.Ouverture_chantier.TRCME.marge_euro
+      ));
 
     return (this.Tab_240.Ouverture_chantier.TRCME.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-
-
-  }
-  somme_privVente_TRCME(){
-
-
-    if (
-      this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME.SS_Traitance);
-      this.Tab_240.Ouverture_chantier.TRCME.marge_totale =
-
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME.marge_totale);
-    }
-
-
-
-  var ssTraitance = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance
-  )
-  ? this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance
-    )
-  : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME
-      .SS_Traitance);
-
-  var marge_totale = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.TRCME.marge_totale
-  )
-  ?
-      this.isNanFunction(
-        this.Tab_240.Ouverture_chantier.TRCME
-          .marge_totale)
-
-  :
-  this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME
-        .marge_totale);
-
-
-  return (this.Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep =
-    this.isNanFunction(ssTraitance + marge_totale));
-
-
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro);
   }
 
+  somme_privVente_TRCME() {
+    let ssTraitance = (this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance,
+        this. conceptions[2].Tab_240.Ouverture_chantier.TRCME.SS_Traitance
+      ));
 
- sommeDeMarge_achat() {
-    if (
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance = 0;
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_percent =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.marge_percent);
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_euro =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.marge_euro);
-    }
+    let marge_totale = (this.Tab_240.Ouverture_chantier.TRCME.marge_totale =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Ouverture_chantier.TRCME.marge_totale,
+        this. conceptions[2].Tab_240.Ouverture_chantier.TRCME.marge_totale
+      ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
-          .SS_Traitance);
+    return (this.Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep =
+      ssTraitance + marge_totale);
+  }
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Ouverture_chantier.Achat_Terrain
-              .marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-        this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
-            .marge_percent),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_euro
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
-          .marge_euro);
+  sommeDeMarge_achat() {
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
+            .SS_Traitance
+        ));
 
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let margePercent =
+      (this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_percent,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
+            .marge_percent
+        ));
+
+    let margeEuro = (this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_euro,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.marge_euro
+      ));
 
     return (this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-
-
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro);
   }
-  somme_privVente_achat(){
+  somme_privVente_achat() {
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
+            .SS_Traitance
+        ));
 
+    let marge_totale =
+      (this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
+            .marge_totale
+        ));
 
-    if (
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance);
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale =
-
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale);
-    }
-
-
-
-  var ssTraitance = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance
-  )
-  ? this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance
-    )
-  : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
-      .SS_Traitance);
-
-  var marge_totale = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale
-  )
-  ?
-      this.isNanFunction(
-        this.Tab_240.Ouverture_chantier.Achat_Terrain
-          .marge_totale)
-
-  :
-  this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
-        .marge_totale);
-
-
-  return (this.Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep =
-    this.isNanFunction(ssTraitance + marge_totale));
-
-
+    return (this.Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep =
+      ssTraitance + marge_totale);
   }
 
   sommeDeMarge_notaire() {
-    if (
-      this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance = 0;
-      this.Tab_240.Ouverture_chantier.Frais_notaire.marge_percent =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.marge_percent);
-      this.Tab_240.Ouverture_chantier.Frais_notaire.marge_euro =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.marge_euro);
-    }
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
+            .SS_Traitance
+        ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
-          .SS_Traitance);
+    let margePercent =
+      (this.Tab_240.Ouverture_chantier.Frais_notaire.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_notaire.marge_percent,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
+            .marge_percent
+        ));
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_notaire.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Ouverture_chantier.Frais_notaire
-              .marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-        this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
-            .marge_percent),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_notaire.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Ouverture_chantier.Frais_notaire.marge_euro
-        )
-      : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
-          .marge_euro);
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let margeEuro = (this.Tab_240.Ouverture_chantier.Frais_notaire.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Ouverture_chantier.Frais_notaire.marge_euro,
+        this. conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.marge_euro
+      ));
 
     return (this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-
-
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro);
   }
-  somme_privVente_notaire(){
+  somme_privVente_notaire() {
+    let ssTraitance =
+      (this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
+            .SS_Traitance
+        ));
 
+    let marge_totale =
+      (this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
+            .marge_totale
+        ));
 
-    if (
-      this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance ==
-        "" ||
-      this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance ==
-        null
-    ) {
-      this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance =
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance);
-      this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale =
-
-      this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.marge_totale);
-    }
-
-
-
-  var ssTraitance = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance
-  )
-  ? this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance
-    )
-  : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
-      .SS_Traitance);
-
-  var marge_totale = this.isNanFunction(
-  this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale
-  )
-  ?
-      this.isNanFunction(
-        this.Tab_240.Ouverture_chantier.Frais_notaire
-          .marge_totale)
-
-  :
-  this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
-        .marge_totale);
-
-
-  return (this.Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep =
-    this.isNanFunction(ssTraitance + marge_totale));
-
-
+    return (this.Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep =
+      ssTraitance + marge_totale);
   }
-  someMargeTotaux_TAB1(){
+  someMargeTotaux_TAB1() {
+    let marge_totale_CtrTech =
+      (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .marge_totale
+        ));
 
-    if (
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS
-        .marge_totale == null ||
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS
-        .marge_totale == ""
-    ) {
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS.marge_totale
-        );
+    let marge_totale_Frais_dossier =
+      (this.Tab_240.Ouverture_chantier.Frais_dossier.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_dossier.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
+            .marge_totale
+        ));
+    let marge_totale_Conseil_suivi =
+      (this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
+            .marge_totale
+        ));
+    let marge_totale_Aleas =
+      (this.Tab_240.Ouverture_chantier.Aleas.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Aleas.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Aleas.marge_totale
+        ));
+    let marge_totale_TRCME =
+      (this.Tab_240.Ouverture_chantier.TRCME.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.TRCME.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.TRCME.marge_totale
+        ));
 
-      this.Tab_240.Ouverture_chantier.Frais_dossier.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.marge_totale
-        );
+    let marge_totale_Achat_Terrain =
+      (this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
+            .marge_totale
+        ));
 
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.marge_totale
-        );
+    let marge_totale_Frais_notaire =
+      (this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
+            .marge_totale
+        ));
 
-      this.Tab_240.Ouverture_chantier.Aleas.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Aleas.marge_totale
-        );
-
-        this.Tab_240.Ouverture_chantier.TRCME.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.TRCME.marge_totale
-        );
-        this.Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.marge_totale
-        );
-        this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.marge_totale
-        );
-    }
-
-    var ssTraitance1 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS
-        .marge_totale
-    );
-    var ssTraitance2 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_dossier
-        .marge_totale
-    );
-    var ssTraitance3 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Conseil_suivi
-        .marge_totale
-    );
-    var ssTraitance4 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Aleas
-        .marge_totale
-    );
-    var ssTraitance4 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.TRCME
-        .marge_totale
-    );
-    var ssTraitance4 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Achat_Terrain
-        .marge_totale
-    );
-    var ssTraitance4 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_notaire
-        .marge_totale
-    );
-
-    this.Tab_240.Ouverture_chantier.Marge_totaux = 0;
-    var s0 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Marge_totaux
-    );
     return (this.Tab_240.Ouverture_chantier.Marge_totaux =
-      ssTraitance1 + ssTraitance2 + ssTraitance3 + ssTraitance4);
-
-
-
-
+      marge_totale_CtrTech +
+      marge_totale_Frais_dossier +
+      marge_totale_Conseil_suivi +
+      marge_totale_Aleas +
+      marge_totale_TRCME +
+      marge_totale_Achat_Terrain +
+      marge_totale_Frais_notaire);
   }
-  sommeSoutraitanceTotaux_TAB1(){
-    if (
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS
-        .SS_Traitance == null ||
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS
-        .SS_Traitance == ""
-    ) {
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance
-        );
+  sommeSoutraitanceTotaux_TAB1() {
+    let SS_Traitance_CtrTech =
+      (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Controle_technique_SPS.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .SS_Traitance
+        ));
 
-      this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance
-        );
+    let SS_Traitance_Frais_dossier =
+      (this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_dossier.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
+            .SS_Traitance
+        ));
+    let SS_Traitance_Conseil_suivi =
+      (this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
+            .SS_Traitance
+        ));
+    let SS_Traitance_Aleas =
+      (this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Aleas.SS_Traitance
+        ));
+    let SS_Traitance_TRCME =
+      (this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.TRCME.SS_Traitance
+        ));
 
-      this.Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.SS_Traitance
-        );
+    let SS_Traitance_Achat_Terrain =
+      (this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
+            .SS_Traitance
+        ));
 
-      this.Tab_240.Ouverture_chantier.Aleas.SS_Traitance =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Aleas.SS_Traitance
-        );
+    let SS_Traitance_Frais_notaire =
+      (this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
+            .SS_Traitance
+        ));
 
-        this.Tab_240.Ouverture_chantier.TRCME.SS_Traitance =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.TRCME.SS_Traitance
-        );
-        this.Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.SS_Traitance
-        );
-        this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance
-        );
-    }
-
-    var ssTraitance1 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Controle_technique_SPS
-        .SS_Traitance
-    );
-    var ssTraitance2 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_dossier
-        .SS_Traitance
-    );
-    var ssTraitance3 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Conseil_suivi
-        .SS_Traitance
-    );
-    var ssTraitance4 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Aleas
-        .SS_Traitance
-    );
-    var ssTraitance4 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.TRCME
-        .SS_Traitance
-    );
-    var ssTraitance4 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Achat_Terrain
-        .SS_Traitance
-    );
-    var ssTraitance4 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Frais_notaire
-        .SS_Traitance
-    );
-
-    this.Tab_240.Ouverture_chantier.Sous_Total_Construction = 0;
-    var s0 = this.isNanFunction(
-      this.Tab_240.Ouverture_chantier.Sous_Total_Construction
-    );
     return (this.Tab_240.Ouverture_chantier.Sous_Total_Construction =
-      ssTraitance1 + ssTraitance2 + ssTraitance3 + ssTraitance4);
+      SS_Traitance_CtrTech +
+      SS_Traitance_Frais_dossier +
+      SS_Traitance_Conseil_suivi +
+      SS_Traitance_Aleas +
+      SS_Traitance_TRCME +
+      SS_Traitance_Achat_Terrain +
+      SS_Traitance_Frais_notaire);
   }
-  somePrixDeVneteTotaux_TAB1(){
-    var x= this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente = this.isNanFunction(this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale) +
+  somePrixDeVneteTotaux_TAB1() {
+    let Prix_vente_Concep_CtrTech =
+      (this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS
+            .Prix_vente_Concep
+        ));
 
-    this.isNanFunction(this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance)
- console.log("YYYYYYYYYYYYYYYYYY", x);
+    let Prix_vente_Concep_Frais_dossier =
+      (this.Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier
+            .Prix_vente_Concep
+        ));
+    let Prix_vente_Concep_Conseil_suivi =
+      (this.Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi
+            .Prix_vente_Concep
+        ));
+    let Prix_vente_Concep_Aleas =
+      (this.Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep
+        ));
+    let Prix_vente_Concep_TRCME =
+      (this.Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep
+        ));
 
-    return (this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente =   this.Tab_240.Ouverture_chantier.Frais_notaire.marge_totale +
+    let Prix_vente_Concep_Achat_Terrain =
+      (this.Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain
+            .Prix_vente_Concep
+        ));
 
- this.Tab_240.Ouverture_chantier.Frais_notaire.SS_Traitance);
+    let Prix_vente_Concep_Frais_notaire =
+      (this.Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire
+            .Prix_vente_Concep
+        ));
 
-
-    // if (
-    //   this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep == null ||
-    //   this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep == ""
-    // ) {
-    //   this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep =
-    //   this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep);
-
-    //   this.Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep =
-    //   this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep);
-
-    //   this.Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep =
-    //   this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep);
-
-    //   this.Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep =
-    //   this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep);
-    //   this.Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep =
-    //   this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep);
-    //   this.Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep =
-    //   this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep);
-    //   this.Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep  =
-    //   this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep );
-
-
-    // }
-
-    // var ssTraitance1 = this.isNanFunction(
-    //   this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep
-    // )
-    //   ? this.isNanFunction(
-    //       this.Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep
-    //     )
-    //   : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Controle_technique_SPS.Prix_vente_Concep);
-    // var ssTraitance2 = this.isNanFunction(
-    //   this.Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep
-    // )
-    //   ? this.isNanFunction(
-    //       this.Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep
-    //     )
-    //   : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_dossier.Prix_vente_Concep);
-
-    // var ssTraitance3 = this.isNanFunction(
-    //   this.Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep
-    // )
-    //   ? this.isNanFunction(
-    //       this.Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep
-    //     )
-    //   : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Conseil_suivi.Prix_vente_Concep);
-    // var ssTraitance4 = this.isNanFunction(
-    //   this.Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep
-    // )
-    //   ? this.isNanFunction(
-    //       this.Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep
-    //     )
-    //   : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Aleas.Prix_vente_Concep);
-
-    //   var ssTraitance5 = this.isNanFunction(
-    //     this.Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep
-    //   )
-    //     ? this.isNanFunction(
-    //         this.Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep
-    //       )
-    //     : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.TRCME.Prix_vente_Concep);
-
-    //     var ssTraitance6 = this.isNanFunction(
-    //       this.Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep
-    //     )
-    //       ? this.isNanFunction(
-    //           this.Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep
-    //         )
-    //       : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Achat_Terrain.Prix_vente_Concep);
-
-    //       var ssTraitance7 = this.isNanFunction(
-    //         this.Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep
-    //       )
-    //         ? this.isNanFunction(
-    //             this.Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep
-    //           )
-    //         : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Frais_notaire.Prix_vente_Concep );
-
-
-    // this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente = 0;
-    // var s0 = this.isNanFunction(
-    //   this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente
-    // )
-    //   ? this.isNanFunction(
-    //       this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente
-    //     )
-    //   : this.isNanFunction(this.conceptions[2].Tab_240.Ouverture_chantier.Sous_Total_Prix_vente);
-    //   console.log("nooooooo",this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente);
-
-    // return (this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente =
-
-    //   ssTraitance1+
-    //   ssTraitance2 +
-    //   ssTraitance3 +
-    //   ssTraitance4+
-    //   ssTraitance5+
-    //   ssTraitance6+
-    //   ssTraitance7
-    //   );
-
-
-
+    return (this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente =
+      Prix_vente_Concep_CtrTech +
+      Prix_vente_Concep_Frais_dossier +
+      Prix_vente_Concep_Conseil_suivi +
+      Prix_vente_Concep_Aleas +
+      Prix_vente_Concep_TRCME +
+      Prix_vente_Concep_Achat_Terrain +
+      Prix_vente_Concep_Frais_notaire);
   }
+
   //tab2
   sommeDeMarge_TAB2() {
-    if (
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance == "" ||
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.SS_Traitance = 0;
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_percent =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-            .Process_methanisation.marge_percent
-        );
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_euro =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-            .Process_methanisation.marge_euro
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance
-    )
-      ? this.isNanFunction(
+    let ssTraitance =
+      (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.SS_Traitance =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-            .SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
             .Process_methanisation.SS_Traitance
-        );
-
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-              .marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-              .Process_methanisation.marge_percent
-          ),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_euro
-    )
-      ? this.isNanFunction(
+        ));
+    let marge_euro =
+      (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_euro =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-            .marge_euro
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .marge_euro,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
             .Process_methanisation.marge_euro
-        );
+        ));
 
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let marge_percent =
+      (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
+            .marge_percent,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Process_methanisation.marge_percent
+        ));
 
     return (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
   }
+
   somme_privVente_TAB2() {
-    if (
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance == "" ||
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.SS_Traitance = 0;
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-            .Process_methanisation.marge_totale
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance
-    )
-      ? this.isNanFunction(
+    let ssTraitance =
+      (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.SS_Traitance =
+        this.readFromUserElseFromBase(
           this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-            .SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
             .Process_methanisation.SS_Traitance
-        );
+        ));
 
-    var marge_totale = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .marge_totale
-    )
-      ? this.isNanFunction(
+    let marge_totale =
+      (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_totale =
+        this.readFromUserElseFromBase(
           this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-            .marge_totale
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .marge_totale,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
             .Process_methanisation.marge_totale
-        );
+        ));
 
     return (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.Prix_vente_Concep =
-      this.isNanFunction(ssTraitance + marge_totale));
+      ssTraitance + marge_totale);
   }
 
   sommeDeMarge_2TAB2() {
-    if (
-      this.Tab_240.Lot_1_Process_methanisation
-        .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance == "" ||
-      this.Tab_240.Lot_1_Process_methanisation
-        .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.SS_Traitance = 0;
-      this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.marge_percent =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
+    let ssTraitance =
+      (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance
+        ));
+    let marge_euro =
+      (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.marge_euro =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.marge_euro,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.marge_euro
+        ));
+
+    let marge_percent =
+      (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.marge_percent,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
             .Pieces_usure_premiere_urgence_Lot_1.marge_percent
-        );
-      this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.marge_euro =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-            .Pieces_usure_premiere_urgence_Lot_1.marge_euro
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation
-        .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Lot_1_Process_methanisation
-            .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-            .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance
-        );
-
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation
-        .Pieces_usure_premiere_urgence_Lot_1.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Lot_1_Process_methanisation
-              .Pieces_usure_premiere_urgence_Lot_1.marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-              .Pieces_usure_premiere_urgence_Lot_1.marge_percent
-          ),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation
-        .Pieces_usure_premiere_urgence_Lot_1.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Lot_1_Process_methanisation
-            .Pieces_usure_premiere_urgence_Lot_1.marge_euro
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-            .Pieces_usure_premiere_urgence_Lot_1.marge_euro
-        );
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+        ));
 
     return (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-    //
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
   }
   somme_privVente_2TAB2() {
-    if (
-      this.Tab_240.Lot_1_Process_methanisation
-        .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance == "" ||
-      this.Tab_240.Lot_1_Process_methanisation
-        .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.SS_Traitance = 0;
-      this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_1_Process_methanisation
+    let ssTraitance =
+      (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance
+        ));
+
+    let marge_totale =
+      (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.marge_totale,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
             .Pieces_usure_premiere_urgence_Lot_1.marge_totale
-        );
-    }
+        ));
 
-   return( this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.Prix_vente_Concep =
-      this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation
-          .Pieces_usure_premiere_urgence_Lot_1.marge_totale
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation
-          .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance
-      ));
+    return (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.Prix_vente_Concep =
+      ssTraitance + marge_totale);
   }
-  //
-
 
   someMargeTotaux_TAB2() {
-    this.Tab_240.Lot_1_Process_methanisation.Marge_totaux = 0;
+    let marge_totale_proMetha =
+      (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
+            .marge_totale,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Process_methanisation.marge_totale
+        ));
+
+    let marge_totale_pupul1 =
+      (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.marge_totale,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.marge_totale
+        ));
+
     return (this.Tab_240.Lot_1_Process_methanisation.Marge_totaux =
-      this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation.Marge_totaux
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-          .marge_totale
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation
-          .Pieces_usure_premiere_urgence_Lot_1.marge_totale
-      ) );
+      marge_totale_proMetha + marge_totale_pupul1);
   }
 
   sommeSoutraitanceTotaux_TAB2() {
-    if (
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance == null ||
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance == ""
-    ) {
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.SS_Traitance =
-        this.conceptions[2].Tab_240.Lot_1_Process_methanisation.Process_methanisation.SS_Traitance;
+    let SS_Traitance_proMetha =
+      (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
+            .SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Process_methanisation.SS_Traitance
+        ));
 
-      this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.SS_Traitance =
-        this.conceptions[2].Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.SS_Traitance;
+    let SS_Traitance_pupul1 =
+      (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance
+        ));
 
-
-    }
-
-    var ssTraitance1 = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-        .SS_Traitance
-    );
-    var ssTraitance2 = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation
-        .Pieces_usure_premiere_urgence_Lot_1.SS_Traitance
-    );
-
-
-    this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Construction = 0;
-    var s0 = this.isNanFunction(
-      this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Construction
-    );
     return (this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Construction =
-      s0 + ssTraitance1 + ssTraitance2 );
+      SS_Traitance_proMetha + SS_Traitance_pupul1);
   }
 
   somePrixDeVneteTotaux_TAB2() {
-    this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Prix_vente = 0;
+    let Sous_Total_Prix_vente_proMetha =
+      (this.Tab_240.Lot_1_Process_methanisation.Process_methanisation.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
+            .Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Process_methanisation.Prix_vente_Concep
+        ));
+
+    let Sous_Total_Prix_vente_pupul1 =
+      (this.Tab_240.Lot_1_Process_methanisation.Pieces_usure_premiere_urgence_Lot_1.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Lot_1_Process_methanisation
+            .Pieces_usure_premiere_urgence_Lot_1.Prix_vente_Concep
+        ));
+
     return (this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Prix_vente =
-      this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Prix_vente
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation.Process_methanisation
-          .Prix_vente_Concep
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation
-          .Pieces_usure_premiere_urgence_Lot_1.Prix_vente_Concep
-      ) );
+      Sous_Total_Prix_vente_proMetha + Sous_Total_Prix_vente_pupul1);
   }
   //tab3
 
-
   sommeDeMarge_TAB3() {
-    if (
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .SS_Traitance == "" ||
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.SS_Traitance = 0;
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.marge_percent =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation
-            .Epuration_Compression_Chaudiere.marge_percent
-        );
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.marge_euro =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation
+    let ssTraitance =
+      (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
+            .SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.SS_Traitance
+        ));
+    let marge_euro =
+      (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.marge_euro =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
+            .marge_euro,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
             .Epuration_Compression_Chaudiere.marge_euro
-        );
-    }
+        ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Process_methanisation.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Lot_2_Valorisation.Process_methanisation.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation.Process_methanisation
-            .SS_Traitance
-        );
+    let marge_percent =
+      (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
+            .marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_percent
+        ));
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Process_methanisation.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Lot_2_Valorisation.Process_methanisation.marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_2_Valorisation
-              .Process_methanisation.marge_percent
-          ),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Process_methanisation.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Lot_2_Valorisation.Process_methanisation.marge_euro
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation.Process_methanisation
-            .marge_euro
-        );
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
-
-    return (this.Tab_240.Lot_2_Valorisation.Process_methanisation.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
+    return (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.marge_totale =
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
   }
   somme_privVente_TAB3() {
-    if (
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .SS_Traitance == "" ||
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.SS_Traitance = 0;
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation
-            .Epuration_Compression_Chaudiere.marge_totale
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .SS_Traitance
-    )
-      ? this.isNanFunction(
+    let ssTraitance =
+      (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.SS_Traitance =
+        this.readFromUserElseFromBase(
           this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-            .SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation
+            .SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
             .Epuration_Compression_Chaudiere.SS_Traitance
-        );
+        ));
 
-    var marge_totale = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .marge_totale
-    )
-      ? this.isNanFunction(
+    let marge_totale =
+      (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.marge_totale =
+        this.readFromUserElseFromBase(
           this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-            .marge_totale
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation
+            .marge_totale,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
             .Epuration_Compression_Chaudiere.marge_totale
-        );
+        ));
 
     return (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.Prix_vente_Concep =
-      this.isNanFunction(ssTraitance + marge_totale));
+      ssTraitance + marge_totale);
   }
 
   sommeDeMarge_2TAB3() {
-    if (
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance == "" ||
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance = 0;
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_percent =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
-            .marge_percent
-        );
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_euro =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
-            .marge_euro
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
+    let ssTraitance =
+      (this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
             .SS_Traitance
-        );
+        ));
+    let marge_euro = (this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_euro,
+        this. conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur.marge_euro
+      ));
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
-              .marge_percent
-          ),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_euro
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
-            .marge_euro
-        );
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let marge_percent =
+      (this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
+            .marge_percent
+        ));
 
     return (this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-    //
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
   }
   somme_privVente_2TAB3() {
-    if (
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance == "" ||
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance = 0;
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
-            .marge_totale
-        );
-    }
+    let ssTraitance =
+      (this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
+            .SS_Traitance
+        ));
 
-    return(this.Tab_240.Lot_2_Valorisation.Cogenerateur.Prix_vente_Concep =
-      this.isNanFunction(
-        this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_totale
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance
-      ));
+    let marge_totale =
+      (this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_totale,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
+            .marge_totale
+        ));
+
+    return (this.Tab_240.Lot_2_Valorisation.Cogenerateur.Prix_vente_Concep =
+      ssTraitance + marge_totale);
   }
 
   someMargeTotaux_TAB3() {
-    this.Tab_240.Lot_2_Valorisation.Marge_totaux = 0;
+    let marge_totale_EpuCompChaud =
+      (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
+            .marge_totale,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_totale
+        ));
+
+    let marge_totale_Cogen =
+      (this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_totale,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
+            .marge_totale
+        ));
+
     return (this.Tab_240.Lot_2_Valorisation.Marge_totaux =
-      this.isNanFunction(this.Tab_240.Lot_2_Valorisation.Marge_totaux) +
-      this.isNanFunction(
-        this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-          .marge_totale
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_2_Valorisation.Cogenerateur.marge_totale
-      ));
+      marge_totale_EpuCompChaud + marge_totale_Cogen);
   }
-
+  ///////////////////////////////
   sommeSoutraitanceTotaux_TAB3() {
-    if (
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .SS_Traitance == null ||
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .SS_Traitance == ""
-    ) {
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.SS_Traitance =
-        this.conceptions[2].Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.SS_Traitance;
+    let SS_Traitance_proMetha =
+      (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
+            .SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.SS_Traitance
+        ));
 
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance =
-        this.conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance;
-    }
+    let SS_Traitance_pupul1 =
+      (this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
+            .SS_Traitance
+        ));
 
-    var ssTraitance1 = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-        .SS_Traitance
-    );
-    var ssTraitance2 = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Cogenerateur.SS_Traitance
-    );
-
-    this.Tab_240.Lot_2_Valorisation.Sous_Total_Construction = 0;
-    var s0 = this.isNanFunction(
-      this.Tab_240.Lot_2_Valorisation.Sous_Total_Construction
-    );
     return (this.Tab_240.Lot_2_Valorisation.Sous_Total_Construction =
-      s0 + ssTraitance1 + ssTraitance2);
+      SS_Traitance_proMetha + SS_Traitance_pupul1);
   }
 
   somePrixDeVneteTotaux_TAB3() {
-    this.Tab_240.Lot_2_Valorisation.Sous_Total_Prix_vente = 0;
+    let Sous_Total_Prix_vente_epucc =
+      (this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
+            .Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.Prix_vente_Concep
+        ));
+
+    let Sous_Total_Prix_vente_cog =
+      (this.Tab_240.Lot_2_Valorisation.Cogenerateur.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_2_Valorisation.Cogenerateur.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation.Cogenerateur
+            .Prix_vente_Concep
+        ));
+
     return (this.Tab_240.Lot_2_Valorisation.Sous_Total_Prix_vente =
-      this.isNanFunction(
-        this.Tab_240.Lot_2_Valorisation.Sous_Total_Prix_vente
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_2_Valorisation.Epuration_Compression_Chaudiere
-          .Prix_vente_Concep
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_2_Valorisation.Cogenerateur.Prix_vente_Concep
-      ));
+      Sous_Total_Prix_vente_epucc + Sous_Total_Prix_vente_cog);
   }
   //tab4
   //TAB4
   sommeDeMarge_TAB4() {
-    if (
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance == "" ||
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance = 0;
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.marge_percent =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240
-            .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-            .Terrassement_Grande_Masse_Talutafe_VRD.marge_percent
-        );
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.marge_euro =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240
-            .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-            .Terrassement_Grande_Masse_Talutafe_VRD.marge_euro
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance
-    )
-      ? this.isNanFunction(
+    let ssTraitance =
+      (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-            .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240
+            .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance,
+          this. conceptions[2].Tab_240
             .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
             .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance
-        );
-
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-              .Terrassement_Grande_Masse_Talutafe_VRD.marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-          this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-              .Terrassement_Grande_Masse_Talutafe_VRD.marge_percent
-          ),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.marge_euro
-    )
-      ? this.isNanFunction(
+        ));
+    let marge_euro =
+      (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.marge_euro =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-            .Terrassement_Grande_Masse_Talutafe_VRD.marge_euro
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240
+            .Terrassement_Grande_Masse_Talutafe_VRD.marge_euro,
+          this. conceptions[2].Tab_240
             .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
             .Terrassement_Grande_Masse_Talutafe_VRD.marge_euro
-        );
+        ));
 
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let marge_percent =
+      (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
+            .Terrassement_Grande_Masse_Talutafe_VRD.marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_percent
+        ));
 
     return (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
   }
   somme_privVente_TAB4() {
-    if (
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance == "" ||
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance = 0;
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240
-            .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-            .Terrassement_Grande_Masse_Talutafe_VRD.marge_totale
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance
-    )
-      ? this.isNanFunction(
+    let ssTraitance =
+      (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance =
+        this.readFromUserElseFromBase(
           this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-            .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240
+            .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance,
+          this. conceptions[2].Tab_240
             .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
             .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance
-        );
+        ));
 
-    var marge_totale = this.isNanFunction(
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.marge_totale
-    )
-      ? this.isNanFunction(
+    let marge_totale =
+      (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.marge_totale =
+        this.readFromUserElseFromBase(
           this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-            .Terrassement_Grande_Masse_Talutafe_VRD.marge_totale
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240
+            .Terrassement_Grande_Masse_Talutafe_VRD.marge_totale,
+          this. conceptions[2].Tab_240
             .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
             .Terrassement_Grande_Masse_Talutafe_VRD.marge_totale
-        );
+        ));
 
     return (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.Prix_vente_Concep =
-      this.isNanFunction(ssTraitance + marge_totale));
+      ssTraitance + marge_totale);
   }
 
   someMargeTotaux_TAB4() {
-    this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Marge_totaux = 0;
+    let marge_totale_EpuCompChaud =
+      (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
+            .Terrassement_Grande_Masse_Talutafe_VRD.marge_totale,
+          this. conceptions[2].Tab_240
+            .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
+            .Terrassement_Grande_Masse_Talutafe_VRD.marge_totale
+        ));
+
     return (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Marge_totaux =
-      this.isNanFunction(
-        this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Marge_totaux
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-          .Terrassement_Grande_Masse_Talutafe_VRD.marge_totale
-      ));
+      marge_totale_EpuCompChaud);
   }
 
   sommeSoutraitanceTotaux_TAB4() {
-    if (
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance == null ||
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance == ""
-    ) {
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance =
-        this.conceptions[2].Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance;
-    }
+    let SS_Traitance =
+      (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
+            .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance,
+          this. conceptions[2].Tab_240
+            .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
+            .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance
+        ));
 
-    var ssTraitance1 = this.isNanFunction(
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Terrassement_Grande_Masse_Talutafe_VRD.SS_Traitance
-    );
-
-    this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Sous_Total_Construction = 0;
-    var s0 = this.isNanFunction(
-      this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-        .Sous_Total_Construction
-    );
     return (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Sous_Total_Construction =
-      s0 + ssTraitance1);
+      SS_Traitance);
   }
 
   somePrixDeVneteTotaux_TAB4() {
-    this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Sous_Total_Prix_vente = 0;
+    let Sous_Total_Prix_vente =
+      (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Terrassement_Grande_Masse_Talutafe_VRD.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
+            .Terrassement_Grande_Masse_Talutafe_VRD.Prix_vente_Concep,
+          this. conceptions[2].Tab_240
+            .Lot_3_Terrassement_Grande_Masse_Talutage_VRD
+            .Terrassement_Grande_Masse_Talutafe_VRD.Prix_vente_Concep
+        ));
+
     return (this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Sous_Total_Prix_vente =
-      this.isNanFunction(
-        this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-          .Sous_Total_Prix_vente
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
-          .Terrassement_Grande_Masse_Talutafe_VRD.Prix_vente_Concep
-      ));
+      Sous_Total_Prix_vente);
   }
 
- //TAB 5
+  //TAB 5
 
- sommeDeMarge_TAB5() {
-  if (
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .SS_Traitance == "" ||
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .SS_Traitance == null
-  ) {
-    this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance = 0;
-    this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_percent =
-      this.isNanFunction(
-        this.conceptions[2].Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .marge_percent
-      );
-    this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_euro =
-      this.isNanFunction(
-        this.conceptions[2].Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .marge_euro
-      );
-  }
-
-  var ssTraitance = this.isNanFunction(
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance
-  )
-    ? this.isNanFunction(
-        this.Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .SS_Traitance
-      )
-    : this.isNanFunction(
-        this.conceptions[2].Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .SS_Traitance
-      );
-
-  var margePercent = this.isNanFunction(
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_percent
-  )
-    ? this.quotion(
-        this.isNanFunction(
+  sommeDeMarge_TAB5() {
+    let ssTraitance =
+      (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance =
+        this.isNullOrVideGetFromBase(
           this.Tab_240
             .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
             .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-            .marge_percent
-        ),
-        100
-      )
-    : this.quotion(
-        this.isNanFunction(
-          this.conceptions[2].Tab_240
+            .SS_Traitance,
+          this. conceptions[2].Tab_240
             .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
             .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-            .marge_percent
-        ),
-        100
-      );
-  var margeEuro = this.isNanFunction(
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_euro
-  )
-    ? this.isNanFunction(
-        this.Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .marge_euro
-      )
-    : this.isNanFunction(
-        this.conceptions[2].Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .marge_euro
-      );
+            .SS_Traitance
+        ));
+    let marge_euro =
+      (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_euro =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .marge_euro,
+          this. conceptions[2].Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .marge_euro
+        ));
 
-  console.log(
-    "margePercent margePercent margePercent",
-    margePercent,
-    margeEuro,
-    ssTraitance
-  );
+    let marge_percent =
+      (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_percent
+        ));
 
-  return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_totale =
-    this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-}
-somme_privVente_TAB5() {
-  if (
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .SS_Traitance == "" ||
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .SS_Traitance == null
-  ) {
-    this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance = 0;
-    this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_totale =
-      this.isNanFunction(
-        this.conceptions[2].Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .marge_totale
-      );
+    return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_totale =
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
+  }
+  somme_privVente_TAB5() {
+    let ssTraitance =
+      (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .SS_Traitance,
+          this. conceptions[2].Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .SS_Traitance
+        ));
+
+    let marge_totale =
+      (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .marge_totale,
+          this. conceptions[2].Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .marge_totale
+        ));
+
+    return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.Prix_vente_Concep =
+      ssTraitance + marge_totale);
   }
 
-  var ssTraitance = this.isNanFunction(
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance
-  )
-    ? this.isNanFunction(
-        this.Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .SS_Traitance
-      )
-    : this.isNanFunction(
-        this.conceptions[2].Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .SS_Traitance
-      );
+  someMargeTotaux_TAB5() {
+    let marge_totale_EpuCompChaud =
+      (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .marge_totale,
+          this. conceptions[2].Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .marge_totale
+        ));
 
-  var marge_totale = this.isNanFunction(
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple.marge_totale
-  )
-    ? this.isNanFunction(
-        this.Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .marge_totale
-      )
-    : this.isNanFunction(
-        this.conceptions[2].Tab_240
-          .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-          .marge_totale
-      );
-
-  return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.Prix_vente_Concep =
-    this.isNanFunction(ssTraitance + marge_totale));
-}
-
-someMargeTotaux_TAB5() {
-  this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Marge_totaux = 0;
-  return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Marge_totaux =
-    this.isNanFunction(
-      this.Tab_240
-        .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-        .Marge_totaux
-    ) +
-    this.isNanFunction(
-      this.Tab_240
-        .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-        .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-        .marge_totale
-    ));
-}
-
-sommeSoutraitanceTotaux_TAB5() {
-  if (
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .SS_Traitance == null ||
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .SS_Traitance == ""
-  ) {
-    this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance =
-      this.conceptions[2].Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance;
+    return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Marge_totaux =
+      marge_totale_EpuCompChaud);
   }
 
-  var ssTraitance1 = this.isNanFunction(
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance
-  );
+  sommeSoutraitanceTotaux_TAB5() {
+    let SS_Traitance =
+      (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .SS_Traitance,
+          this. conceptions[2].Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .SS_Traitance
+        ));
 
-  this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Construction = 0;
-  var s0 = this.isNanFunction(
-    this.Tab_240
-      .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-      .Sous_Total_Construction
-  );
-  return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Construction =
-    s0 + ssTraitance1);
-}
+    return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Construction =
+      SS_Traitance);
+  }
 
-somePrixDeVneteTotaux_TAB5() {
-  this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Prix_vente = 0;
-  return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Prix_vente =
-    this.isNanFunction(
-      this.Tab_240
-        .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-        .Sous_Total_Prix_vente
-    ) +
-    this.isNanFunction(
-      this.Tab_240
-        .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
-        .Genie_Civil_circulaire_digestat_liquide_couverture_simple
-        .Prix_vente_Concep
-    ));
-}
+  somePrixDeVneteTotaux_TAB5() {
+    let Sous_Total_Prix_vente =
+      (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Genie_Civil_circulaire_digestat_liquide_couverture_simple.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Prix_vente_Concep,
+          this. conceptions[2].Tab_240
+            .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Genie_Civil_circulaire_digestat_liquide_couverture_simple
+            .Prix_vente_Concep
+        ));
 
+    return (this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Prix_vente =
+      Sous_Total_Prix_vente);
+  }
 
   //TAB 6
   sommeDeMarge_TAB6() {
-    if (
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance == "" ||
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.SS_Traitance = 0;
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.marge_percent =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-            .Genie_Civil_ouvrages_peripheriques.marge_percent
-        );
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.marge_euro =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-            .Genie_Civil_ouvrages_peripheriques.marge_euro
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance
-    )
-      ? this.isNanFunction(
+    let ssTraitance =
+      (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.SS_Traitance =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
+            .Genie_Civil_ouvrages_peripheriques.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
             .Genie_Civil_ouvrages_peripheriques.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-            .Genie_Civil_ouvrages_peripheriques.SS_Traitance
-        );
-
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-              .Genie_Civil_ouvrages_peripheriques.marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-          this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_5_Genie_Civil_ouvrages_peripheriques
-              .Genie_Civil_ouvrages_peripheriques.marge_percent
-          ),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.marge_euro
-    )
-      ? this.isNanFunction(
+        ));
+    let marge_euro =
+      (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.marge_euro =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
+            .Genie_Civil_ouvrages_peripheriques.marge_euro,
+          this. conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
             .Genie_Civil_ouvrages_peripheriques.marge_euro
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-            .Genie_Civil_ouvrages_peripheriques.marge_euro
-        );
+        ));
 
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let marge_percent =
+      (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
+            .Genie_Civil_ouvrages_peripheriques.marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_percent
+        ));
 
     return (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
   }
   somme_privVente_TAB6() {
-    if (
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance == "" ||
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance == null
-    ) {
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.SS_Traitance = 0;
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-            .Genie_Civil_ouvrages_peripheriques.marge_totale
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance
-    )
-      ? this.isNanFunction(
+    let ssTraitance =
+      (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.SS_Traitance =
+        this.readFromUserElseFromBase(
           this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
+            .Genie_Civil_ouvrages_peripheriques.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
             .Genie_Civil_ouvrages_peripheriques.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-            .Genie_Civil_ouvrages_peripheriques.SS_Traitance
-        );
+        ));
 
-    var marge_totale = this.isNanFunction(
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.marge_totale
-    )
-      ? this.isNanFunction(
+    let marge_totale =
+      (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.marge_totale =
+        this.readFromUserElseFromBase(
           this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
+            .Genie_Civil_ouvrages_peripheriques.marge_totale,
+          this. conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
             .Genie_Civil_ouvrages_peripheriques.marge_totale
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-            .Genie_Civil_ouvrages_peripheriques.marge_totale
-        );
+        ));
 
     return (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.Prix_vente_Concep =
-      this.isNanFunction(ssTraitance + marge_totale));
+      ssTraitance + marge_totale);
   }
 
   someMargeTotaux_TAB6() {
@@ -2385,28 +1445,17 @@ somePrixDeVneteTotaux_TAB5() {
   }
 
   sommeSoutraitanceTotaux_TAB6() {
-    if (
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance == null ||
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance == ""
-    ) {
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.SS_Traitance =
-        this.conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.SS_Traitance;
-    }
+    let SS_Traitance =
+      (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Genie_Civil_ouvrages_peripheriques.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
+            .Genie_Civil_ouvrages_peripheriques.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
+            .Genie_Civil_ouvrages_peripheriques.SS_Traitance
+        ));
 
-    var ssTraitance1 = this.isNanFunction(
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Genie_Civil_ouvrages_peripheriques.SS_Traitance
-    );
-
-    this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Sous_Total_Construction = 0;
-    var s0 = this.isNanFunction(
-      this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
-        .Sous_Total_Construction
-    );
     return (this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Sous_Total_Construction =
-      s0 + ssTraitance1);
+      SS_Traitance);
   }
 
   somePrixDeVneteTotaux_TAB6() {
@@ -2422,457 +1471,244 @@ somePrixDeVneteTotaux_TAB5() {
       ));
   }
 
-    //TAB 7
+  //TAB 7
 
-    sommeDeMarge_TAB7() {
-      if (
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance == "" ||
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance == null
-      ) {
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.SS_Traitance = 0;
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.marge_percent =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.marge_percent
-          );
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.marge_euro =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.marge_euro
-          );
-      }
-
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.SS_Traitance
-          );
-
-      var margePercent = this.isNanFunction(
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.marge_percent
-      )
-        ? this.quotion(
-            this.isNanFunction(
-              this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-                .Charpente_Batiment_Couverture.marge_percent
-            ),
-            100
-          )
-        : this.quotion(
-            this.isNanFunction(
-              this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
-                .Charpente_Batiment_Couverture.marge_percent
-            ),
-            100
-          );
-      var margeEuro = this.isNanFunction(
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.marge_euro
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.marge_euro
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.marge_euro
-          );
-
-      console.log(
-        "margePercent margePercent margePercent",
-        margePercent,
-        margeEuro,
-        ssTraitance
-      );
-
-      return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.marge_totale =
-        this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-    }
-    somme_privVente_TAB7() {
-      if (
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance == "" ||
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance == null
-      ) {
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.SS_Traitance = 0;
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.marge_totale =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.marge_totale
-          );
-      }
-
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.SS_Traitance
-          );
-
-      var marge_totale = this.isNanFunction(
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.marge_totale
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.marge_totale
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
-              .Charpente_Batiment_Couverture.marge_totale
-          );
-
-      return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.Prix_vente_Concep =
-        this.isNanFunction(ssTraitance + marge_totale));
-    }
-
-    someMargeTotaux_TAB7() {
-      this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux = 0;
-      return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux =
-        this.isNanFunction(
-          this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux
-        ) +
-        this.isNanFunction(
+  sommeDeMarge_TAB7() {
+    let ssTraitance =
+      (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.SS_Traitance =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.SS_Traitance
+        ));
+    let marge_euro =
+      (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.marge_euro =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.marge_euro,
+          this. conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.marge_euro
+        ));
+
+    let marge_percent =
+      (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_percent
+        ));
+
+    return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.marge_totale =
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
+  }
+  somme_privVente_TAB7() {
+    let ssTraitance =
+      (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.SS_Traitance
+        ));
+
+    let marge_totale =
+      (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.marge_totale,
+          this. conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
             .Charpente_Batiment_Couverture.marge_totale
         ));
-    }
 
-    sommeSoutraitanceTotaux_TAB7() {
-      if (
+    return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.Prix_vente_Concep =
+      ssTraitance + marge_totale);
+  }
+
+  someMargeTotaux_TAB7() {
+    this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux = 0;
+    return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux =
+      this.isNanFunction(
+        this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux
+      ) +
+      this.isNanFunction(
         this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance == null ||
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance == ""
-      ) {
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.SS_Traitance =
-          this.conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.SS_Traitance;
-      }
+          .Charpente_Batiment_Couverture.marge_totale
+      ));
+  }
 
-      var ssTraitance1 = this.isNanFunction(
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-          .Charpente_Batiment_Couverture.SS_Traitance
-      );
-
-      this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Construction = 0;
-      var s0 = this.isNanFunction(
-        this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Construction
-      );
-      return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Construction =
-        s0 + ssTraitance1);
-    }
-
-    somePrixDeVneteTotaux_TAB7() {
-      this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Prix_vente = 0;
-      return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Prix_vente =
-        this.isNanFunction(
+  sommeSoutraitanceTotaux_TAB7() {
+    let SS_Traitance =
+      (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.SS_Traitance =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_6_Charpente_Batiment_Couverture
-            .Sous_Total_Prix_vente
-        ) +
-        this.isNanFunction(
+            .Charpente_Batiment_Couverture.SS_Traitance,
+          this. conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.SS_Traitance
+        ));
+
+    return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Construction =
+      SS_Traitance);
+  }
+
+  somePrixDeVneteTotaux_TAB7() {
+    let Sous_Total_Prix_vente =
+      (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Charpente_Batiment_Couverture.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_6_Charpente_Batiment_Couverture
+            .Charpente_Batiment_Couverture.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Lot_6_Charpente_Batiment_Couverture
             .Charpente_Batiment_Couverture.Prix_vente_Concep
         ));
-    }
 
+    return (this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Prix_vente =
+      Sous_Total_Prix_vente);
+  }
 
-    //TAB 8
-    sommeDeMarge_TAB8() {
-      if (
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance == "" ||
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance == null
-      ) {
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.SS_Traitance = 0;
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.marge_percent =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.marge_percent
-          );
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.marge_euro =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.marge_euro
-          );
-      }
-
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
-          );
-
-      var margePercent = this.isNanFunction(
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.marge_percent
-      )
-        ? this.quotion(
-            this.isNanFunction(
-              this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-                .Courant_fort_Soutirage_Electricite_Generale.marge_percent
-            ),
-            100
-          )
-        : this.quotion(
-            this.isNanFunction(
-              this.conceptions[2].Tab_240
-                .Lot_7_Courant_fort_Soutirage_Electricite_Generale
-                .Courant_fort_Soutirage_Electricite_Generale.marge_percent
-            ),
-            100
-          );
-      var margeEuro = this.isNanFunction(
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.marge_euro
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.marge_euro
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.marge_euro
-          );
-
-      console.log(
-        "margePercent margePercent margePercent",
-        margePercent,
-        margeEuro,
-        ssTraitance
-      );
-
-      return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.marge_totale =
-        this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-    }
-    somme_privVente_TAB8() {
-      if (
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance == "" ||
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance == null
-      ) {
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.SS_Traitance = 0;
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.marge_totale =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.marge_totale
-          );
-      }
-
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
-          );
-
-      var marge_totale = this.isNanFunction(
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.marge_totale
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.marge_totale
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240
-              .Lot_7_Courant_fort_Soutirage_Electricite_Generale
-              .Courant_fort_Soutirage_Electricite_Generale.marge_totale
-          );
-
-      return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.Prix_vente_Concep =
-        this.isNanFunction(ssTraitance + marge_totale));
-    }
-
-    someMargeTotaux_TAB8() {
-      this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Marge_totaux = 0;
-      return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Marge_totaux =
-        this.isNanFunction(
+  //TAB 8
+  sommeDeMarge_TAB8() {
+    let ssTraitance =
+      (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.SS_Traitance =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-            .Marge_totaux
-        ) +
-        this.isNanFunction(
+            .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance,
+          this. conceptions[2].Tab_240
+            .Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
+        ));
+    let marge_euro =
+      (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.marge_euro =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.marge_euro,
+          this. conceptions[2].Tab_240
+            .Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.marge_euro
+        ));
+
+    let marge_percent =
+      (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_percent
+        ));
+
+    return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.marge_totale =
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
+  }
+  somme_privVente_TAB8() {
+    let ssTraitance =
+      (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance,
+          this. conceptions[2].Tab_240
+            .Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
+        ));
+
+    let marge_totale =
+      (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.marge_totale,
+          this. conceptions[2].Tab_240
+            .Lot_7_Courant_fort_Soutirage_Electricite_Generale
             .Courant_fort_Soutirage_Electricite_Generale.marge_totale
         ));
-    }
 
-    sommeSoutraitanceTotaux_TAB8() {
-      if (
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance == null ||
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance == ""
-      ) {
-        this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.SS_Traitance =
-          this.conceptions[2].Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.SS_Traitance;
-      }
+    return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.Prix_vente_Concep =
+      ssTraitance + marge_totale);
+  }
 
-      var ssTraitance1 = this.isNanFunction(
+  someMargeTotaux_TAB8() {
+    this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Marge_totaux = 0;
+    return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Marge_totaux =
+      this.isNanFunction(
         this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
-      );
-
-      this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Construction = 0;
-      var s0 = this.isNanFunction(
+          .Marge_totaux
+      ) +
+      this.isNanFunction(
         this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-          .Sous_Total_Construction
-      );
-      return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Construction =
-        s0 + ssTraitance1);
-    }
+          .Courant_fort_Soutirage_Electricite_Generale.marge_totale
+      ));
+  }
 
-    somePrixDeVneteTotaux_TAB8() {
-      this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Prix_vente = 0;
-      return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Prix_vente =
-        this.isNanFunction(
+  sommeSoutraitanceTotaux_TAB8() {
+    let SS_Traitance =
+      (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.SS_Traitance =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
-            .Sous_Total_Prix_vente
-        ) +
-        this.isNanFunction(
+            .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance,
+          this. conceptions[2].Tab_240
+            .Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.SS_Traitance
+        ));
+
+    return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Construction =
+      SS_Traitance);
+  }
+
+  somePrixDeVneteTotaux_TAB8() {
+    let Sous_Total_Prix_vente =
+      (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Courant_fort_Soutirage_Electricite_Generale.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
           this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
+            .Courant_fort_Soutirage_Electricite_Generale.Prix_vente_Concep,
+          this. conceptions[2].Tab_240
+            .Lot_7_Courant_fort_Soutirage_Electricite_Generale
             .Courant_fort_Soutirage_Electricite_Generale.Prix_vente_Concep
         ));
-    }
-      //TAB 9
+
+    return (this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Prix_vente =
+      Sous_Total_Prix_vente);
+  }
+  //TAB 9
   sommeDeMarge_TAB9() {
-    if (
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance == "" ||
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance == null
-    ) {
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance = 0;
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_percent =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre
-            .marge_percent
-        );
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_euro =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre.marge_euro
-        );
-    }
+    let ssTraitance = (this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance,
+        this. conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance
+      ));
+    let marge_euro = (this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_euro,
+        this. conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre.marge_euro
+      ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre
-            .SS_Traitance
-        );
-
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre
-              .marge_percent
-          ),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_euro
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre.marge_euro
-        );
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let marge_percent =
+      (this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_percent
+        ));
 
     return (this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
   }
   somme_privVente_TAB9() {
-    if (
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance == "" ||
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance == null
-    ) {
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance = 0;
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre
-            .marge_totale
-        );
-    }
+    let ssTraitance = (this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance,
+        this. conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance
+      ));
 
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre
-            .SS_Traitance
-        );
-
-    var marge_totale = this.isNanFunction(
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_totale
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_totale
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre
-            .marge_totale
-        );
+    let marge_totale =
+      (this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Maitrise_oevre.Maitrise_oevre.marge_totale,
+          this. conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre.marge_totale
+        ));
 
     return (this.Tab_240.Maitrise_oevre.Maitrise_oevre.Prix_vente_Concep =
-      this.isNanFunction(ssTraitance + marge_totale));
+      ssTraitance + marge_totale);
   }
 
   someMargeTotaux_TAB9() {
@@ -2885,142 +1721,76 @@ somePrixDeVneteTotaux_TAB5() {
   }
 
   sommeSoutraitanceTotaux_TAB9() {
-    if (
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance == null ||
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance == ""
-    ) {
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance =
-        this.conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance;
-    }
+    let SS_Traitance =
+      (this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance,
+          this. conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance
+        ));
 
-    var ssTraitance1 = this.isNanFunction(
-      this.Tab_240.Maitrise_oevre.Maitrise_oevre.SS_Traitance
-    );
-
-    this.Tab_240.Maitrise_oevre.Sous_Total_Construction = 0;
-    var s0 = this.isNanFunction(
-      this.Tab_240.Maitrise_oevre.Sous_Total_Construction
-    );
-    return (this.Tab_240.Maitrise_oevre.Sous_Total_Construction =
-      s0 + ssTraitance1);
+    return (this.Tab_240.Maitrise_oevre.Sous_Total_Construction = SS_Traitance);
   }
 
   somePrixDeVneteTotaux_TAB9() {
-    this.Tab_240.Maitrise_oevre.Sous_Total_Prix_vente = 0;
+    let Sous_Total_Prix_vente =
+      (this.Tab_240.Maitrise_oevre.Maitrise_oevre.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Maitrise_oevre.Maitrise_oevre.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Maitrise_oevre.Maitrise_oevre
+            .Prix_vente_Concep
+        ));
+
     return (this.Tab_240.Maitrise_oevre.Sous_Total_Prix_vente =
-      this.isNanFunction(
-        this.Tab_240.Maitrise_oevre.Sous_Total_Prix_vente
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Maitrise_oevre.Maitrise_oevre.Prix_vente_Concep
-      ));
+      Sous_Total_Prix_vente);
   }
 
   //TAB 10
 
   sommeDeMarge_TAB10() {
-    if (
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance == "" ||
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance == null
-    ) {
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance = 0;
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_percent =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
-            .marge_percent
-        );
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_euro =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
-            .marge_euro
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
+    let ssTraitance =
+      (this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance,
+          this. conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
             .SS_Traitance
-        );
+        ));
+    let marge_euro = (this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_euro,
+        this. conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO.marge_euro
+      ));
 
-    var margePercent = this.isNanFunction(
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_percent
-    )
-      ? this.quotion(
-          this.isNanFunction(
-            this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_percent
-          ),
-          100
-        )
-      : this.quotion(
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
-              .marge_percent
-          ),
-          100
-        );
-    var margeEuro = this.isNanFunction(
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_euro
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_euro
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
-            .marge_euro
-        );
-
-    console.log(
-      "margePercent margePercent margePercent",
-      margePercent,
-      margeEuro,
-      ssTraitance
-    );
+    let marge_percent =
+      (this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_percent,
+          this. conceptions[2].Tab_240.Lot_2_Valorisation
+            .Epuration_Compression_Chaudiere.marge_percent
+        ));
 
     return (this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_totale =
-      this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
+      this.produit2(ssTraitance, this.quotion(marge_percent, 100)) +
+      marge_euro);
   }
   somme_privVente_TAB10() {
-    if (
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance == "" ||
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance == null
-    ) {
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance = 0;
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_totale =
-        this.isNanFunction(
-          this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
-            .marge_totale
-        );
-    }
-
-    var ssTraitance = this.isNanFunction(
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
+    let ssTraitance =
+      (this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance,
+          this. conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
             .SS_Traitance
-        );
+        ));
 
-    var marge_totale = this.isNanFunction(
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_totale
-    )
-      ? this.isNanFunction(
-          this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_totale
-        )
-      : this.isNanFunction(
-          this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
+    let marge_totale =
+      (this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Assistance_maitrise_ouvrage.AMO.marge_totale,
+          this. conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
             .marge_totale
-        );
+        ));
 
     return (this.Tab_240.Assistance_maitrise_ouvrage.AMO.Prix_vente_Concep =
-      this.isNanFunction(ssTraitance + marge_totale));
+      ssTraitance + marge_totale);
   }
 
   someMargeTotaux_TAB10() {
@@ -3035,540 +1805,455 @@ somePrixDeVneteTotaux_TAB5() {
   }
 
   sommeSoutraitanceTotaux_TAB10() {
-    if (
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance == null ||
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance == ""
-    ) {
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance =
-        this.conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance;
-    }
+    let SS_Traitance =
+      (this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance,
+          this. conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
+            .SS_Traitance
+        ));
 
-    var ssTraitance1 = this.isNanFunction(
-      this.Tab_240.Assistance_maitrise_ouvrage.AMO.SS_Traitance
-    );
-
-    this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Construction = 0;
-    var s0 = this.isNanFunction(
-      this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Construction
-    );
     return (this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Construction =
-      s0 + ssTraitance1);
+      SS_Traitance);
   }
 
   somePrixDeVneteTotaux_TAB10() {
-    this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Prix_vente = 0;
+    let Sous_Total_Prix_vente =
+      (this.Tab_240.Assistance_maitrise_ouvrage.AMO.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Assistance_maitrise_ouvrage.AMO.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Assistance_maitrise_ouvrage.AMO
+            .Prix_vente_Concep
+        ));
+
     return (this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Prix_vente =
-      this.isNanFunction(
-        this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Prix_vente
-      ) +
-      this.isNanFunction(
-        this.Tab_240.Assistance_maitrise_ouvrage.AMO.Prix_vente_Concep
-      ));
+      Sous_Total_Prix_vente);
   }
-    //TAB 11
 
+  //TAB 11
 
-    sommeDeMarge_TAB11() {
-      if (
-        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance == "" ||
-        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance == null
-      ) {
-        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance = 0;
-        this.Tab_240.Materiel.Matrriels_agricoles.marge_percent =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Matrriels_agricoles
-              .marge_percent
-          );
-        this.Tab_240.Materiel.Matrriels_agricoles.marge_euro = this.isNanFunction(
-          this.conceptions[2].Tab_240.Materiel.Matrriels_agricoles.marge_euro
-        );
-      }
+  sommeDeMarge_TAB11() {
+    let ssTraitance = (this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance,
+        this. conceptions[2].Tab_240.Materiel.Matrriels_agricoles.SS_Traitance
+      ));
 
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Matrriels_agricoles.SS_Traitance
-          );
-
-      var margePercent = this.isNanFunction(
-        this.Tab_240.Materiel.Matrriels_agricoles.marge_percent
-      )
-        ? this.quotion(
-            this.isNanFunction(
-              this.Tab_240.Materiel.Matrriels_agricoles.marge_percent
-            ),
-            100
-          )
-        : this.quotion(
-            this.isNanFunction(
-              this.conceptions[2].Tab_240.Materiel.Matrriels_agricoles
-                .marge_percent
-            ),
-            100
-          );
-      var margeEuro = this.isNanFunction(
-        this.Tab_240.Materiel.Matrriels_agricoles.marge_euro
-      )
-        ? this.isNanFunction(this.Tab_240.Materiel.Matrriels_agricoles.marge_euro)
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Matrriels_agricoles.marge_euro
-          );
-
-      console.log(
-        "margePercent margePercent margePercent",
-        margePercent,
-        margeEuro,
-        ssTraitance
-      );
-
-      return (this.Tab_240.Materiel.Matrriels_agricoles.marge_totale =
-        this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-    }
-
-    somme_privVente_TAB11() {
-      if (
-        this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles
-          .SS_Traitance == "" ||
-        this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles
-          .SS_Traitance == null
-      ) {
-        this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles.SS_Traitance = 0;
-        this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles.marge_totale =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Matrriels_agricoles.Process_methanisation
-              .marge_totale
-          );
-      }
-
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles
-              .SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-              .Matrriels_agricoles.SS_Traitance
-          );
-
-      var marge_totale = this.isNanFunction(
-        this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles.marge_totale
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles
-              .marge_totale
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Lot_1_Process_methanisation
-              .Matrriels_agricoles.marge_totale
-          );
-
-      return (this.Tab_240.Lot_1_Process_methanisation.Matrriels_agricoles.Prix_vente_Concep =
-        this.isNanFunction(ssTraitance + marge_totale));
-    }
-
-    sommeDeMarge_2TAB11() {
-      if (
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance == "" ||
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance == null
-      ) {
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance = 0;
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_percent =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
-              .marge_percent
-          );
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_euro =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
-              .marge_euro
-          );
-      }
-
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
-              .SS_Traitance
-          );
-
-      var margePercent = this.isNanFunction(
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_percent
-      )
-        ? this.quotion(
-            this.isNanFunction(
-              this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_percent
-            ),
-            100
-          )
-        : this.quotion(
-            this.isNanFunction(
-              this.conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
-                .marge_percent
-            ),
-            100
-          );
-      var margeEuro = this.isNanFunction(
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_euro
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_euro
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
-              .marge_euro
-          );
-
-      console.log(
-        "margePercent margePercent margePercent",
-        margePercent,
-        margeEuro,
-        ssTraitance
-      );
-
-      return (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale =
-        this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-
-      //
-    }
-    somme_privVente_2TAB1() {
-      if (
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance == "" ||
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance == null
-      ) {
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance = 0;
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
-              .marge_totale
-          );
-      }
-
-      return(this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.Prix_vente_Concep =
-        this.isNanFunction(
-          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale
-        ) +
-        this.isNanFunction(
-          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance
+    let margePercent =
+      (this.Tab_240.Materiel.Matrriels_agricoles.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Matrriels_agricoles.marge_percent,
+          this. conceptions[2].Tab_240.Materiel.Matrriels_agricoles.marge_percent
         ));
-    }
 
-    sommeDeMarge_3TAB11() {
-      if (
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance == "" ||
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance == null
-      ) {
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance = 0;
-        this.Tab_240.Materiel.Hygenisiation.marge_percent = this.isNanFunction(
-          this.conceptions[2].Tab_240.Materiel.Hygenisiation.marge_percent
-        );
-        this.Tab_240.Materiel.Hygenisiation.marge_euro = this.isNanFunction(
-          this.conceptions[2].Tab_240.Materiel.Hygenisiation.marge_euro
-        );
-      }
+    let margeEuro = (this.Tab_240.Materiel.Matrriels_agricoles.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Matrriels_agricoles.marge_euro,
+        this. conceptions[2].Tab_240.Materiel.Matrriels_agricoles.marge_euro
+      ));
 
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance
-      )
-        ? this.isNanFunction(this.Tab_240.Materiel.Hygenisiation.SS_Traitance)
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Hygenisiation.SS_Traitance
-          );
+    this.Tab_240.Materiel.Matrriels_agricoles.marge_totale =
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro;
+    return this.Tab_240.Materiel.Matrriels_agricoles.marge_totale;
+  }
 
-      var margePercent = this.isNanFunction(
-        this.Tab_240.Materiel.Hygenisiation.marge_percent
-      )
-        ? this.quotion(
-            this.isNanFunction(this.Tab_240.Materiel.Hygenisiation.marge_percent),
-            100
-          )
-        : this.quotion(
-            this.isNanFunction(
-              this.conceptions[2].Tab_240.Materiel.Hygenisiation.marge_percent
-            ),
-            100
-          );
-      var margeEuro = this.isNanFunction(
-        this.Tab_240.Materiel.Hygenisiation.marge_euro
-      )
-        ? this.isNanFunction(this.Tab_240.Materiel.Hygenisiation.marge_euro)
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Hygenisiation.marge_euro
-          );
+  somme_privVente_TAB11() {
+    let ssTraitance = (this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance,
+        this. conceptions[2].Tab_240.Materiel.Matrriels_agricoles.SS_Traitance
+      ));
 
-      console.log(
-        "margePercent margePercent margePercent",
-        margePercent,
-        margeEuro,
-        ssTraitance
-      );
+    var marge_totale = (this.Tab_240.Materiel.Matrriels_agricoles.marge_totale =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Materiel.Matrriels_agricoles.marge_totale,
+        this. conceptions[2].Tab_240.Materiel.Matrriels_agricoles.marge_totale
+      ));
 
-      return (this.Tab_240.Materiel.Hygenisiation.marge_totale =
-        this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-    }
-    somme_privVente_3TAB11() {
-      if (
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance == "" ||
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance == null
-      ) {
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance = 0;
-        this.Tab_240.Materiel.Hygenisiation.marge_totale = this.isNanFunction(
-          this.conceptions[2].Tab_240.Materiel.Hygenisiation.marge_totale
-        );
-      }
+    this.Tab_240.Materiel.Matrriels_agricoles.Prix_vente_Concep =
+      ssTraitance + marge_totale;
 
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance
-      )
-        ? this.isNanFunction(this.Tab_240.Materiel.Hygenisiation.SS_Traitance)
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Hygenisiation.SS_Traitance
-          );
+    return this.Tab_240.Materiel.Matrriels_agricoles.Prix_vente_Concep;
+  }
 
-      var marge_totale = this.isNanFunction(
-        this.Tab_240.Materiel.Hygenisiation.marge_totale
-      )
-        ? this.isNanFunction(this.Tab_240.Materiel.Hygenisiation.marge_totale)
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Hygenisiation.marge_totale
-          );
-
-      return (this.Tab_240.Materiel.Hygenisiation.Prix_vente_Concep =
-        this.isNanFunction(ssTraitance + marge_totale));
-    }
-
-    sommeDeMarge_4TAB11() {
-      if (
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance == "" ||
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance == null
-      ) {
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance = 0;
-        this.Tab_240.Materiel.Semi_remorque_44_t.marge_percent =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_percent
-          );
-        this.Tab_240.Materiel.Semi_remorque_44_t.marge_euro = this.isNanFunction(
-          this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_euro
-        );
-      }
-
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
-          );
-
-      var margePercent = this.isNanFunction(
-        this.Tab_240.Materiel.Semi_remorque_44_t.marge_percent
-      )
-        ? this.quotion(
-            this.isNanFunction(
-              this.Tab_240.Materiel.Semi_remorque_44_t.marge_percent
-            ),
-            100
-          )
-        : this.quotion(
-            this.isNanFunction(
-              this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t
-                .marge_percent
-            ),
-            100
-          );
-      var margeEuro = this.isNanFunction(
-        this.Tab_240.Materiel.Semi_remorque_44_t.marge_euro
-      )
-        ? this.isNanFunction(this.Tab_240.Materiel.Semi_remorque_44_t.marge_euro)
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_euro
-          );
-
-      console.log(
-        "margePercent margePercent margePercent",
-        margePercent,
-        margeEuro,
-        ssTraitance
-      );
-
-      return (this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale =
-        this.isNanFunction(this.produit2(ssTraitance, margePercent) + margeEuro));
-    }
-    somme_privVente_4TAB11() {
-      if (
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance == "" ||
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance == null
-      ) {
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance = 0;
-        this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale =
-          this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_totale
-          );
-      }
-
-      var ssTraitance = this.isNanFunction(
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
-          );
-
-      var marge_totale = this.isNanFunction(
-        this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale
-      )
-        ? this.isNanFunction(
-            this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale
-          )
-        : this.isNanFunction(
-            this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_totale
-          );
-
-      return (this.Tab_240.Materiel.Semi_remorque_44_t.Prix_vente_Concep =
-        this.isNanFunction(ssTraitance + marge_totale));
-    }
-
-
-
-    someMargeTotaux_TAB11() {
-      this.Tab_240.Materiel.Marge_totaux = 0;
-      return (this.Tab_240.Materiel.Marge_totaux =
-        this.isNanFunction(this.Tab_240.Materiel.Marge_totaux) +
-        this.isNanFunction(
-          this.Tab_240.Materiel.Matrriels_agricoles.marge_totale
-        ) +
-        this.isNanFunction(
-          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale
-        ) +
-        this.isNanFunction(this.Tab_240.Materiel.Hygenisiation.marge_totale) +
-        this.isNanFunction(
-          this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale
+  sommeDeMarge_2TAB11() {
+    let ssTraitance =
+      (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance,
+          this. conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+            .SS_Traitance
         ));
-    }
 
-    sommeSoutraitanceTotaux_TAB11() {
-      if (
-        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance == null ||
-        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance == ""
-      ) {
-        this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance =
-          this.conceptions[2].Tab_240.Materiel.Matrriels_agricoles.SS_Traitance;
-
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance =
-          this.conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance;
-
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance =
-          this.conceptions[2].Tab_240.Materiel.Hygenisiation.SS_Traitance;
-
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance =
-          this.conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance;
-      }
-
-      var ssTraitance1 = this.isNanFunction(
-        this.Tab_240.Materiel.Process_methanisation.SS_Traitance
-      );
-      var ssTraitance2 = this.isNanFunction(
-        this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance
-      );
-      var ssTraitance3 = this.isNanFunction(
-        this.Tab_240.Materiel.Hygenisiation.SS_Traitance
-      );
-      var ssTraitance4 = this.isNanFunction(
-        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
-      );
-      this.Tab_240.Materiel.Sous_Total_Construction = 0;
-      var s0 = this.isNanFunction(this.Tab_240.Materiel.Sous_Total_Construction);
-      return (this.Tab_240.Materiel.Sous_Total_Construction =
-        s0 + ssTraitance1 + ssTraitance2 + ssTraitance3 + ssTraitance4);
-    }
-
-    somePrixDeVneteTotaux_TAB11() {
-      this.Tab_240.Materiel.Sous_Total_Prix_vente = 0;
-      return (this.Tab_240.Materiel.Sous_Total_Prix_vente =
-        this.isNanFunction(this.Tab_240.Materiel.Sous_Total_Prix_vente) +
-        this.isNanFunction(
-          this.Tab_240.Materiel.Matrriels_agricoles.Prix_vente_Concep
-        ) +
-        this.isNanFunction(
-          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.Prix_vente_Concep
-        ) +
-        this.isNanFunction(
-          this.Tab_240.Materiel.Hygenisiation.Prix_vente_Concep
-        ) +
-        this.isNanFunction(
-          this.Tab_240.Materiel.Semi_remorque_44_t.Prix_vente_Concep
+    let margePercent =
+      (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_percent =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_percent,
+          this. conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+            .marge_percent
         ));
-    }
 
-    SommeTotal_totaux_SS_Traitance(){
-      this.totaux_SS_traitance_Total_240=0
-      console.log("rrrrrrrr",this.totaux_SS_traitance_Total_240);
+    let margeEuro =
+      (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_euro =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_euro,
+          this. conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+            .marge_euro
+        ));
 
-     return (this.totaux_SS_traitance_Total_240=
-      this.isNanFunction(this.Tab_240.Ouverture_chantier.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.Lot_2_Valorisation.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.sercurisation_gaziers.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Construction)+
+    this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale =
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro;
+    return this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale;
+  }
 
-      this.isNanFunction(this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.Maitrise_oevre.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Construction)+
-      this.isNanFunction(this.Tab_240.Materiel.Sous_Total_Construction)
+  somme_privVente_2TAB1() {
+    let ssTraitance =
+      (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance,
+          this. conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+            .SS_Traitance
+        ));
 
-     );
-    }
-    SommeTotal_totaux_Prix_Vente_totaux(){
-      this.totaux_prixVente_Total_240=0
-      return (this.totaux_prixVente_Total_240=
-       this.isNanFunction(this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Lot_2_Valorisation.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Prix_vente)
-       +
-       this.isNanFunction(this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Maitrise_oevre.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Prix_vente)+
-       this.isNanFunction(this.Tab_240.Materiel.Sous_Total_Prix_vente)
+    var marge_totale =
+      (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale =
+        this.readFromUserElseFromBase(
+          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale,
+          this. conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+            .marge_totale
+        ));
 
-      );
-    }
-    SommeTotal_totaux_Marge_totaux(){
-      this.totaux_marge_Total_240=0
-      return (this.totaux_marge_Total_240=
-       this.isNanFunction(this.Tab_240.Ouverture_chantier.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.Lot_1_Process_methanisation.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.Lot_2_Valorisation.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.sercurisation_gaziers.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux)
-       +
-       this.isNanFunction(this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.Maitrise_oevre.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.Assistance_maitrise_ouvrage.Marge_totaux)+
-       this.isNanFunction(this.Tab_240.Materiel.Marge_totaux)
+    this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.Prix_vente_Concep =
+      ssTraitance + marge_totale;
 
-      );
-    }
+    return this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+      .Prix_vente_Concep;
+  }
+  sommeDeMarge_3TAB11() {
+    let ssTraitance = (this.Tab_240.Materiel.Hygenisiation.SS_Traitance =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Hygenisiation.SS_Traitance,
+        this. conceptions[2].Tab_240.Materiel.Hygenisiation.SS_Traitance
+      ));
+
+    let margePercent = (this.Tab_240.Materiel.Hygenisiation.marge_percent =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Hygenisiation.marge_percent,
+        this. conceptions[2].Tab_240.Materiel.Hygenisiation.marge_percent
+      ));
+
+    let margeEuro = (this.Tab_240.Materiel.Hygenisiation.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Hygenisiation.marge_euro,
+        this. conceptions[2].Tab_240.Materiel.Hygenisiation.marge_euro
+      ));
+
+    this.Tab_240.Materiel.Hygenisiation.marge_totale =
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro;
+    return this.Tab_240.Materiel.Hygenisiation.marge_totale;
+  }
+
+  somme_privVente_3TAB11() {
+    let ssTraitance = (this.Tab_240.Materiel.Hygenisiation.SS_Traitance =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Materiel.Hygenisiation.SS_Traitance,
+        this. conceptions[2].Tab_240.Materiel.Hygenisiation.SS_Traitance
+      ));
+
+    var marge_totale = (this.Tab_240.Materiel.Hygenisiation.marge_totale =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Materiel.Hygenisiation.marge_totale,
+        this. conceptions[2].Tab_240.Materiel.Hygenisiation.marge_totale
+      ));
+
+    this.Tab_240.Materiel.Hygenisiation.Prix_vente_Concep =
+      ssTraitance + marge_totale;
+
+    return this.Tab_240.Materiel.Hygenisiation.Prix_vente_Concep;
+  }
+  sommeDeMarge_4TAB11() {
+    let ssTraitance = (this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance,
+        this. conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
+      ));
+
+    let margePercent = (this.Tab_240.Materiel.Semi_remorque_44_t.marge_percent =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Semi_remorque_44_t.marge_percent,
+        this. conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_percent
+      ));
+
+    let margeEuro = (this.Tab_240.Materiel.Semi_remorque_44_t.marge_euro =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Semi_remorque_44_t.marge_euro,
+        this. conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_euro
+      ));
+
+    this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale =
+      this.produit2(ssTraitance, this.quotion(margePercent, 100)) + margeEuro;
+    return this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale;
+  }
+  somme_privVente_4TAB11() {
+    let ssTraitance = (this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance,
+        this. conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
+      ));
+
+    var marge_totale = (this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale =
+      this.readFromUserElseFromBase(
+        this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale,
+        this. conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_totale
+      ));
+
+    this.Tab_240.Materiel.Semi_remorque_44_t.Prix_vente_Concep =
+      ssTraitance + marge_totale;
+
+    return this.Tab_240.Materiel.Semi_remorque_44_t.Prix_vente_Concep;
+  }
+
+  ////
+  someMargeTotaux_TAB11() {
+    let marge_totale = (this.Tab_240.Materiel.Matrriels_agricoles.marge_totale =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Matrriels_agricoles.marge_totale,
+        this. conceptions[2].Tab_240.Materiel.Matrriels_agricoles.marge_totale
+      ));
+
+    let marge_totale_ =
+      (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.marge_totale,
+          this. conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+            .marge_totale
+        ));
+    let marge_totale__ = (this.Tab_240.Materiel.Hygenisiation.marge_totale =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Hygenisiation.marge_totale,
+        this. conceptions[2].Tab_240.Materiel.Hygenisiation.marge_totale
+      ));
+    let _marge_totale = (this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale =
+      this.isNullOrVideGetFromBase(
+        this.Tab_240.Materiel.Semi_remorque_44_t.marge_totale,
+        this. conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.marge_totale
+      ));
+
+    return (this.Tab_240.Materiel.Marge_totaux =
+      marge_totale + marge_totale_ + marge_totale__ + _marge_totale);
+  }
+
+  sommeSoutraitanceTotaux_TAB11() {
+    let SS_Traitance_CtrTech =
+      (this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Matrriels_agricoles.SS_Traitance,
+          this. conceptions[2].Tab_240.Materiel.Matrriels_agricoles.SS_Traitance
+        ));
+
+    let SS_Traitance_Frais_dossier =
+      (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.SS_Traitance,
+          this. conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+            .SS_Traitance
+        ));
+    let SS_Traitance_Conseil_suivi =
+      (this.Tab_240.Materiel.Hygenisiation.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Hygenisiation.SS_Traitance,
+          this. conceptions[2].Tab_240.Materiel.Hygenisiation.SS_Traitance
+        ));
+    let SS_Traitance_Aleas =
+      (this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance,
+          this. conceptions[2].Tab_240.Materiel.Semi_remorque_44_t.SS_Traitance
+        ));
+
+    return (this.Tab_240.Materiel.Sous_Total_Construction =
+      SS_Traitance_CtrTech +
+      SS_Traitance_Frais_dossier +
+      SS_Traitance_Conseil_suivi +
+      SS_Traitance_Aleas);
+  }
+
+  somePrixDeVneteTotaux_TAB11() {
+    let Prix_vente_Concep_CtrTech =
+      (this.Tab_240.Materiel.Matrriels_agricoles.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Matrriels_agricoles.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Materiel.Matrriels_agricoles
+            .Prix_vente_Concep
+        ));
+
+    let Prix_vente_Concep_Frais_dossier =
+      (this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Pont_bascule_Reserve_Incendie.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Materiel.Pont_bascule_Reserve_Incendie
+            .Prix_vente_Concep
+        ));
+    let Prix_vente_Concep_Conseil_suivi =
+      (this.Tab_240.Materiel.Hygenisiation.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Hygenisiation.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Materiel.Hygenisiation.Prix_vente_Concep
+        ));
+    let Prix_vente_Concep_Aleas =
+      (this.Tab_240.Materiel.Semi_remorque_44_t.Prix_vente_Concep =
+        this.isNullOrVideGetFromBase(
+          this.Tab_240.Materiel.Semi_remorque_44_t.Prix_vente_Concep,
+          this. conceptions[2].Tab_240.Materiel.Semi_remorque_44_t
+            .Prix_vente_Concep
+        ));
+
+    return (this.Tab_240.Materiel.Sous_Total_Prix_vente =
+      Prix_vente_Concep_CtrTech +
+      Prix_vente_Concep_Frais_dossier +
+      Prix_vente_Concep_Conseil_suivi +
+      Prix_vente_Concep_Aleas);
+  }
+
+  // SommeTotal_totaux_SS_Traitance() {
+  //   return (this.totaux_SS_traitance_Total =
+  //     this.sommeSoutraitanceTotaux_TAB11() +
+  //     this.sommeSoutraitanceTotaux_TAB10() +
+  //     this.sommeSoutraitanceTotaux_TAB9() +
+  //     this.sommeSoutraitanceTotaux_TAB8() +
+  //     this.sommeSoutraitanceTotaux_TAB7() +
+  //     this.sommeSoutraitanceTotaux_TAB6() +
+  //     this.sommeSoutraitanceTotaux_TAB5() +
+  //     this.sommeSoutraitanceTotaux_TAB4() +
+  //     this.sommeSoutraitanceTotaux_TAB3() +
+  //     this.sommeSoutraitanceTotaux_TAB2() +
+  //     this.sommeSoutraitanceTotaux_TAB1());
+  // }
+  // SommeTotal_totaux_Prix_Vente_totaux() {
+  //   this.totaux_prixVente_Total = 0;
+  //   return (this.totaux_prixVente_Total =
+  //     this.isNanFunction(
+  //       this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_2_Valorisation.Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD
+  //         .Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Tab_240
+  //         .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+  //         .Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques
+  //         .Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
+  //         .Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(this.Tab_240.Maitrise_oevre.Sous_Total_Prix_vente) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Prix_vente
+  //     ) +
+  //     this.isNanFunction(this.Tab_240.Materiel.Sous_Total_Prix_vente));
+  // }
+  // SommeTotal_totaux_Marge_totaux() {
+  //   this.totaux_marge_Total = 0;
+  //   return (this.totaux_marge_Total =
+  //     this.isNanFunction(this.Tab_240.Ouverture_chantier.Marge_totaux) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_1_Process_methanisation.Marge_totaux
+  //     ) +
+  //     this.isNanFunction(this.Tab_240.Lot_2_Valorisation.Marge_totaux) +
+  //     this.isNanFunction(this.Tab_240.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Marge_totaux) +
+  //     this.isNanFunction(
+  //       this.Tab_240
+  //         .Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple
+  //         .Marge_totaux
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Marge_totaux
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux
+  //     ) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale
+  //         .Marge_totaux
+  //     ) +
+  //     this.isNanFunction(this.Tab_240.Maitrise_oevre.Marge_totaux) +
+  //     this.isNanFunction(
+  //       this.Tab_240.Assistance_maitrise_ouvrage.Marge_totaux
+  //     ) +
+  //     this.isNanFunction(this.Tab_240.Materiel.Marge_totaux));
+  // }
+  SommeTotal_totaux_SS_Traitance(){
+    this.Tab_240.totaux_SS_traitance_Total_240=0
+
+
+   return (this.Tab_240.totaux_SS_traitance_Total_240=
+    this.isNanFunction(this.Tab_240.Ouverture_chantier.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Lot_2_Valorisation.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Conception)+
+
+    this.isNanFunction(this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Maitrise_oevre.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Conception)+
+    this.isNanFunction(this.Tab_240.Materiel.Sous_Total_Conception)
+
+   );
+  }
+  SommeTotal_totaux_Prix_Vente_totaux(){
+    this.Tab_240.totaux_prixVente_Total_240=0
+    return (this.Tab_240.totaux_prixVente_Total_240=
+     this.isNanFunction(this.Tab_240.Ouverture_chantier.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Lot_1_Process_methanisation.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Lot_2_Valorisation.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Sous_Total_Prix_vente_Concep)+
+
+     this.isNanFunction(this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Maitrise_oevre.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Assistance_maitrise_ouvrage.Sous_Total_Prix_vente_Concep)+
+     this.isNanFunction(this.Tab_240.Materiel.Sous_Total_Prix_vente_Concep)
+
+    );
+  }
+  SommeTotal_totaux_Marge_totaux(){
+    this.Tab_240.totaux_marge_Total_240=0
+    return (this.Tab_240.totaux_marge_Total_240=
+     this.isNanFunction(this.Tab_240.Ouverture_chantier.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Lot_1_Process_methanisation.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Lot_2_Valorisation.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Lot_3_Terrassement_Grande_Masse_Talutage_VRD.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Lot_5_Genie_Civil_ouvrages_peripheriques.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Lot_6_Charpente_Batiment_Couverture.Marge_totaux)+
+
+     this.isNanFunction(this.Tab_240.Lot_7_Courant_fort_Soutirage_Electricite_Generale.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Maitrise_oevre.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Assistance_maitrise_ouvrage.Marge_totaux)+
+     this.isNanFunction(this.Tab_240.Materiel.Marge_totaux)
+
+    );
+  }
+
 
 
   /******* PRODUIT QUOTAION */
@@ -3581,6 +2266,4 @@ somePrixDeVneteTotaux_TAB5() {
   quotion(x, y) {
     return x / y;
   }
-
-
 }

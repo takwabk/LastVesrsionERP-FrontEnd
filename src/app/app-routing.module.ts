@@ -29,11 +29,14 @@ import { Exploitation560Component } from "./exploitation/exploitation560/exploit
 import { Exploitation760Component } from "./exploitation/exploitation760/exploitation760.component";
 import { Exploitation960Component } from "./exploitation/exploitation960/exploitation960.component";
 import { FicheProjetComponent } from "./fiche-projet/fiche-projet.component";
+import { LoginComponent } from "./login/login.component";
 import { OpexComponent } from "./opex/opex.component";
+import { RegisterComponent } from "./register/register.component";
 import { ScenarioComponent } from "./scenario/scenario.component";
 
 const routes: Routes = [
   {
+
     path: "",
     component: LayoutComponent,
 
@@ -65,13 +68,15 @@ const routes: Routes = [
       { path: "cogeneration760", component: Cogeneration760Component },
       { path: "cogeneration960", component: Cogeneration960Component },
       { path: "cogeneration1120", component: Cogeneration1120Component },
-      { path: "capex", component: CapexComponent },
-      { path: "opex", component: OpexComponent },
+      // { path: "capex", component: CapexComponent },
+      // { path: "opex", component: OpexComponent },
       { path: "affichage", component: AffichageComponent },
       { path: "scenario", component: ScenarioComponent },
       { path: "projet", component: FicheProjetComponent },
     ],
   },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
 ];
 
 @NgModule({
