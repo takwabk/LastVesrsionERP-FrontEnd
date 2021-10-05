@@ -664,7 +664,7 @@ export class DonnesConstructionComponent implements OnInit {
   }
 
   sommeDeMarge_TAB2() {
-    this.margeLigne(this.Etude_biomasse_projet.Cibler_besoins_complementaires_nutritionnels,
+    return this.margeLigne(this.Etude_biomasse_projet.Cibler_besoins_complementaires_nutritionnels,
     this.conceptions[0].Etude_biomasse_projet.Cibler_besoins_complementaires_nutritionnels )
 
 
@@ -679,17 +679,17 @@ export class DonnesConstructionComponent implements OnInit {
 
   sommeDeMarge2TAB2() {
 
-    this.margeLigne(this.Etude_biomasse_projet.Rapport_etude_approfondi_pouvoir_meethanogeene,this.conceptions[0].Etude_biomasse_projet.Rapport_etude_approfondi_pouvoir_meethanogeene)
+    return this.margeLigne(this.Etude_biomasse_projet.Rapport_etude_approfondi_pouvoir_meethanogeene,this.conceptions[0].Etude_biomasse_projet.Rapport_etude_approfondi_pouvoir_meethanogeene)
 
 
   }
   somme_privVente2TAB2() {
-    this.prixdeventeLigne(this.Etude_biomasse_projet.Rapport_etude_approfondi_pouvoir_meethanogeene,
+    return this.prixdeventeLigne(this.Etude_biomasse_projet.Rapport_etude_approfondi_pouvoir_meethanogeene,
     this.conceptions[0].Etude_biomasse_projet.Rapport_etude_approfondi_pouvoir_meethanogeene)
   }
 
   sommeDeMarge3TAB2() {
-    this.margeLigne(this.Etude_biomasse_projet.Apport_supplementaire_intrants_reseau_ENR_Agri,
+   return  this.margeLigne(this.Etude_biomasse_projet.Apport_supplementaire_intrants_reseau_ENR_Agri,
       this.conceptions[0].Etude_biomasse_projet.Apport_supplementaire_intrants_reseau_ENR_Agri)
 
 
@@ -697,7 +697,7 @@ export class DonnesConstructionComponent implements OnInit {
   }
   somme_privVente3TAB2() {
 
-      this.prixdeventeLigne(this.Etude_biomasse_projet.Apport_supplementaire_intrants_reseau_ENR_Agri,
+     return  this.prixdeventeLigne(this.Etude_biomasse_projet.Apport_supplementaire_intrants_reseau_ENR_Agri,
       this.conceptions[0].Etude_biomasse_projet.Apport_supplementaire_intrants_reseau_ENR_Agri )
 
   }
@@ -705,11 +705,11 @@ export class DonnesConstructionComponent implements OnInit {
 
 
   sommeDeMarge4TAB2() {
-    this.margeLigne(this.Etude_biomasse_projet.Assistance_juridique_Apporteur_substrat_SPV,this.conceptions[0].Etude_biomasse_projet
+    return this.margeLigne(this.Etude_biomasse_projet.Assistance_juridique_Apporteur_substrat_SPV,this.conceptions[0].Etude_biomasse_projet
     .Assistance_juridique_Apporteur_substrat_SPV)
   }
   somme_privVente4TAB2() {
-    this.prixdeventeLigne(this.Etude_biomasse_projet.Assistance_juridique_Apporteur_substrat_SPV,this.conceptions[0].Etude_biomasse_projet
+    return this.prixdeventeLigne(this.Etude_biomasse_projet.Assistance_juridique_Apporteur_substrat_SPV,this.conceptions[0].Etude_biomasse_projet
     .Assistance_juridique_Apporteur_substrat_SPV)
   }
 
@@ -896,51 +896,51 @@ export class DonnesConstructionComponent implements OnInit {
 
   sommeDeMarge_foncier() {
 
-    this.margeLigne(this.Etude_fonciere_projet.Optimisation_emplacement_site,this.conceptions[0].Etude_fonciere_projet
+    return this.margeLigne(this.Etude_fonciere_projet.Optimisation_emplacement_site,this.conceptions[0].Etude_fonciere_projet
       .Optimisation_emplacement_site)
 
   }
   somme_privVente_foncier() {
 
-    this.prixdeventeLigne(this.Etude_fonciere_projet.Optimisation_emplacement_site,this.conceptions[0].Etude_fonciere_projet
+   return  this.prixdeventeLigne(this.Etude_fonciere_projet.Optimisation_emplacement_site,this.conceptions[0].Etude_fonciere_projet
       .Optimisation_emplacement_site)
   }
 
   sommeDeMarge_foncier1() {
 
-    this.margeLigne(this.Etude_fonciere_projet.Releve_topographique,this.conceptions[0].Etude_fonciere_projet.Releve_topographique)
+    return this.margeLigne(this.Etude_fonciere_projet.Releve_topographique,this.conceptions[0].Etude_fonciere_projet.Releve_topographique)
 
   }
   somme_privVente_foncier1() {
-    this.prixdeventeLigne(this.Etude_fonciere_projet.Releve_topographique,this.conceptions[0].Etude_fonciere_projet.Releve_topographique)
+    return this.prixdeventeLigne(this.Etude_fonciere_projet.Releve_topographique,this.conceptions[0].Etude_fonciere_projet.Releve_topographique)
 
   }
 
   sommeDeMarge_foncier2() {
-    this.margeLigne(this.Etude_fonciere_projet.Rapport_geometre,this.conceptions[0].Etude_fonciere_projet.Rapport_geometre)
+    return this.margeLigne(this.Etude_fonciere_projet.Rapport_geometre,this.conceptions[0].Etude_fonciere_projet.Rapport_geometre)
 
   }
   somme_privVente_foncier2() {
-    this.prixdeventeLigne(this.Etude_fonciere_projet.Rapport_geometre,this.conceptions[0].Etude_fonciere_projet.Rapport_geometre)
+    return this.prixdeventeLigne(this.Etude_fonciere_projet.Rapport_geometre,this.conceptions[0].Etude_fonciere_projet.Rapport_geometre)
 
   }
 
   sommeDeMarge_foncier3() {
-    this.margeLigne(this.Etude_fonciere_projet.Plan_masse,this.conceptions[0].Etude_fonciere_projet.Plan_masse)
+    return this.margeLigne(this.Etude_fonciere_projet.Plan_masse,this.conceptions[0].Etude_fonciere_projet.Plan_masse)
 
   }
   somme_privVente_foncier3() {
-    this.prixdeventeLigne(this.Etude_fonciere_projet.Plan_masse, this.conceptions[0].Etude_fonciere_projet.Plan_masse)
+   return  this.prixdeventeLigne(this.Etude_fonciere_projet.Plan_masse, this.conceptions[0].Etude_fonciere_projet.Plan_masse)
 
   }
 
   sommeDeMarge_foncier4() {
-    this.margeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_primaire,this.conceptions[0].Etude_fonciere_projet
+    return this.margeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_primaire,this.conceptions[0].Etude_fonciere_projet
       .Analyse_geotechnique_primaire)
 
   }
   somme_privVente_foncier4() {
-    this.prixdeventeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_primaire,this.conceptions[0].Etude_fonciere_projet
+    return this.prixdeventeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_primaire,this.conceptions[0].Etude_fonciere_projet
       .Analyse_geotechnique_primaire)
   }
 
@@ -949,12 +949,12 @@ export class DonnesConstructionComponent implements OnInit {
 
   sommeDeMarge_foncier5() {
 
-    this.margeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_primaire,this.conceptions[0].Etude_fonciere_projet.Analyse_geotechnique_primaire)
+    return this.margeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_primaire,this.conceptions[0].Etude_fonciere_projet.Analyse_geotechnique_primaire)
 
     //
   }
   somme_privVente_foncier5() {
-    this.prixdeventeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_primaire,this.conceptions[0].Etude_fonciere_projet
+    return this.prixdeventeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_primaire,this.conceptions[0].Etude_fonciere_projet
       .Analyse_geotechnique_primaire)
 
   }
@@ -963,22 +963,22 @@ export class DonnesConstructionComponent implements OnInit {
 
   sommeDeMarge_foncier6() {
 
-    this.margeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_approfondie,this.conceptions[0].Etude_fonciere_projet.Analyse_geotechnique_approfondie)
+    return this.margeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_approfondie,this.conceptions[0].Etude_fonciere_projet.Analyse_geotechnique_approfondie)
 
     //
   }
   somme_privVente_foncier6() {
-    this.prixdeventeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_approfondie,this.conceptions[0].Etude_fonciere_projet
+    return this.prixdeventeLigne(this.Etude_fonciere_projet.Analyse_geotechnique_approfondie,this.conceptions[0].Etude_fonciere_projet
       .Analyse_geotechnique_approfondie)
 
   }
   sommeDeMarge_foncier7() {
-    this.margeLigne( this.Etude_fonciere_projet
+    return this.margeLigne( this.Etude_fonciere_projet
       .Assistance_juridique_aupres_notaire_Proprietaire_foncier_SPV,this.conceptions[0].Etude_fonciere_projet.Assistance_juridique_aupres_notaire_Proprietaire_foncier_SPV)
 
   }
   somme_privVente_foncier7() {
-    this.prixdeventeLigne(this.Etude_fonciere_projet
+    return this.prixdeventeLigne(this.Etude_fonciere_projet
       .Assistance_juridique_aupres_notaire_Proprietaire_foncier_SPV,this.conceptions[0].Etude_fonciere_projet
       .Assistance_juridique_aupres_notaire_Proprietaire_foncier_SPV)
 
@@ -1210,30 +1210,30 @@ export class DonnesConstructionComponent implements OnInit {
     Marge_totaux: "",
   };
   sommeDeMarge_gaz1() {
-this.margeLigne(this.sercurisation_gaziers.etude_detaille_reseau_transport__distribution_gaz,
+return this.margeLigne(this.sercurisation_gaziers.etude_detaille_reseau_transport__distribution_gaz,
   this.conceptions[0].sercurisation_gaziers.etude_detaille_reseau_transport__distribution_gaz)
 
   }
   somme_privVente_gaz1() {
-    this.prixdeventeLigne(this.sercurisation_gaziers.etude_detaille_reseau_transport__distribution_gaz,
+    return this.prixdeventeLigne(this.sercurisation_gaziers.etude_detaille_reseau_transport__distribution_gaz,
       this.conceptions[0].sercurisation_gaziers.etude_detaille_reseau_transport__distribution_gaz)
 
   }
 
   sommeDeMarge_gaz2() {
-    this.margeLigne(this.sercurisation_gaziers.Convention_raccordement_gestionnaire_reseau,this.conceptions[0].sercurisation_gaziers.Convention_raccordement_gestionnaire_reseau)
+    return this.margeLigne(this.sercurisation_gaziers.Convention_raccordement_gestionnaire_reseau,this.conceptions[0].sercurisation_gaziers.Convention_raccordement_gestionnaire_reseau)
   }
   somme_privVente_gaz2() {
-    this.prixdeventeLigne(this.sercurisation_gaziers.Convention_raccordement_gestionnaire_reseau,
+    return this.prixdeventeLigne(this.sercurisation_gaziers.Convention_raccordement_gestionnaire_reseau,
     this.conceptions[0].sercurisation_gaziers.Convention_raccordement_gestionnaire_reseau)
   }
   sommeDeMarge_gaz3() {
 
-    this.margeLigne(this.sercurisation_gaziers.Contrat_vente_biomethane,this.conceptions[0].sercurisation_gaziers.Contrat_vente_biomethane)
+    return this.margeLigne(this.sercurisation_gaziers.Contrat_vente_biomethane,this.conceptions[0].sercurisation_gaziers.Contrat_vente_biomethane)
 
   }
   somme_privVente_gaz3() {
-    this.prixdeventeLigne(this.sercurisation_gaziers.Contrat_vente_biomethane,this.conceptions[0].sercurisation_gaziers.Contrat_vente_biomethane)
+    return this.prixdeventeLigne(this.sercurisation_gaziers.Contrat_vente_biomethane,this.conceptions[0].sercurisation_gaziers.Contrat_vente_biomethane)
 
   }
   someMargeTotaux_gaz() {
@@ -1401,61 +1401,61 @@ this.margeLigne(this.sercurisation_gaziers.etude_detaille_reseau_transport__dist
   };
 
   sommeDeMarge_val() {
-this.margeLigne(this.valorisation_digestat.etude_qualite_digestat,this.conceptions[0].valorisation_digestat.etude_qualite_digestat)
+    return this.margeLigne(this.valorisation_digestat.etude_qualite_digestat,this.conceptions[0].valorisation_digestat.etude_qualite_digestat)
 
   }
   somme_privVente_val() {
 
-    this.prixdeventeLigne(this.valorisation_digestat.etude_qualite_digestat,this.conceptions[0].valorisation_digestat.etude_qualite_digestat)
+    return this.prixdeventeLigne(this.valorisation_digestat.etude_qualite_digestat,this.conceptions[0].valorisation_digestat.etude_qualite_digestat)
 
   }
 
   sommeDeMarge_val1() {
-    this.margeLigne(this.valorisation_digestat.Diagnostic_zone_epandable,this.conceptions[0].valorisation_digestat.Diagnostic_zone_epandable)
+    return this.margeLigne(this.valorisation_digestat.Diagnostic_zone_epandable,this.conceptions[0].valorisation_digestat.Diagnostic_zone_epandable)
 
   }
   somme_privVente_val1() {
-    this.prixdeventeLigne(this.valorisation_digestat.Diagnostic_zone_epandable,this.conceptions[0].valorisation_digestat.Diagnostic_zone_epandable)
+    return this.prixdeventeLigne(this.valorisation_digestat.Diagnostic_zone_epandable,this.conceptions[0].valorisation_digestat.Diagnostic_zone_epandable)
   }
 
   sommeDeMarge_val2() {
 
-    this.margeLigne(this.valorisation_digestat.Chiffrage_budget_epandage,this.conceptions[0].valorisation_digestat.Chiffrage_budget_epandage)
+    return  this.margeLigne(this.valorisation_digestat.Chiffrage_budget_epandage,this.conceptions[0].valorisation_digestat.Chiffrage_budget_epandage)
 
   }
   somme_privVente_val2() {
-    this.prixdeventeLigne(this.valorisation_digestat.Chiffrage_budget_epandage,this.conceptions[0].valorisation_digestat.Chiffrage_budget_epandage)
+    return this.prixdeventeLigne(this.valorisation_digestat.Chiffrage_budget_epandage,this.conceptions[0].valorisation_digestat.Chiffrage_budget_epandage)
 
   }
 
   sommeDeMarge_val3() {
-    this.margeLigne(this.valorisation_digestat.Dossier_autorisation_plan_epandage, this.conceptions[0].valorisation_digestat
+    return this.margeLigne(this.valorisation_digestat.Dossier_autorisation_plan_epandage, this.conceptions[0].valorisation_digestat
       .Dossier_autorisation_plan_epandage)
 
   }
   somme_privVente_val3() {
-    this.prixdeventeLigne(this.valorisation_digestat.Dossier_autorisation_plan_epandage,this.conceptions[0].valorisation_digestat
+    return this.prixdeventeLigne(this.valorisation_digestat.Dossier_autorisation_plan_epandage,this.conceptions[0].valorisation_digestat
       .Dossier_autorisation_plan_epandage)
 
   }
 
   sommeDeMarge_val4() {
-    this.margeLigne(this.valorisation_digestat.Rendez_vous_exploitants_recevront_digestat,this.conceptions[0].valorisation_digestat
+    return this.margeLigne(this.valorisation_digestat.Rendez_vous_exploitants_recevront_digestat,this.conceptions[0].valorisation_digestat
       .Rendez_vous_exploitants_recevront_digestat)
 
   }
   somme_privVente_val4() {
-    this.prixdeventeLigne(this.valorisation_digestat.Rendez_vous_exploitants_recevront_digestat,this.conceptions[0].valorisation_digestat
+    return  this.prixdeventeLigne(this.valorisation_digestat.Rendez_vous_exploitants_recevront_digestat,this.conceptions[0].valorisation_digestat
       .Rendez_vous_exploitants_recevront_digestat)
 
   }
 
   sommeDeMarge_val5() {
-    this.margeLigne(this.valorisation_digestat.Assistance_juridique_Contrat_epandage_SPV,this.conceptions[0].valorisation_digestat.Assistance_juridique_Contrat_epandage_SPV)
+    return this.margeLigne(this.valorisation_digestat.Assistance_juridique_Contrat_epandage_SPV,this.conceptions[0].valorisation_digestat.Assistance_juridique_Contrat_epandage_SPV)
 
   }
   somme_privVente_val5() {
-    this.prixdeventeLigne(this.valorisation_digestat.Assistance_juridique_Contrat_epandage_SPV,this.conceptions[0].valorisation_digestat.Assistance_juridique_Contrat_epandage_SPV)
+    return this.prixdeventeLigne(this.valorisation_digestat.Assistance_juridique_Contrat_epandage_SPV,this.conceptions[0].valorisation_digestat.Assistance_juridique_Contrat_epandage_SPV)
 
   }
 
@@ -1668,39 +1668,39 @@ this.margeLigne(this.valorisation_digestat.etude_qualite_digestat,this.conceptio
   };
 
   sommeDeMarge_mark() {
-    this.margeLigne(this.Realisation_Marketing.Plaquette_presentation,this.conceptions[0].Realisation_Marketing.Plaquette_presentation)
+   return this.margeLigne(this.Realisation_Marketing.Plaquette_presentation,this.conceptions[0].Realisation_Marketing.Plaquette_presentation)
   }
   somme_privVente_mark() {
-    this.prixdeventeLigne(this.Realisation_Marketing.Plaquette_presentation,this.conceptions[0].Realisation_Marketing.Plaquette_presentation)
+    return this.prixdeventeLigne(this.Realisation_Marketing.Plaquette_presentation,this.conceptions[0].Realisation_Marketing.Plaquette_presentation)
 
   }
 
   sommeDeMarge_mark1() {
-    this.margeLigne(this.Realisation_Marketing.Realisation_infographie_3D,this.conceptions[0].Realisation_Marketing.Realisation_infographie_3D)
+    return  this.margeLigne(this.Realisation_Marketing.Realisation_infographie_3D,this.conceptions[0].Realisation_Marketing.Realisation_infographie_3D)
 
   }
   somme_privVente_mark1() {
 
-    this.prixdeventeLigne(this.Realisation_Marketing.Realisation_infographie_3D,this.conceptions[0].Realisation_Marketing.Realisation_infographie_3D)
+    return this.prixdeventeLigne(this.Realisation_Marketing.Realisation_infographie_3D,this.conceptions[0].Realisation_Marketing.Realisation_infographie_3D)
 
   }
 
   sommeDeMarge_mark2() {
 
-    this.margeLigne(this.Realisation_Marketing.Film_animation,this.conceptions[0].Realisation_Marketing.Film_animation)
+    return this.margeLigne(this.Realisation_Marketing.Film_animation,this.conceptions[0].Realisation_Marketing.Film_animation)
 
   }
   somme_privVente_mark2() {
-    this.prixdeventeLigne(this.Realisation_Marketing.Film_animation,this.conceptions[0].Realisation_Marketing.Film_animation)
+    return this.prixdeventeLigne(this.Realisation_Marketing.Film_animation,this.conceptions[0].Realisation_Marketing.Film_animation)
 
   }
 
   sommeDeMarge_mark3() {
-    this.margeLigne(this.Realisation_Marketing.Site_internet,this.conceptions[0].Realisation_Marketing.Site_internet)
+    return this.margeLigne(this.Realisation_Marketing.Site_internet,this.conceptions[0].Realisation_Marketing.Site_internet)
 
   }
   somme_privVente_mark3() {
-    this.prixdeventeLigne(this.Realisation_Marketing.Site_internet,this.conceptions[0].Realisation_Marketing.Site_internet)
+    return this.prixdeventeLigne(this.Realisation_Marketing.Site_internet,this.conceptions[0].Realisation_Marketing.Site_internet)
 
   }
 
@@ -1877,56 +1877,56 @@ this.margeLigne(this.valorisation_digestat.etude_qualite_digestat,this.conceptio
   };
   sommeDeMarge_accep() {
 
-    this.margeLigne(this.acceptabilite_projet.Diagnostic_territorial,this.conceptions[0].acceptabilite_projet.Diagnostic_territorial)
+    return this.margeLigne(this.acceptabilite_projet.Diagnostic_territorial,this.conceptions[0].acceptabilite_projet.Diagnostic_territorial)
 
   }
   somme_privVente_accep() {
-    this.prixdeventeLigne(this.acceptabilite_projet.Diagnostic_territorial,this.conceptions[0].acceptabilite_projet.Diagnostic_territorial)
+    return this.prixdeventeLigne(this.acceptabilite_projet.Diagnostic_territorial,this.conceptions[0].acceptabilite_projet.Diagnostic_territorial)
 
   }
 
   sommeDeMarge_accep1() {
 
-    this.margeLigne(this.acceptabilite_projet.Realisation_plans_action,this.conceptions[0].acceptabilite_projet.Realisation_plans_action)
+    return this.margeLigne(this.acceptabilite_projet.Realisation_plans_action,this.conceptions[0].acceptabilite_projet.Realisation_plans_action)
 
   }
   somme_privVente_accep1() {
-this.prixdeventeLigne(this.acceptabilite_projet.Realisation_plans_action,this.conceptions[0].acceptabilite_projet.Realisation_plans_action)
+    return this.prixdeventeLigne(this.acceptabilite_projet.Realisation_plans_action,this.conceptions[0].acceptabilite_projet.Realisation_plans_action)
 
   }
 
   sommeDeMarge_accep2() {
-    this.margeLigne(this.acceptabilite_projet
+    return this.margeLigne(this.acceptabilite_projet
       .Film_aniFormation_riverains_bienfaits_methanisationmation,this.conceptions[0].acceptabilite_projet
       .Film_aniFormation_riverains_bienfaits_methanisationmation)
 
   }
   somme_privVente_accep2() {
 
-    this.prixdeventeLigne( this.acceptabilite_projet
+    return this.prixdeventeLigne( this.acceptabilite_projet
       .Film_aniFormation_riverains_bienfaits_methanisationmation,this.conceptions[0].acceptabilite_projet
       .Film_aniFormation_riverains_bienfaits_methanisationmation)
 
   }
 
   sommeDeMarge_accep3() {
-    this.margeLigne(this.acceptabilite_projet.Defense_promotion_projet_elus_population_locale,this.conceptions[0].acceptabilite_projet
+    return this.margeLigne(this.acceptabilite_projet.Defense_promotion_projet_elus_population_locale,this.conceptions[0].acceptabilite_projet
       .Defense_promotion_projet_elus_population_locale)
 
   }
   somme_privVente_accep3() {
 
-    this.prixdeventeLigne(this.acceptabilite_projet.Defense_promotion_projet_elus_population_locale,this.conceptions[0].acceptabilite_projet
+    return this.prixdeventeLigne(this.acceptabilite_projet.Defense_promotion_projet_elus_population_locale,this.conceptions[0].acceptabilite_projet
       .Defense_promotion_projet_elus_population_locale)
 
   }
 
   sommeDeMarge_accep4() {
-    this.margeLigne(this.acceptabilite_projet.Reponses_questions_enquete_publiques,this.conceptions[0].acceptabilite_projet.Repon)
+    return this.margeLigne(this.acceptabilite_projet.Reponses_questions_enquete_publiques,this.conceptions[0].acceptabilite_projet.Repon)
 
   }
   somme_privVente_accep4() {
-    this.prixdeventeLigne(this.acceptabilite_projet.Reponses_questions_enquete_publiques,this.conceptions[0].acceptabilite_projet.Reponses_questions_enquete_publiques)
+    return  this.prixdeventeLigne(this.acceptabilite_projet.Reponses_questions_enquete_publiques,this.conceptions[0].acceptabilite_projet.Reponses_questions_enquete_publiques)
 
   }
 
@@ -2141,76 +2141,76 @@ this.prixdeventeLigne(this.acceptabilite_projet.Realisation_plans_action,this.co
 
   sommeDeMarge_realisation() {
 
-    this.margeLigne(this.realisation_Projet.Dimensionnement_Projet,this.conceptions[0].realisation_Projet.Dimensionnement_Projet)
+    return this.margeLigne(this.realisation_Projet.Dimensionnement_Projet,this.conceptions[0].realisation_Projet.Dimensionnement_Projet)
 
   }
   somme_privVente_realisation() {
 
-    this.prixdeventeLigne(
+    return this.prixdeventeLigne(
       this.realisation_Projet.Dimensionnement_Projet,this.conceptions[0].realisation_Projet.Dimensionnement_Projet)
   }
 
 
   sommeDeMarge_realisation1() {
 
-    this.margeLigne(
+    return this.margeLigne(
       this.realisation_Projet.etude_dispersion_odeur_eventuelle,
       this.conceptions[0].realisation_Projet.etude_dispersion_odeur_eventuelle)
 
   }
   somme_privVente_realisation1() {
-    this.prixdeventeLigne(
+    return  this.prixdeventeLigne(
       this.realisation_Projet.etude_dispersion_odeur_eventuelle,
       this.conceptions[0].realisation_Projet.etude_dispersion_odeur_eventuelle)
 
   }
 
   sommeDeMarge_realisation2() {
-    this.margeLigne(this.realisation_Projet.Proposition_choix_process,this.conceptions[0].realisation_Projet.Proposition_choix_process)
+    return this.margeLigne(this.realisation_Projet.Proposition_choix_process,this.conceptions[0].realisation_Projet.Proposition_choix_process)
 
   }
   somme_privVente_realisation2() {
-    this.prixdeventeLigne(this.realisation_Projet.Proposition_choix_process,this.conceptions[0].realisation_Projet.Proposition_choix_process)
+    return this.prixdeventeLigne(this.realisation_Projet.Proposition_choix_process,this.conceptions[0].realisation_Projet.Proposition_choix_process)
 
   }
 
   sommeDeMarge_realisation3() {
-    this.margeLigne(this.realisation_Projet.Dossier_consultation_Entreprises,this.conceptions[0].realisation_Projet.Dossier_consultation_Entreprises)
+    return this.margeLigne(this.realisation_Projet.Dossier_consultation_Entreprises,this.conceptions[0].realisation_Projet.Dossier_consultation_Entreprises)
 
   }
   somme_privVente_realisation3() {
-    this.prixdeventeLigne(this.realisation_Projet.Dossier_consultation_Entreprises, this.conceptions[0].realisation_Projet.Dossier_consultation_Entreprises)
+    return this.prixdeventeLigne(this.realisation_Projet.Dossier_consultation_Entreprises, this.conceptions[0].realisation_Projet.Dossier_consultation_Entreprises)
 
   }
 
   sommeDeMarge_realisation4() {
-    this.margeLigne(this.realisation_Projet.Contrat_TRC_TRME_Exploitation_negociee,
+    return this.margeLigne(this.realisation_Projet.Contrat_TRC_TRME_Exploitation_negociee,
       this.conceptions[0].realisation_Projet.Contrat_TRC_TRME_Exploitation_negociee)
 
   }
   somme_privVente_realisation4() {
-    this.prixdeventeLigne(this.realisation_Projet.Contrat_TRC_TRME_Exploitation_negociee,
+    return this.prixdeventeLigne(this.realisation_Projet.Contrat_TRC_TRME_Exploitation_negociee,
       this.conceptions[0].realisation_Projet.Contrat_TRC_TRME_Exploitation_negociee)
   }
 
   sommeDeMarge_realisation5() {
 
-    this.margeLigne(
+    return this.margeLigne(
       this.realisation_Projet.Business_Plan_detaille,this.conceptions[0].realisation_Projet.Business_Plan_detaille)
 
     //
   }
   somme_privVente_realisation5() {
-    this.prixdeventeLigne(this.realisation_Projet.Business_Plan_detaille,
+    return this.prixdeventeLigne(this.realisation_Projet.Business_Plan_detaille,
       this.conceptions[0].realisation_Projet.Business_Plan_detaille)
 
   }
   sommeDeMarge_realisation6() {
-    this.margeLigne( this.realisation_Projet.Contrat_prestataire_Controle_technique,this.conceptions[0].realisation_Projet.Contrat_prestataire_Controle_technique)
+    return this.margeLigne( this.realisation_Projet.Contrat_prestataire_Controle_technique,this.conceptions[0].realisation_Projet.Contrat_prestataire_Controle_technique)
 
   }
   somme_privVente_realisation6() {
-    this.prixdeventeLigne(this.realisation_Projet.Contrat_prestataire_Controle_technique,this.conceptions[0].realisation_Projet.Contrat_prestataire_Controle_technique)
+    return this.prixdeventeLigne(this.realisation_Projet.Contrat_prestataire_Controle_technique,this.conceptions[0].realisation_Projet.Contrat_prestataire_Controle_technique)
 
   }
 
@@ -2469,81 +2469,81 @@ this.prixdeventeLigne(this.acceptabilite_projet.Realisation_plans_action,this.co
     Marge_totaux: "",
   };
   sommeDeMarge_urban() {
-    this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Diagnostic_environnemental,
+    return  this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Diagnostic_environnemental,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Diagnostic_environnemental)
 
   }
   somme_privVente_urban() {
-    this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Diagnostic_environnemental,
+    return  this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Diagnostic_environnemental,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Diagnostic_environnemental)
 
   }
 
   sommeDeMarge_urban1() {
 
-    this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Obtention_agrement_sanitaire,
+    return this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Obtention_agrement_sanitaire,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Obtention_agrement_sanitaire)
 
   }
   somme_privVente_urban1() {
-    this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Obtention_agrement_sanitaire,
+    return  this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Obtention_agrement_sanitaire,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Obtention_agrement_sanitaire)
 
   }
 
   sommeDeMarge_urban2() {
-    this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.etude_loi_eau,
+    return this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.etude_loi_eau,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.etude_loi_eau)
 
   }
   somme_privVente_urban2() {
-    this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.etude_loi_eau,
+    return this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.etude_loi_eau,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.etude_loi_eau)
 
   }
 
   sommeDeMarge_urban3() {
-    this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.etude_foudre,
+    return this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.etude_foudre,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.etude_foudre)
 
   }
   somme_privVente_urban3() {
-    this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.etude_foudre,
+    return this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.etude_foudre,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.etude_foudre)
 
   }
 
   sommeDeMarge_urban4() {
-    this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Dossier_ICPE,
+    return this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Dossier_ICPE,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Dossier_ICPE)
 
   }
   somme_privVente_urban4() {
-    this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Dossier_ICPE,
+    return this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Dossier_ICPE,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Dossier_ICPE)
 
   }
 
   sommeDeMarge_urban5() {
-    this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Obtention_arret_PC_Passage_huissier,
+    return  this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Obtention_arret_PC_Passage_huissier,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Obtention_arret_PC_Passage_huissier)
 
   }
   somme_privVente_urban5() {
 
-    this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Obtention_arret_PC_Passage_huissier,
+    return  this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Obtention_arret_PC_Passage_huissier,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Obtention_arret_PC_Passage_huissier)
 
   }
   sommeDeMarge_urban6() {
 
-    this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Rendez_vous_service_instructeur,
+    return this.margeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Rendez_vous_service_instructeur,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Rendez_vous_service_instructeur)
 
   }
 
   somme_privVente_urban6() {
-    this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Rendez_vous_service_instructeur,
+    return this.prixdeventeLigne(this.obtention_autorisations_urbanisme_exploitation_Projet.Rendez_vous_service_instructeur,
       this.conceptions[0].obtention_autorisations_urbanisme_exploitation_Projet.Rendez_vous_service_instructeur)
 
   }
@@ -2767,23 +2767,23 @@ return (this.obtention_autorisations_urbanisme_exploitation_Projet.Sous_Total_Pr
   };
   sommeDeMarge_TAB10() {
 
-    this.margeLigne(this.obtention_subvention_Projet.Reunion_organismes,
+    return this.margeLigne(this.obtention_subvention_Projet.Reunion_organismes,
       this.conceptions[0].obtention_subvention_Projet.Reunion_organismes)
 
   }
   somme_privVente_TAB10() {
-    this.prixdeventeLigne(this.obtention_subvention_Projet.Reunion_organismes,
+    return this.prixdeventeLigne(this.obtention_subvention_Projet.Reunion_organismes,
       this.conceptions[0].obtention_subvention_Projet.Reunion_organismes)
   }
 
   sommeDeMarge_2_TAB10() {
-    this.margeLigne(this.obtention_subvention_Projet.Depot_dossier_subventions,
+    return this.margeLigne(this.obtention_subvention_Projet.Depot_dossier_subventions,
       this.conceptions[0].obtention_subvention_Projet.Depot_dossier_subventions)
 
   }
   somme_privVente_2_TAB10() {
 
-    this.prixdeventeLigne(this.obtention_subvention_Projet.Depot_dossier_subventions,
+    return this.prixdeventeLigne(this.obtention_subvention_Projet.Depot_dossier_subventions,
       this.conceptions[0].obtention_subvention_Projet.Depot_dossier_subventions)
 
   }
@@ -2883,23 +2883,23 @@ return (this.obtention_autorisations_urbanisme_exploitation_Projet.Sous_Total_Pr
 
 
   sommeDeMarge_TAB11() {
-    this.margeLigne(this.obtention_financement_Projet.Instruction_dossier_bancaire,
+    return this.margeLigne(this.obtention_financement_Projet.Instruction_dossier_bancaire,
       this.conceptions[0].obtention_financement_Projet.Instruction_dossier_bancaire)
 
   }
   somme_privVente_TAB11() {
-    this.prixdeventeLigne(this.obtention_financement_Projet.Instruction_dossier_bancaire,
+    return this.prixdeventeLigne(this.obtention_financement_Projet.Instruction_dossier_bancaire,
       this.conceptions[0].obtention_financement_Projet.Instruction_dossier_bancaire)
 
   }
 
   sommeDeMarge_2_TAB11() {
-    this.margeLigne(this.obtention_financement_Projet.Suivi_instructions_negociations,
+    return  this.margeLigne(this.obtention_financement_Projet.Suivi_instructions_negociations,
       this.conceptions[0].obtention_financement_Projet.Suivi_instructions_negociations)
 
   }
   somme_privVente_2_TAB11() {
-    this.prixdeventeLigne(this.obtention_financement_Projet.Suivi_instructions_negociations,
+    return this.prixdeventeLigne(this.obtention_financement_Projet.Suivi_instructions_negociations,
       this.conceptions[0].obtention_financement_Projet.Suivi_instructions_negociations)
 
   }

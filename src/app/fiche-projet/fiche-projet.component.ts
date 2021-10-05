@@ -97,10 +97,10 @@ percent_eff_elevage;
     { data: "oui", value: "oui" },
     { data: "non", value: "non" },
   ];
-  Prix_digestat_Liquide;
-  Prix_digestat_Solide;
-  Quantite_digestat_Liquide;
-  Quantite_digestat_Solise;
+  // Prix_digestat_Liquide;
+  // Prix_digestat_Solide;
+  // Quantite_digestat_Liquide;
+  // Quantite_digestat_Solise;
   Recette_vente_digestat;
   installation_beneficie_aide_Agence_environnement_maitrise_energie;
   installations: any = [
@@ -214,6 +214,16 @@ percent_eff_elevage;
 //PERCENT DEGISTAT
   perDegestat:any[]
   totPercentDegest;
+  Tarif_debut_contrat_euro;
+  CA_Annuel_Injection
+Vente_digestat
+Prix_digestat_Liquide;
+Prix_digestat_Solide;
+Quantite_digestat_Liquide;
+Quantite_digestat_Solide;
+CA_Annuel_Digestat;
+
+
 
 
 
@@ -1377,18 +1387,18 @@ this.Digestat_Brut_K=this.quotion(this.total_K,this.Digestat_Brut_quantite).toFi
       this.Pourcentage_FP_Financer = "";
     }
   }
-  scenariDigestat(value) {
-    console.log("valueofscenariFp", value);
-    console.log("fb", this.vente_digestat);
+  // scenariDigestat(value) {
+  //   console.log("valueofscenariFp", value);
+  //   console.log("fb", this.vente_digestat);
 
-    if (value === "non") {
-      this.Prix_digestat_Liquide = 0;
-      this.Prix_digestat_Solide = 0;
-    } else {
-      this.Prix_digestat_Liquide = "3.5£";
-      this.Prix_digestat_Solide = "6£";
-    }
-  }
+  //   if (value === "non") {
+  //     this.Prix_digestat_Liquide = 0;
+  //     this.Prix_digestat_Solide = 0;
+  //   } else {
+  //     this.Prix_digestat_Liquide = "3.5£";
+  //     this.Prix_digestat_Solide = "6£";
+  //   }
+  // }
   openModal = false;
   popAlert() {
     Swal.fire({
@@ -1579,23 +1589,28 @@ console.log("hello",this.part_financier_percent,this.part_financier_Montant);
 activeState = "assets/icon/gisement.png";
 
 states = [
+  { name: "Fiche Client", img: "assets/icon/client.png", tabs: "#tab11" },
   { name: "Gisement", img: "assets/icon/gisement.png", tabs: "#tab1" },
-  { name: "Scenario", img: "assets/icon/28011.png", tabs: "#tab2" },
+
   { name: "Digestat", img: "assets/icon/29011.png", tabs: "#tab3" },
 
+
+  //{ name: "Conception", img: "assets/icon/conception.png", tabs: "#tab5" },
+
+  // {
+  //   name: "Construction",
+  //   img: "assets/icon/exploitation.png",
+  //   tabs: "#tab6",
+  // },
+ // { name: "Exploitation", img: "assets/icon/capex.png", tabs: "#tab7" },
+
+  { name: "CAPEX", img: "assets/icon/capex.png", tabs: "#tab8" },
+  { name: "OPEX", img: "assets/icon/opex.png", tabs: "#tab9" },
   { name: "Recettes", img: "assets/icon/recette.png", tabs: "#tab4" },
-  { name: "Conception", img: "assets/icon/conception.png", tabs: "#tab5" },
+  { name: "BP", img: "assets/icon/bp.png", tabs: "#tab12" },
 
-  {
-    name: "Construction",
-    img: "assets/icon/exploitation.png",
-    tabs: "#tab6",
-  },
-  { name: "Exploitation", img: "assets/icon/capex.png", tabs: "#tab7" },
-
-  { name: "CAPEX", img: "assets/icon/opex.png", tabs: "#tab8" },
-  { name: "OPEX", img: "assets/icon/financement.png", tabs: "#tab9" },
-  { name: "Financement", img: "assets/icon/bp.png", tabs: "#tab10" },
+  { name: "Financement", img: "assets/icon/financement.png", tabs: "#tab10" },
+  { name: "Scenario", img: "assets/icon/28011.png", tabs: "#tab2" },
 ];
 
 setStateAsActive(state) {

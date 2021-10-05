@@ -28,6 +28,9 @@
 
 
     <div class="tab-content ">
+      <div class="tab-pane " id="tab11">
+      <app-add-client></app-add-client>
+      </div>
       <div class="tab-pane active" id="tab1">
         <div class="row" style="margin-top: 40px;">
           <div class="col-md-12" style="margin-bottom: 50px;" >
@@ -37,12 +40,8 @@
 
                 <h3 class="cc">Fiche Projet  <span class="vertical-line"></span><span class="cc1">Gisement</span>
                 </h3>
-
-
               </div>
-
           </div>
-
         </div>
         <div class="col-md-12">
           <div class="row" style="margin-bottom: 8px;">
@@ -869,7 +868,7 @@
                       <div class="form-group">
                         <label for="exampleInputEmail1"> En pourcentage %</label>
                         <input type="text" class="form-control" [(ngModel)]="part_financier_percent"
-                        name="part_financier_percent" (change)="listenMontant($event.target.value,l)"
+                        name="part_financier_percent" (change)="listenMontant($event.target.value)"
                         value="{{part_financier_percent}}">
 
                       </div>
@@ -883,7 +882,7 @@
                         <label for="exampleInputEmail1">Montant en €</label>
                         <input type="text" class="form-control"
                         [(ngModel)]="part_financier_Montant"
-                        name="part_financier_Montant" #l (change)="listenPercent(l)"
+                        name="part_financier_Montant" #l (change)="listenPercent($event.target.value,l)"
                          value="{{part_financier_Montant}}">
 
                       </div>
@@ -993,7 +992,7 @@
                       <td>TRI </td>
 
                     <td  style=" margin-right: 50px;border-bottom: 1px solid white;">5</td>
-                    <td  style="margin-right: 50px;">{{calaculPrixDeBase(5)}}</td>
+                    <td  style="margin-right: 50px;"></td>
                   </tr>
                     <tr style="border-bottom: 3px solid white;">
                       <td>DSCR</td>
@@ -7653,10 +7652,10 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
               <th scope="row"  >
                 <i class="entypo-right-open" style="color: #00AE81;"></i>
-                Total heure d'une année </th>
+                Tarif au début du contrat [c€ / kWh PCS] </th>
               <td></td>
               <td></td>
-              <td >8760</td>
+              <td >{{calaculPrixDeBase(5)}}</td>
             </tr>
 
 
@@ -7665,60 +7664,32 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
               <th scope="row" >
                 <i class="entypo-right-open" style="color: #00AE81;"></i>
-                Débit horaire produit(Nm³ CH4/h)</th>
+                Tarif au début du contrat [€ / kWh PCS]</th>
               <td></td>
               <td></td>
-              <td >{{debit_horaire_Nm3_CH4_an}}</td>
+              <td >{{calaculPrixDeBase(5)}}</td>
             </tr>
             <tr
             style="background-color: #fff;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-              <th scope="row" data-toggle="collapse" data-target="#demoss1" >
+              <th scope="row" data-toggle="collapse" >
                 <i class="entypo-right-open" style="color: #00AE81;"></i>
-                Débit moyen annuel 88% (Nm3 CH4/h)</th>
+                CA Annuel Energie (€) Injection</th>
               <td></td>
               <td></td>
-              <td >{{debit_moyen_annuel}}</td>
+              <td >{{calaculPrixDeBase(5)}}</td>
             </tr>
-            //
-            <div class="col-md-9" id="demoss1" class="collapse cc3">
-              <div style="margin-left: 60px;margin-top: 20px;">
-                <p scope="row">Auto-consommation 8% (Nm3 CH4/h)
-
-                 <span style="float: right;" >{{Auto_consommation}} </span>
-                </p>
-
-                </div>
 
 
-                <div style="margin-left: 60px;margin-top: 10px;">
-                  <p scope="row">Poste à injection et pertes 4% (Nm3 CH4/h)
-
-                   <span style="float: right;">{{Poste_injection_pertes}} </span>
-                  </p>
-
-                  </div>
-
-
-                  <div style="margin-left: 60px;margin-top: 10px;">
-                    <p scope="row">Débit moyen annuel (Nm3 CH4/h)
-
-                     <span style="float: right;">{{debit_moyen_annuel}}</span>
-                    </p>
-
-                    </div>
-
-
-                      </div>
                       <tr
                       style="background-color: #fff;
                       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                         <th scope="row"  >
                           <i class="entypo-right-open" style="color: #00AE81;"></i>
-                          Débit horaire injecté(Nm³ CH4/h)</th>
+                          Vente du digestat</th>
                         <td></td>
                         <td></td>
-                        <td >{{debit_horaire_injecte_Nm3_CH4_an}}</td>
+                        <td >{{calaculPrixDeBase(5)}}</td>
                       </tr>
 
                       <tr
@@ -7726,10 +7697,10 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                         <th scope="row"  >
                           <i class="entypo-right-open" style="color: #00AE81;"></i>
-                          Pouvoir calorifique supérieur CH4(PCS)</th>
+                          Prix du digestat Liquide</th>
                         <td></td>
                         <td></td>
-                        <td >{{pvoir_calorfiq_sup_CH4}}</td>
+                        <td >{{calaculPrixDeBase(5)}}</td>
                       </tr>
 
                       <tr
@@ -7737,10 +7708,10 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                         <th scope="row"  >
                           <i class="entypo-right-open" style="color: #00AE81;"></i>
-                          Sous-Total KWh/h</th>
+                          Prix du digestat Solide</th>
                         <td></td>
                         <td></td>
-                        <td >{{s_tt_KWH_h}}</td>
+                        <td >{{calaculPrixDeBase(5)}}</td>
                       </tr>
 
                       <tr
@@ -7748,10 +7719,10 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                         <th scope="row"  >
                           <i class="entypo-right-open" style="color: #00AE81;"></i>
-                          Heure de fonctionnement</th>
+                          Quantité du digestat Liquide (m3)</th>
                         <td></td>
                         <td></td>
-                        <td >8200</td>
+                        <td >{{calaculPrixDeBase(5)}}</td>
                       </tr>
 
 <tr
@@ -7759,31 +7730,22 @@ style="background-color: #fff;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
   <th scope="row"  >
     <i class="entypo-right-open" style="color: #00AE81;"></i>
-    KWh produit par an</th>
+    Quantité du digestat Solide (t)</th>
   <td></td>
   <td></td>
-  <td >{{enrg_KWH_an}}</td>
+  <td >{{calaculPrixDeBase(5)}}</td>
 </tr>
 <tr
 style="background-color: #fff;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
   <th scope="row"  >
     <i class="entypo-right-open" style="color: #00AE81;"></i>
-    MWh produit par an</th>
+    CA Annuel Digestat (€)</th>
   <td></td>
   <td></td>
-  <td >{{enrg_MWH_an}} </td>
+  <td >{{calaculPrixDeBase(5)}} </td>
 </tr>
-<tr
-style="background-color: #fff;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-  <th scope="row"  >
-    <i class="entypo-right-open" style="color: #00AE81;"></i>
-    GWh produit par an</th>
-  <td></td>
-  <td></td>
-  <td >{{enrg_GWH_an}}</td>
-</tr>
+
 
 
           </tbody>
@@ -7793,7 +7755,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
     </div>
   </div>
 
-//
+
 
           <!--
                 <br>

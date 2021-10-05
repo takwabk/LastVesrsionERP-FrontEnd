@@ -72,7 +72,7 @@ export class AuthService {
 
   logout() {
     this.removeToken();
-    this.router.navigate([""]);
+    this.router.navigate(["/login"]);
   }
 
   setToken(token: any) {
