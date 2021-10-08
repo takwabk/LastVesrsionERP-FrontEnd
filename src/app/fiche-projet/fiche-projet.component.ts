@@ -1586,13 +1586,15 @@ console.log("hello",this.part_financier_percent,this.part_financier_Montant);
 
 
 //Navbar Ts
-activeState = "assets/icon/gisement.png";
+activeState = "assets/icon/ficheClient.png";
 
 states = [
-  { name: "Fiche Client", img: "assets/icon/client.png", tabs: "#tab11" },
+
+  { name: "FicheClient", img: "assets/icon/ficheClient.png", tabs: "#tab11" },
+
   { name: "Gisement", img: "assets/icon/gisement.png", tabs: "#tab1" },
 
-  { name: "Digestat", img: "assets/icon/29011.png", tabs: "#tab3" },
+
 
 
   //{ name: "Conception", img: "assets/icon/conception.png", tabs: "#tab5" },
@@ -1607,10 +1609,12 @@ states = [
   { name: "CAPEX", img: "assets/icon/capex.png", tabs: "#tab8" },
   { name: "OPEX", img: "assets/icon/opex.png", tabs: "#tab9" },
   { name: "Recettes", img: "assets/icon/recette.png", tabs: "#tab4" },
-  { name: "BP", img: "assets/icon/bp.png", tabs: "#tab12" },
+  { name: "BPinjection", img: "assets/icon/bp.png", tabs: "#tab12" },
+
 
   { name: "Financement", img: "assets/icon/financement.png", tabs: "#tab10" },
   { name: "Scenario", img: "assets/icon/28011.png", tabs: "#tab2" },
+
 ];
 
 setStateAsActive(state) {

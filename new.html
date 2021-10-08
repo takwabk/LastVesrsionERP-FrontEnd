@@ -1,291 +1,96 @@
-<div class="row">
-  <div class="col-md-6">
-
-
-
-    <div class="panel " >
-
-
-
-
-
-
-
-
-          <form role="form" class="form-horizontal ">
-
-            <div class="form-group">
-              <label for="field-1" class="col-sm-6  a">Volume produit de méthane(Nm³
-                CH4/an)</label>
-
-              <div class="col-sm-5">
-                <input type="text" [(ngModel)]="volume_Nm3_CH4_an" name="volume_Nm3_CH4_an"
-                  class="form-control" id="field-1" value={{volume_Nm3_CH4_an}}>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="field-2" class="col-sm-6 a ">Total heure d'une année</label>
-
-              <div class="col-sm-5">
-                <input type="text" class="form-control" id="field-2" [(ngModel)]="tt_heure_annee"
-                  name="tt_heure_annee" value="8760">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="field-3" class="col-sm-6 a ">Débit horaire produit(Nm³ CH4/h)</label>
-
-              <div class="col-sm-5">
-                <input type="text" [(ngModel)]="debit_horaire_Nm3_CH4_an " name="debit_horaire_Nm3_CH4_an "
-                  class="form-control" id="field-3" placeholder="Placeholder ">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="field-1" class="col-sm-6 a ">Débit horaire injecté(Nm³ CH4/h)</label>
-
-              <div class="col-sm-5">
-                <input type="text" class="form-control" id="field-file" placeholder="Placeholder"
-                  [(ngModel)]="debit_horaire_injecte_Nm3_CH4_an " name="debit_horaire_injecte_Nm3_CH4_an ">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Pouvoir calorifique supérieur
-                CH4(PCS)</label>
-
-              <div class="col-sm-5">
-                <input class="form-control" id="field-ta" placeholder="numberarea"
-                  [(ngModel)]="pvoir_calorfiq_sup_CH4 " name="pvoir_calorfiq_sup_CH4 " value="10.80">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Sous-Total KWh/h</label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="s_tt_KWH_h "
-                  name="s_tt_KWH_h ">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Heure de fonctionnement</label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder=""
-                  [(ngModel)]="heure_fonction " name="heure_fonction ">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Energie produite KWh/an</label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_KWH_an "
-                  name="enrg_KWH_an ">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Energie produite MWh/an</label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_MWH_an "
-                  name="enrg_MWH_an ">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Energie produite GWh/an</label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="enrg_GWH_an "
-                  name="enrg_GWH_an ">
-              </div>
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">% d'Effluent d'elevage</label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder=""
-                  [(ngModel)]="Effluent_Delevage" name="Effluent_Delevage" value="{{Effluent_Delevage}}">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a " disabled>Tarif au début du contrat
-                [c€/kwh PCS]</label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder=""
-                  [(ngModel)]="Tarif_debut_contrat1 " name="Tarif_debut_contrat ">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Tarif au début du contrat [€/kwh
-                PCS]</label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder=""
-                  [(ngModel)]="Tarif_debut_contrat2 " name="Tarif_debut_contrat2 ">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Recette /an de la vente de biométhane[€]
-              </label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow " style="background-color: #87CEEB ;" id="field-ta"
-                  placeholder="" [(ngModel)]="Recette_vente_biomethane" name="Recette_vente_biomethane">
-              </div>
-            </div>
-
-
-
-
-            <div class="form-group">
-              <div class="col-sm-offset-3 col-sm-5">
-                <button type="submit" class="btn btn-default">Ajouter</button>
-              </div>
-            </div>
-          </form>
-
-
-
-
-
-    </div>
+ <div style="color: white; padding-left: 20px; margin-top: 30px;">
+  <ul style="color: white; " ><B>Menu Principal</B> </ul>
   </div>
 
+  <li class="active opened active has-sub" style="margin-top: 25px;">
+  <a >
+
+  <i class="entypo-cd" ></i>
+  <span>Base de Données</span>
+
+  </a>
+
+  <ul >
+  <li>
+  <a [routerLink]="['/Conception-data']" routerLinkActive="is-active" >
+
+  <span class="title" style="margin-left: 40px;" >Conception</span>
+
+  </a>
+  </li>
+  </ul>
+  <ul>
+  <li>
+  <a [routerLink]="['/construction']" routerLinkActive="is-active" >
+
+  <span class="title" style="margin-left: 40px;" >Construction</span>
+
+  </a>
+  </li>
+  </ul>
+  <ul>
+  <li >
+  <a [routerLink]="['/Exploitation-data']" routerLinkActive="is-active" >
+
+  <span class="title" style="margin-left: 40px;">
+  Exploitation</span>
+
+  </a>
+  </li>
 
 
-  <div class="col-md-6">
-    <div class="row">
-
-      <div class="col_md-6">
-
-        <div class="panel">
-          <div class="panel " style="background-color: #00AE81; border-radius: 20px 20px 0px 0px;"  data-collapsed="0">
-
-            <!-- panel head -->
-            <div class="panel-heading">
-              <div class="panel-title" style="color: white;">calcul des recettes de la vente de digestat </div>
-
-            </div>
-
-        </div>
-
-          <form role="form" class="form-horizontal ">
+  </ul>
+  </li>
 
 
+  <li class="active opened active has-sub" >
+  <a>
+  <i class="entypo-cd" ></i>
+  <span class="title">Staff</span>
+  </a>
+
+  <ul >
+  <li >
+  <a [routerLink]="['/add-staff']" routerLinkActive="is-active">
+
+  <span class="title" style="margin-left: 40px;">Ajouter un staff</span>
+  </a>
+  </li>
+  </ul>
+  <ul>
+  <li>
+  <a [routerLink]="['/liste-staff']" routerLinkActive="is-active">
+
+  <span class="title" style="margin-left: 40px;">Liste staff</span>
+  </a>
+  </li>
 
 
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Vente du digestat</label>
+  </ul>
+  </li>
 
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder="" [(ngModel)]="vente_digestat"
-                  name="vente_digestat">
-              </div>
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Prix du digestat Liquide[€/m³]</label>
+  <li class="active opened active has-sub ">
+  <a routerLink="/liste-client">
+  <i class="entypo-cd" ></i>
+  <span class="title"> Liste Client</span>
+  </a>
 
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder=""
-                  [(ngModel)]="Prix_digestat_Liquide" name="Prix_digestat_Liquide">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a " disabled>Prix du digestat Solide[€/t]
-              </label>
+  <ul >
+  <li >
+  <a [routerLink]="['/add-client']" routerLinkActive="is-active">
 
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder=""
-                  [(ngModel)]="Prix_digestat_Solide" name="Prix_digestat_Solide">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Quantité du digestat Liquide (m3)
-              </label>
+  <span class="title" style="margin-left: 40px;">Fiche Client</span>
+  </a>
+  </li>
+  </ul>
 
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder=""
-                  [(ngModel)]="Quantite_digestat_Liquide" name="Quantite_digestat_Liquide">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Quantité du digestat Solise (t)
-              </label>
+  <ul>
+  <li>
+  <a [routerLink]="['/projet']" routerLinkActive="is-active">
 
-              <div class="col-sm-5">
-                <input class="form-control autogrow" id="field-ta" placeholder=""
-                  [(ngModel)]="Quantite_digestat_Solise" name="Quantite_digestat_Solise">
-              </div>
-            </div>
+  <span class="title" style="margin-left: 40px;">Fiche Projet</span>
+  </a>
+  </li>
 
-            <div class="form-group">
-              <label for="field-ta" class="col-sm-6 a ">Recette/an de la vente de digestat[€]
-              </label>
-
-              <div class="col-sm-5">
-                <input class="form-control autogrow " style="background-color: #87CEEB ;" id="field-ta"
-                  placeholder="" [(ngModel)]="Recette_vente_digestat" name="Recette_vente_digestat">
-              </div>
-            </div>
-
-
-
-
-
-          </form>
-
-        </div>
-
-
-      </div>
-
-    </div>
-    <div class="row">
-
-      <div class="col_md-6">
-
-        <div class="panel">
-          <div class="panel " style="background-color: #00AE81; border-radius: 20px 20px 0px 0px;"  data-collapsed="0">
-
-            <!-- panel head -->
-            <div class="panel-heading">
-              <div class="panel-title" style="color: white;">Autres Produits
-                 </div>
-
-            </div>
-
-        </div>
-        <div class="form-group">
-          <label for="field-ta" class="col-sm-6 a ">Revedance de traitement des déchets[€]</label>
-
-          <div class="col-sm-5">
-            <input class="form-control autogrow" id="field-ta" placeholder="" disabled>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-
-      <div class="col_md-6">
-        <div class="form-group">
-          <label for="field-ta" class="col-sm-6 a ">TOTAL DES RECETTES</label>
-
-          <div class="col-sm-5">
-            <input class="form-control autogrow" id="field-ta" placeholder="" disabled>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-
-</div>
-</div>
+  </ul>
+  </li>

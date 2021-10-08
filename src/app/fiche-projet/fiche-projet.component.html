@@ -1,37 +1,30 @@
 <div class="container-fluid"  >
 
 
-
-
-
   <div class="row">
+
     <ul class="horizontal" id="nav">
       <p
         class="col-md-1 text-center"
         *ngFor="let state of states"
-        (click)="setStateAsActive(state.img)"
-      >
-        <a
+        (click)="setStateAsActive(state.img)">
+
+        <a  data-toggle="tab" role="tab" style ="text-decoration-line: none;"
           [class.active]="state.img === activeState"
-          data-toggle="tab"
-          role="tablist"
-          href="{{ state.tabs }}"
-        >
+
+          href="{{state.tabs}}">
           <img src="{{ state.img }}" alt="" width="70px" />
-          <span style="color: #6b6b6b">{{ state.name }}</span>
-        </a>
+          <span style="color: #6b6b6b;text-align: center;">{{ state.name }}</span>
+    </a>
       </p>
     </ul>
   </div>
 
-
-
-
-    <div class="tab-content ">
+    <div class="tab-content">
       <div class="tab-pane " id="tab11">
-      <app-add-client></app-add-client>
+      <app-new-test></app-new-test>
       </div>
-      <div class="tab-pane active" id="tab1">
+      <div class="tab-pane active " id="tab1">
         <div class="row" style="margin-top: 40px;">
           <div class="col-md-12" style="margin-bottom: 50px;" >
 
@@ -92,9 +85,9 @@
     <div class="row">
       <div class="col-md-2">
         <label for="formGroupExampleInput">Intrant catégorie 1</label>
-        <select id="formGroupExampleInput"  [value]="ic1"
+        <select id="formGroupExampleInput"  [value]="ic1" *ngIf="infos"
        (change)="listenType($event.target.value)" [(ngModel)]="infos.IC1"
-        name="IC1" type="text" class="form-control" >
+        name="infos.IC1" type="text" class="form-control" >
 
         <option *ngFor="let item of infotrie" [value]="item">{{item}}
         </option>
@@ -103,7 +96,7 @@
       </div>
       <div class="col-md-2">
         <label for="formGroupExampleInput">Intrant catégorie 2</label>
-         <select id="formGroupExampleInput"  (change)="listenIc1($event.target.value)"
+         <select id="formGroupExampleInput"  (change)="listenIc1($event.target.value)"*ngIf="infos"
           [(ngModel)]="infos.IC2"
                     name="IC2" type="text"
                      class="form-control"   [value]="ic2"
@@ -117,7 +110,9 @@
       <div class="col-md-2">
         <div class="form-group">
           <label for="formGroupExampleInput">Intrant catégorie 3</label>
-          <select id="formGroupExampleInput" (change)="listenIc2($event.target.value)" [(ngModel)]="infos.IC3"
+          <select id="formGroupExampleInput" (change)="listenIc2($event.target.value)"
+          *ngIf="infos"
+          [(ngModel)]="infos.IC3"
           name="IC3" type="text" class="form-control" id="validationCustom01" [value]="ic3"
           >
           <option value="">-- please choose --</option>
@@ -130,7 +125,7 @@
       <div class="col-md-2">
         <div class="form-group">
           <label for="formGroupExampleInput">Description biblio</label>
-          <select id="formGroupExampleInput" (change)="listenDesc($event.target.value)" [(ngModel)]="infos.Description"
+          <select id="formGroupExampleInput" (change)="listenDesc($event.target.value)" *ngIf="infos"  [(ngModel)]="infos.Description"
           name="Description" type="text" class="form-control" id="validationCustom01"
           [value]="desc_biblio"   required>
           <option value="">-- please choose--</option>
@@ -152,7 +147,7 @@
 
         <div class="form-group">
           <label for="formGroupExampleInput">Unité de mesure</label>
-          <input
+          <input *ngIf="infos"
                       [(ngModel)]="infos.Unitee" name="Unitee" type="text" class="form-control"
                       [value]="u"
           id="formGroupExampleInput" required value="{{infotrie5?.Unitee}}" >
@@ -168,7 +163,7 @@
       <div class="col-md-2">
         <div class="form-group">
           <label for="formGroupExampleInput">MB/u</label>
-          <input [(ngModel)]="infos.uMB_an" name="uMB_an" type="text" class="form-control"
+          <input *ngIf="infos"  [(ngModel)]="infos.uMB_an" name="infos.uMB_an" type="text" class="form-control"
           [value]="mb"
           id="formGroupExampleInput" required value="{{infotrie5?.uMB_an}}">
         </div>
@@ -178,7 +173,7 @@
         <div class="form-group">
           <label for="formGroupExampleInput">MS/u</label>
           <input type="text" class="form-control"
-          [value]="ms"  id="formGroupExampleInput"
+          [value]="ms"  id="formGroupExampleInput" *ngIf="infos"
           [(ngModel)]="infos.Effluent_Delevage" name="Effluent_Delevage"
                       value="{{infotrie5?.Effluent_Delevage}}" >
         </div>
@@ -186,7 +181,7 @@
       <div class="col-md-2">
         <div class="form-group">
           <label for="formGroupExampleInput">%MS </label>
-          <input type="text" [(ngModel)]="infos.MS" class="form-control"
+          <input type="text" *ngIf="infos"  [(ngModel)]="infos.MS" class="form-control"
           [value]="perc_Ms"
           id="formGroupExampleInput"
           name="MS" value="{{infotrie5?.MS}}" >
@@ -195,7 +190,7 @@
       <div class="col-md-2">
         <div class="form-group">
           <label for="formGroupExampleInput">% MO/MS</label>
-          <input type="text" [(ngModel)]="infos.MO_MS" class="form-control"
+          <input type="text"*ngIf="infos" [(ngModel)]="infos.MO_MS" class="form-control"
           [value]="mo"
           id="formGroupExampleInput"
           value="{{infotrie5?.MO_MS}}" name="MO_MS" >
@@ -205,7 +200,7 @@
       <div class="col-md-2">
       <div class="form-group">
         <label for="formGroupExampleInput">Nm3 CH4/t MO</label>
-        <input type="text" [(ngModel)]="infos.Nm3_CH4_t_MO" name="Nm3_CH4_t_MO" class="form-control"
+        <input type="text" *ngIf="infos"  [(ngModel)]="infos.Nm3_CH4_t_MO" name="Nm3_CH4_t_MO" class="form-control"
         [value]="nm3"
         id="formGroupExampleInput" required value="{{infotrie5?.Nm3_CH4_t_MO}}"
        >
@@ -515,7 +510,7 @@
     </div>
     </div>
 
-    <div  class="tab-pane" id="tab2">
+    <div  class="tab-pane " id="tab2">
 
           <!-- <div class="row" style="margin-top: 30px;">
             <div class="col-md-12">
@@ -619,7 +614,7 @@
             <div class="row" >
 
                   <div class="col-md-12 "style="margin-top: 60px;">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <B>  Date prev. De signature du contrat
                         d'achat de biométhane</B>
 
@@ -665,7 +660,7 @@
                 display: flex;
                 height: 60px;
                 background: #2D7574;border-top-left-radius: 9px;border-top-right-radius: 9px;">
-                  <div class="col-md-12">
+
                     <div class="col-md-2" style="color: #fff;">
                       Contrainte règlementaire
                     </div>
@@ -716,7 +711,7 @@
                                 ></i></span>
                           </div>
                     </div>
-                  </div>
+
 
               </div>
 
@@ -732,7 +727,7 @@
                     </div>
 
           <div class="row">
-            <div class="col-md-12">
+
 
 
 
@@ -780,7 +775,7 @@
 
 
                 </div>
-            </div>
+
 
 
           </div>
@@ -1116,7 +1111,8 @@
 
           <div class="col-md-5">
 
-            <button class="btn" style="background-color: white;border-left:8px solid #00AE81;"data-toggle="collapse" data-target="#demo" >
+            <button class="btn" style="background-color: white;border-left:8px solid #00AE81;"
+            data-bs-toggle="collapse"  data-bs-target="#demo" >
               CAPEX-Conception
             </button>
 
@@ -1144,7 +1140,10 @@
                 <tr
                 style="background-color: #fff;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-                  <th scope="row" data-toggle="collapse" data-target="#demo1" >
+                  <th scope="row"
+
+
+                  data-bs-toggle="collapse" data-bs-target="#demo1" >
                     <i class="entypo-right-open" style="color: #00AE81;"></i>
                     1/ Intérêt du porteur de projet </th>
                   <td></td>
@@ -1196,7 +1195,7 @@
 
 
                 <tr style="background-color: #fff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-                  <th scope="row"data-toggle="collapse" data-target="#demo2" >
+                  <th scope="row"data-bs-toggle="collapse" data-bs-target="#demo2" >
                     <i class="entypo-right-open" style="color: #00AE81;"></i>
                     2/ Etude préléminaire de la biomasse</th>
                   <td></td>
@@ -1735,7 +1734,9 @@
 
          </div>
          <div class="col-md-4">
-           <button class="btn" style="background-color: white;float: right;font-weight: bold;color: #000;" >{{constructions[0]?.Tab_140?.totaux_prixVente_Total_140}} €</button>
+           <button class="btn"
+           style="background-color: white;float: right;font-weight: bold;color: #000;" >
+  {{constructions[0]?.Tab_140?.totaux_prixVente_Total_140}} €</button>
          </div>
        </div>
        <div class="row">
@@ -7917,10 +7918,1111 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
 
   </div>
   </div>
+  <div class="tab-pane" id="tab12">
+    <div class="row" style="margin-top: 40px;">
+      <div class="col-md-12" style="margin-bottom: 50px;" >
 
+        <div class="row">
+          <div class="col-md-12" style="margin-bottom: 30px;">
+
+            <h3 class="cc">Fiche Projet  <span class="vertical-line"></span><span class="cc1">BP</span>
+            </h3>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row" style="margin-bottom: 8px;">
+      <div class="col-md-9">
+            <div class="row"style="margin-bottom: 10px;">
+
+                <div class="col-md-2">NOM</div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-3"style="font-weight: bold;color: #000;">Nom du client </div>
+
+                <div class="col-md-1"style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+                <div  class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">QUOTATION</div>
+            </div>
+            <div class="row"style="margin-bottom: 10px;">
+
+                <div class="col-md-2">PRENOM</div>
+                <div class="col-md-1">:</div>
+                <div class="col-md-3"style="font-weight: bold;color: #000;">prenom du client </div>
+                <div class="col-md-1"style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+                <div class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">ACCEDER A SA FICHE</div>
+            </div>
+            <div class="row"style="margin-bottom: 10px;">
+
+              <div class="col-md-2">VILLE</div>
+              <div class="col-md-1">:</div>
+              <div class="col-md-3"style="font-weight: bold;color: #000;">Ville du projet </div>
+              <div class="col-md-1"style="font-weight: bold;color: #000;"><span class="vert-line"></span></div>
+              <div class="col-md-3" style="color: #00AE81;margin-bottom: 10px;">IMPRIMER</div>
+
+          </div>
+          <div class="row"style="margin-bottom: 10px;">
+
+            <div class="col-md-2">Puissance</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-3"style="font-weight: bold;color: #000;">{{volume_Nm3_CH4_an}}</div>
+
+        </div>
+
+
+            </div>
+            </div>
+    </div>
+
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <h4 style="color: #00ae81;
+      font-weight: bold;">BP SPV-Injection-200 Nm3 CH4/h</h4>
+      <table class="table table-striped" >
+        <thead>
+          <tr>
+            <th scope="col">INVESTISSEMENTS</th>
+            <th scope="col"></th>
+            <th scope="col">ANNEE D'INV</th>
+            <th scope="col">DUREE AMORT.(ANNEE)</th>
+            <th scope="col disabled" >Autres Invest</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <th scope="row"  >
+
+              1/ Ouverture du Chantier </th>
+            <td> {{c?.Tab_140?.Ouverture_chantier?.Sous_Total_Prix_vente}}€</td>
+            <td style="display: flex;
+            justify-content: space-between">1</td>
+            <td><label>13</label> </td>
+            <td  style="display: flex;
+            justify-content: space-between" ><label for="a" style="margin-right: 5px;">Hypothéque</label>
+            <label for="b"> 1</label>
+          </td>
+          </tr>
+
+
+          <tr
+         >
+            <th scope="row" >
+              2/ Lot 1: Process méthanisation</th>
+              <td>{{c?.Tab_140?.Lot_1_Process_methanisation?.Sous_Total_Prix_vente}}€</td>
+            <td style="display: flex;
+            justify-content: space-between">1</td>
+            <td style="display: flex;
+            justify-content: space-between">13</td>
+            <td >8998</td>
+          </tr>
+          <tr
+         >
+            <th scope="row" data-toggle="collapse" >
+              3/ Lot 2 : Valorisation</th>
+              <td>{{c?.Tab_140?.Lot_2_Valorisation?.Sous_Total_Prix_vente}}€</td>
+              <td>1</td>
+              <td>13</td>
+            <td ></td>
+          </tr>
+
+
+                    <tr>
+                      <th scope="row"  >
+                        4/ Lot 3 : Terrassement Grande Masse - Talutage - VRD</th>
+                        <td>{{c?.Tab_140?.Lot_3_Terrassement_Grande_Masse_Talutage_VRD?.Sous_Total_Prix_vente}}€</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row"  >
+                        5/ Lot 4 : Génie Civil circulaire digestat liquide + couverture simple</th>
+                        <td>{{c?.Tab_140?.Lot_4_Genie_Civil_circulaire_digestat_liquide_couverture_simple?.Sous_Total_Prix_vente}}€</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row"  >
+                        6/ Lot 5 : Génie Civil ouvrages périphériques</th>
+                        <td>{{c?.Tab_140?.Lot_5_Genie_Civil_ouvrages_peripheriques?.Sous_Total_Prix_vente}}€</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row"  >
+                        7/ Lot 6 : Charpente - Batiment - Couverture </th>
+                        <td>{{c?.Tab_140?.Lot_6_Charpente_Batiment_Couverture?.Sous_Total_Prix_vente}}€</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row"  >
+                        8/ Lot 7 : Courant fort - Soutirage - Electricité Générale</th>
+                        <td>{{c?.Tab_140?.Lot_7_Courant_fort_Soutirage_Electricite_Generale?.Sous_Total_Prix_vente}}€</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                    </tr>
+
+
+                    <tr>
+                      <th scope="row"  >
+                        9/ Maitrise d'œuvre</th>
+                        <td>{{c?.Tab_140?.Maitrise_oevre?.Sous_Total_Prix_vente}}€</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"  >
+                        10/ Assistance à maitrise d'ouvrage
+                      </th>
+                      <td>{{c?.Tab_140?.Assistance_maitrise_ouvrage?.Sous_Total_Prix_vente}}€</td>
+                      <td>1</td>
+                      <td>13</td>
+                      <td ></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"  >
+                        11/ Matériel</th>
+                        <td>{{c?.Tab_140?.Materiel?.Sous_Total_Prix_vente}}€</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row"  >
+                        GRDF raccordement après refaction </th>
+                        <td>300000</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"  >
+                        Etudes de conception </th>
+                        <td> {{conceptions[0]?.totaux_prixVente_Total}}</td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"  >
+                        Autres Invest</th>
+                        <td> 253525 </td>
+                        <td>1</td>
+                        <td>13</td>
+                      <td ></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"  >
+                        TOTAL INVESTISSEMENTS </th>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                      <td ></td>
+                      <td></td>
+
+                    </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div style="text-decoration: underline;  font-style: italic;">
+        BUSINESS PLAN
+      </div>
+
+      <div class="row" style="margin-top: 30px;">
+        LES CARACTERISTIQUES DE L'INVESTISSEMENT
+        <table class="table" style="border: 1px solid black;">
+
+          <tbody>
+
+            <tr>
+              <th scope="row"  >
+
+                PUISSANCE METHANISEUR (Nm3/h) </th>
+
+              <td></td>
+              <td></td>
+              <td >8989</td>
+            </tr>
+
+
+            <tr>
+              <th scope="row" >
+                NB D'HEURE RETENUES</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <table class="table" style="border: 1px solid black;">
+
+          <tbody>
+
+            <tr>
+              <th scope="row"  >
+
+              Date prev.signature du contrat d'achat de biométhane</th>
+
+              <td></td>
+              <td></td>
+              <td >23/06/1990</td>
+            </tr>
+
+
+            <tr>
+              <th scope="row" >
+                Tarif au début du contrat [c€ / kWh PCS]</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row"  >
+
+                Inflation</th>
+
+              <td></td>
+              <td></td>
+              <td >1.19%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        LES CARACTERISTIQUES DE LA MAIN D'ŒUVRE
+        <table class="table" style="border: 1px solid black;">
+
+          <tbody>
+
+
+
+
+            <tr style="border: 1px solid black;">
+              <th scope="row" >
+                NB D'HEURE PAR MOIS</th>
+
+              <td></td>
+              <td></td>
+              <td >141</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                TAUX HORAIRE</th>
+
+              <td></td>
+              <td></td>
+              <td >30 $</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                % HAUSSE SALAIRE</th>
+
+              <td></td>
+              <td></td>
+              <td >1%</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                TAUX CHARGES PATRONALES</th>
+
+              <td></td>
+              <td></td>
+              <td >35.00%</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+
+
+      <div class="row" style="margin-top: 30px;">
+        LES RATIOS
+        <table class="table" style="border: 1px solid black;">
+
+          <tbody>
+
+            <tr>
+              <th scope="row"  >
+
+                TRI (IRR) </th>
+
+              <td></td>
+              <td></td>
+              <td >8989</td>
+            </tr>
+
+
+            <tr>
+              <th scope="row" >
+                TAUX RENDEMENT S/ APPORT (ROE)</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+
+            <tr>
+              <th scope="row" >
+                DELAI RECUP CAPITAL INVESTI</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                TPS RETOUR S/ FONDS PROPRES</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                ∑ FCF</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                DCF</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                DSCR MOYEN</th>
+
+              <td></td>
+              <td></td>
+              <td >113%</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        LES CARACTERISTIQUES D'IMPOSITION CFE/FER
+        <table class="table" style="border: 1px solid black;">
+
+          <tbody>
+
+            <tr>
+              <th scope="row"  >
+
+                NATURE DE L'ACTIVITE</th>
+
+              <td></td>
+              <td></td>
+              <td >23/06/1990</td>
+            </tr>
+
+
+            <tr>
+              <th scope="row" >
+                % HAUSSE IMPÔT</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row"  >
+
+                % de la taxe foncière locale</th>
+
+              <td></td>
+              <td></td>
+              <td >1.19%</td>
+            </tr>
+            <tr>
+              <th scope="row"  >
+
+                Subvention Ademe</th>
+
+              <td></td>
+              <td></td>
+              <td >1.19%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="col-md-1"></div>
+
+    <div class="col-md-3">
+
+
+      <div class="row" style="margin-top: 30px;">
+
+        <table class="table" style="border: 1px solid black;">
+
+          <tbody>
+
+            <tr>
+              <th scope="row"  >
+
+                Investissement initial</th>
+
+              <td></td>
+              <td></td>
+              <td >8989</td>
+            </tr>
+
+
+            <tr>
+              <th scope="row" >
+                Chiffre d'Affaire</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                Renta sur apport</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                EBITDA</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                EBITDA Margin</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                DISCOUNTED RETURNS</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                Multiple on invested Capital</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+            <tr>
+              <th scope="row" >
+                NPV</th>
+
+              <td></td>
+              <td></td>
+              <td >8998</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        Autres produits
+        <table class="table" style="border: 1px solid black;">
+
+          <tbody>
+
+
+
+
+            <tr style="border: 1px solid black;">
+              <th scope="row" >
+                Redevance traitement des déchets</th>
+
+              <td></td>
+              <td></td>
+              <td >141</td>
+            </tr>
+
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+
+        <table class="table">
+
+          <tbody>
+
+
+
+
+            <tr >
+              <th scope="row" >
+                Rentabilité exigée</th>
+
+              <td></td>
+              <td></td>
+              <td >141</td>
+            </tr>
+            <tr >
+              <th scope="row" >
+                CMPC</th>
+
+              <td></td>
+              <td></td>
+              <td >141</td>
+            </tr>
+            <tr >
+              <th scope="row" >
+                Formule</th>
+
+              <td></td>
+              <td></td>
+              <td >141</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+
+
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped" >
+    <thead style="border: 1px solid #000">
+      <tr >
+        <th style=" vertical-align: middle;">FINANCEMENTS</th>
+        <th style=" vertical-align: middle;" ></th>
+        <th style=" vertical-align: middle;">%</th>
+        <th style=" vertical-align: middle;">ANNEE DE LIBERATION</th>
+        <th style=" vertical-align: middle;">DUREE EMPRUNT (LT/ CT)</th>
+        <th style=" vertical-align: middle;">TAUX</th>
+        <th style=" vertical-align: middle;" >ECHEANCE (M/T/S/A)</th>
+      </tr>
+    </thead>
+    <tbody >
+
+      <tr style="border: 1px solid #000;">
+        <th scope="row">
+
+          FONDS PROPRES
+
+        </th>
+
+        <td style="font-weight: bold;"style=" vertical-align: middle;" >185035 £</td>
+        <td style=" vertical-align: middle;" >1470</td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+      </tr>
+
+
+
+      <tr style="border-left: 1px solid #000;border-right:1px solid #000 ;">
+        <th scope="row" >
+          SUBVENTION</th>
+
+        <td>4747</td>
+        <td>775</td>
+        <td >1</td>
+        <td></td>
+        <td ></td>
+        <td ></td>
+      </tr>
+      <tr style="border-left: 1px solid #000;border-right:1px solid #000 ;">
+        <th scope="row" data-toggle="collapse" >
+          CAPITAL / APPORT EN COMPTE COURANT</th>
+
+        <td>75577</td>
+        <td>755</td>
+        <td >1</td>
+        <td></td>
+        <td ></td>
+        <td ></td>
+      </tr>
+      <tr style="border-left: 1px solid #000;border-right:1px solid #000 ;border-bottom: 1px solid #000 ;">
+        <th scope="row" data-toggle="collapse" >
+          EMPRUNT CAPITAL</th>
+
+        <td>75577</td>
+        <td>755</td>
+        <td >1</td>
+        <td>7</td>
+        <td >8.00%</td>
+        <td >A</td>
+      </tr>
+
+      <tr style="border: 1px solid #000; ">
+        <th scope="row" data-toggle="collapse" >
+          LOCATION VENTE CONSTRUCTEUR</th>
+
+        <td style="font-weight: bold;">75577</td>
+        <td>755</td>
+        <td ></td>
+        <td></td>
+        <td ></td>
+        <td >A</td>
+      </tr>
+      <tr style="border: 1px solid #000;">
+        <th scope="row" data-toggle="collapse" >
+          EMPRUNT LONG TERME</th>
+
+        <td style="font-weight: bold;">75577</td>
+        <td>755</td>
+        <td >1</td>
+        <td>13</td>
+        <td >2.15%</td>
+        <td >A</td>
+      </tr>
+
+
+                <tr >
+
+                  <th scope="row" style="border: 1px solid #000;" >
+
+                   <span style="font-weight:bold;">TOTAL INVESTISSEMENTS</span></th>
+                  <td style="border: 1px solid #000;"> <span style="font-weight:bold;color:#000">253525 £</span></td>
+
+                </tr>
+              <div style="margin-top: 20px;">
+
+              </div>
+                <tr style="border-left: 1px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;">
+                  <th scope="row" data-toggle="collapse" >
+                 <span style="color: gray;">
+                  EMPRUNT COURT TERME SUBVENTION
+                 </span>   </th>
+
+                  <td style="font-weight: bold;" style="color: gray;">742 068</td>
+                  <td></td>
+                  <td style="color: gray;">1</td>
+                  <td style="color: gray;">1</td>
+                  <td style="color: gray;">2.15%</td>
+                  <td ></td>
+                  </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+<div class="row">
+  <div class="col-md-5">
+
+
+    <div class="row" style="margin-top: 30px;">
+     <span style="text-decoration: underline;">REPARTITION DES COUTS DE L'INVESTISSEMENRT </span>
+      <table class="table" >
+
+        <tbody >
+
+          <tr style="border-left: 1px solid black;
+          border-right: 1px solid black;
+          border-top: 1px solid black;
+          border-bottom: #e9e9e9">
+            <th scope="row"  >
+
+              Capex Construction </th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">6123040</td>
+          </tr>
+
+
+          <tr style="border-left: 1px solid black;border-right: 1px solid black;border-bottom: #e9e9e9">
+            <th scope="row" >
+              Capex CONCEPTION-etudes techniques</th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">182050</td>
+          </tr>
+          <tr style="border-left: 1px solid black;
+          border-right: 1px solid black;
+          border-bottom: 1px solid black;
+         ">
+            <th scope="row"  >
+
+              GRDF raccordement aprés refaction </th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">300000</td>
+          </tr>
+          <tr style="border: 1px solid black;">
+            <th scope="row"  >
+
+            <span style="font-weight: bold;">TOTAL CAPEX </span>   </th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">6605090</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        Autres Invest
+     </div>
+     <div class="col-md-3"></div>
+      <div class="col-md-3" >
+      <span style="float: right;">815789 £</span>  </div>
+
+      <table class="table" style="border: 1px solid black;">
+
+        <tbody>
+
+
+
+
+          <tr style="border: 1px solid black;">
+            <th scope="row" >
+          <span style="font-weight: bold;">GRAND TOTAL INVEST</span> </th>
+
+            <td></td>
+            <td></td>
+            <td >141</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+
+
+    <div class="row" style="margin-top: 30px;">
+    <span style="text-decoration: underline;">
+      FINANCEMENT DU CAPITAL
+    </span>
+      <table class="table" style="border: 1px solid black;">
+
+        <tbody>
+
+          <tr style="border-bottom: #e9e9e9;">
+            <th scope="row"  >
+
+              Financement des FP? </th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">8989</td>
+          </tr>
+            <tr >
+              <th scope="row" >
+                Saisie  % capital à emprunter</th>
+
+              <td></td>
+              <td></td>
+              <td style="border: 1px solid black;">8998</td>
+            </tr>
+
+
+
+          <tr style="border-bottom: #e9e9e9;">
+            <th scope="row" >
+              % du capital à emprunter</th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">8998</td>
+          </tr>
+          <tr style="border-bottom: #e9e9e9;">
+            <th scope="row" >
+              € emprunté / Financement FP</th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">8998</td>
+          </tr>
+          <tr style="border-bottom: #e9e9e9;">
+            <th scope="row" >
+              Caractéristique de l'emprunt</th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">8998</td>
+          </tr>
+          <tr >
+            <th scope="row" >
+              Intérêts de l'obligation</th>
+
+            <td></td>
+            <td></td>
+            <td style="border: 1px solid black;">8998</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+  <div class="col-md-1"></div>
 
 
 </div>
+
+<div class="row">
+  <table class="table " style="border: 1px solid #000" >
+  <thead >
+    <tr >
+      <th style=" vertical-align: middle;"></th>
+      <th style=" vertical-align: middle;" >2021 <hr style="border-style: dotted;">  N+0</th>
+      <th style=" vertical-align: middle;">2022 <hr style="border-style: dotted;"> N+1</th>
+      <th style=" vertical-align: middle;">2023<hr> N+2</th>
+      <th style=" vertical-align: middle;">2024<hr> N+3</th>
+      <th style=" vertical-align: middle;">2025<hr> N+4</th>
+      <th style=" vertical-align: middle;" >2026<hr> N+5</th>
+      <th style=" vertical-align: middle;">2027<hr> N+6</th>
+      <th style=" vertical-align: middle;">2028<hr> N+7</th>
+      <th style=" vertical-align: middle;">2029<hr> N+8</th>
+      <th style=" vertical-align: middle;" >2030<hr> N+9</th>
+
+      <th style=" vertical-align: middle;" >2031<hr> N+10</th>
+      <th style=" vertical-align: middle;">2032<hr> N+11</th>
+      <th style=" vertical-align: middle;">2033<hr> N+12</th>
+      <th style=" vertical-align: middle;">2034<hr> N+13</th>
+      <th style=" vertical-align: middle;" >2035<hr> N+14</th>
+      <th style=" vertical-align: middle;" >2036<hr> N+15</th>
+      <th style=" vertical-align: middle;" >TOTAL</th>
+    </tr>
+  </thead>
+  <tbody >
+
+    <tr style="border: 1px solid #000;">
+      <th scope="row">
+
+        Montée en charge %
+
+      </th>
+
+      <td style="font-weight: bold;"style=" vertical-align: middle;" ></td>
+      <td style=" vertical-align: middle;" >75%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style="font-weight: bold;"style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" >100%</td>
+      <td style=" vertical-align: middle;" ></td>
+    </tr>
+
+
+
+    <tr style="border-left: 1px solid #000;border-right:1px solid #000 ;">
+      <th scope="row" >
+        Production annuelle biométhane (MWh PCS/an))</th>
+
+      <td style="font-weight: bold;"style=" vertical-align: middle;" ></td>
+      <td style=" vertical-align: middle;" >13253</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style="font-weight: bold;"style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" >17671</td>
+      <td style=" vertical-align: middle;" ></td>
+    </tr>
+    <tr style="border-left: 1px solid #000;border-right:1px solid #000 ;">
+      <th scope="row" data-toggle="collapse" >
+        Inflation tarif GRDF (%)</th>
+        <td style="font-weight: bold;"style=" vertical-align: middle;" ></td>
+      <td style=" vertical-align: middle;" >0.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style="font-weight: bold;"style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" >1.0%</td>
+      <td style=" vertical-align: middle;" ></td>
+    </tr>
+    <tr style="border-left: 1px solid #000;border-right:1px solid #000 ;border-bottom: 1px solid #000 ;">
+      <th scope="row" data-toggle="collapse" >
+        Indice d'inflation tarif GRDF cumulé</th>
+        <td style="font-weight: bold;"style=" vertical-align: middle;" >100%</td>
+        <td style=" vertical-align: middle;" >100%</td>
+        <td style=" vertical-align: middle;" >101%</td>
+        <td style=" vertical-align: middle;" >102%</td>
+        <td style=" vertical-align: middle;" >103%</td>
+        <td style=" vertical-align: middle;" >104%</td>
+        <td style="font-weight: bold;"style=" vertical-align: middle;" >101%</td>
+        <td style=" vertical-align: middle;" >105%</td>
+        <td style=" vertical-align: middle;" >106%</td>
+        <td style=" vertical-align: middle;" >107%</td>
+        <td style=" vertical-align: middle;" >108%</td>
+        <td style=" vertical-align: middle;" >109%</td>
+        <td style=" vertical-align: middle;" >110%</td>
+        <td style=" vertical-align: middle;" >111%</td>
+        <td style=" vertical-align: middle;" >112%</td>
+        <td style=" vertical-align: middle;" >113%</td>
+        <td style=" vertical-align: middle;" ></td>
+    </tr>
+
+    <tr style="border: 1px solid #000; ">
+      <th scope="row" data-toggle="collapse" >
+        Tarif biométhane (€/MWh)</th>
+        <td style="font-weight: bold;"style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" >96</td>
+        <td style=" vertical-align: middle;" >97</td>
+        <td style=" vertical-align: middle;" >98</td>
+        <td style=" vertical-align: middle;" >99</td>
+        <td style=" vertical-align: middle;" >100</td>
+        <td style="font-weight: bold;"style=" vertical-align: middle;" >101%</td>
+        <td style=" vertical-align: middle;" >101</td>
+        <td style=" vertical-align: middle;" >102</td>
+        <td style=" vertical-align: middle;" >103</td>
+        <td style=" vertical-align: middle;" >104</td>
+        <td style=" vertical-align: middle;" >105</td>
+        <td style=" vertical-align: middle;" >106</td>
+        <td style=" vertical-align: middle;" >107</td>
+        <td style=" vertical-align: middle;" >110</td>
+        <td style=" vertical-align: middle;" >111</td>
+        <td style=" vertical-align: middle;" ></td>
+    </tr>
+    <tr style="border: 1px solid #000;">
+      <th scope="row" data-toggle="collapse" >
+        EMPRUNT LONG TERME</th>
+        <td style="font-weight: bold;"style=" vertical-align: middle;" >185035 £</td>
+        <td style=" vertical-align: middle;" >1470</td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style="font-weight: bold;"style=" vertical-align: middle;" >185035 £</td>
+        <td style=" vertical-align: middle;" >1470</td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+        <td style=" vertical-align: middle;" ></td>
+    </tr>
+
+
+              <tr >
+
+                <th scope="row" style="border: 1px solid #000;" >
+
+                 <span style="font-weight:bold;">TOTAL INVESTISSEMENTS</span></th>
+                <td style="border: 1px solid #000;"> <span style="font-weight:bold;color:#000">253525 £</span></td>
+
+              </tr>
+            <div style="margin-top: 20px;">
+
+            </div>
+              <tr style="border-left: 1px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;">
+                <th scope="row" data-toggle="collapse" >
+               <span style="color: gray;">
+                EMPRUNT COURT TERME SUBVENTION
+               </span>   </th>
+
+                <td style="font-weight: bold;" style="color: gray;">742 068</td>
+                <td></td>
+                <td style="color: gray;">1</td>
+                <td style="color: gray;">1</td>
+                <td style="color: gray;">2.15%</td>
+                <td ></td>
+                </tr>
+
+  </tbody>
+
+</table>
+
+</div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
 </div>
 
 

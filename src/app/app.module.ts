@@ -50,6 +50,7 @@ import { ScenarioComponent } from './scenario/scenario.component';
 import { FicheProjetComponent } from './fiche-projet/fiche-projet.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NewTestComponent } from './new-test/new-test.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +92,7 @@ import { RegisterComponent } from './register/register.component';
     FicheProjetComponent,
     LoginComponent,
     RegisterComponent,
+    NewTestComponent,
   ],
   imports: [
     BrowserModule,

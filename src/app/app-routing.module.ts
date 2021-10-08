@@ -30,6 +30,7 @@ import { Exploitation760Component } from "./exploitation/exploitation760/exploit
 import { Exploitation960Component } from "./exploitation/exploitation960/exploitation960.component";
 import { FicheProjetComponent } from "./fiche-projet/fiche-projet.component";
 import { LoginComponent } from "./login/login.component";
+import { NewTestComponent } from "./new-test/new-test.component";
 import { OpexComponent } from "./opex/opex.component";
 import { RegisterComponent } from "./register/register.component";
 import { ScenarioComponent } from "./scenario/scenario.component";
@@ -43,7 +44,7 @@ const routes: Routes = [
     component: LayoutComponent,canActivate:[AuthGuard],
 
     children: [
-      { path: "", component: AddClientComponent ,canActivate:[AuthGuard] },
+      { path: "", component: NewTestComponent ,canActivate:[AuthGuard] },
       { path: "home", component: HomeComponent ,canActivate:[AuthGuard]},
       { path: "add-staff", component: AddStaffComponent ,canActivate:[AuthGuard,AdminGuard]},
       { path: "add-client", component: AddClientComponent ,canActivate:[AuthGuard]},
@@ -75,14 +76,16 @@ const routes: Routes = [
       { path: "affichage", component: AffichageComponent ,canActivate:[AuthGuard,AdminGuard]},
       { path: "scenario", component: ScenarioComponent ,canActivate:[AuthGuard,AdminGuard]},
       { path: "projet", component: FicheProjetComponent ,canActivate:[AuthGuard]},
+      { path: "test", component: NewTestComponent}
     ],
   },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{useHash:true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,189 +1,113 @@
-
-
-
-
-
-
-<ul id="main-menu"  class="main-menu" style="background-color: #6B6B6B;" >
-  <!-- add class "multiple-expanded" to allow multiple submenus to open -->
-  <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-
-
-    <div class="row"  style="background-color: #979797; margin: 7px; -webkit-box-shadow: 3px 5px 3px 5px #D3D3D3;
-    box-shadow: 3px 5px 3px 5px #D3D3D3;">
-      <div class="col-md-2">
-
-        <img src="assets/images/thumb-1@2x.png" alt="" class="img-circle" width="40" height="100%"  />
-
-      </div>
-      <div class="col-md-10">
-        <span style="color: white;margin-left: 10px; ">John Henderson
-         <br/> <span style="color: white;margin-left: 15px;">  Responsable</span>
-            </span>
-
-
-
-        </div>
-
-
-
+  <!-- Sidebar Start -->
+  <div
+  id="sidebarMenu"
+  class="col-md-3 col-lg-2 d-md-block sidebar ">
+  <div class="d-flex align-items-center justify-content-center pt-1">
+    <img src="assets/enragri-logo.png" alt="" />
   </div>
-  <div style="color: white; padding-left: 20px; margin-top: 30px;">
-  <ul  style="color: white; "  ><B>Menu Principal</B> </ul>
+  <div class="d-flex align-items-center justify-content-center mt-3">
+    <input
+      class="search form-control form-control-sm"
+      type="text"
+      placeholder="Recherche"
+      aria-label=".form-control-sm example"
+    />
+  </div>
+  <div class="pt-3">
+    <ul class="nav flex-column" >
+      <li class="active opened active has-sub nav-item">
+        <a class="nav-link" aria-current="page" href="#">
+          <i class="fi fi-rr-apps"></i>
+          Dashboard
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link" aria-current="page"  [routerLink]="['/Conception-data']" routerLinkActive="active" >
+          <i class="fi fi-rr-apps"></i>
+          Conception
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link" aria-current="page"  [routerLink]="['/construction']" >
+          <i class="fi fi-rr-apps"></i>
+          Construction
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link" aria-current="page"  [routerLink]="['/Exploitation-data']" >
+          <i class="fi fi-rr-apps"></i>
+          Exploitation
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page"  [routerLink]="['/test']" >
+          <i class="fi fi-rr-apps"></i>
+          Fiche Client
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page"  [routerLink]="['/projet']" >
+          <i class="fi fi-rr-apps"></i>
+          Fiche Projet
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">
+          <i class="fi fi-rr-address-book"></i>
+          Liste clients
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fi fi-rr-truck-side"></i>
+          Liste fournisseurs
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fi fi-rr-envelope"></i>
+          Message
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fi fi-rr-notebook"></i>
+          Tache
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fi fi-rr-map-marker"></i>
+          Map
+        </a>
+      </li>
+    </ul>
+
+
+    <hr />
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fi fi-rr-settings"></i>
+          Paramètres
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fi fi-rr-interrogation"></i>
+          Aide
+        </a>
+      </li>
+      <hr />
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fi fi-rr-sign-out"></i>
+          Déconnexion
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<li class="active opened active has-sub" style="margin-top: 25px;">
-  <a  >
-
-    <i class="entypo-cd" ></i>
-    <span>Base de Données</span>
-
-  </a>
-
-  <ul >
-    <li>
-      <a  [routerLink]="['/Conception-data']" routerLinkActive="is-active" >
-
-        <span class="title" style="margin-left: 40px;" >Conception</span>
-
-      </a>
-    </li>
-    </ul>
-    <ul>
-    <li>
-      <a  [routerLink]="['/construction']" routerLinkActive="is-active"  >
-
-        <span class="title" style="margin-left: 40px;" >Construction</span>
-
-      </a>
-    </li>
-  </ul>
-  <ul>
-    <li >
-      <a  [routerLink]="['/Exploitation-data']" routerLinkActive="is-active"  >
-
-        <span class="title" style="margin-left: 40px;">
-          Exploitation</span>
-
-      </a>
-    </li>
-
-
-  </ul>
-</li>
-
-
-  <li class="active opened active has-sub" >
-    <a>
-      <i class="entypo-cd" ></i>
-      <span class="title">Staff</span>
-    </a>
-
-    <ul >
-      <li >
-        <a    [routerLink]="['/add-staff']" routerLinkActive="is-active">
-
-          <span class="title" style="margin-left: 40px;">Ajouter un staff</span>
-        </a>
-      </li>
-      </ul>
-      <ul>
-      <li>
-        <a  [routerLink]="['/liste-staff']" routerLinkActive="is-active">
-
-          <span class="title" style="margin-left: 40px;">Liste staff</span>
-        </a>
-      </li>
-
-
-    </ul>
-    </li>
-
-  <li class="active opened active has-sub ">
-    <a routerLink="/liste-client">
-      <i class="entypo-cd" ></i>
-      <span class="title"> Liste Client</span>
-    </a>
-
-    <ul >
-      <li  >
-        <a  [routerLink]="['/add-client']" routerLinkActive="is-active">
-
-          <span class="title" style="margin-left: 40px;">Fiche Client</span>
-        </a>
-      </li>
-      </ul>
-
-         <ul>
-      <li>
-        <a  [routerLink]="['/projet']" routerLinkActive="is-active">
-
-          <span class="title" style="margin-left: 40px;">Fiche Projet</span>
-        </a>
-      </li>
-
-    </ul>
-  </li>
-
-  <li class="has-sub">
-    <a >
-
-      <i class="entypo-cd" ></i>
-      <span class="title">Liste Fournisseurs</span>
-    </a>
-
-  </li>
-
-  <li class="has-sub">
-    <a href="ui-panels.html">
-      <i class="entypo-cd" ></i>
-      <span class="title">Taches</span>
-    </a>
-
-  </li>
-  <li class="has-sub">
-    <a href="extra-google-maps.html">
-      <i class="entypo-cd" ></i>
-      <span class="title">Maps</span>
-    </a>
-    <ul>
-      <li>
-        <a href="extra-google-maps.html">
-          <i class="entypo-cd" ></i>
-          <span class="title">Google Maps</span>
-        </a>
-      </li>
-      <li>
-        <a href="extra-vector-maps.html">
-          <i class="entypo-cd" ></i>
-          <span class="title">Vector Maps</span>
-        </a>
-      </li>
-    </ul>
-  </li>
-
-  <li class="has-sub">
-    <a href="forms-main.html">
-      <i class="entypo-cd" ></i>
-      <span class="title">Messages</span>
-    </a>
-
-  </li>
-
-  <li class="has-sub">
-    <a href="forms-main.html">
-      <i class="entypo-cd" ></i>
-      <span class="title">Mon espace</span>
-    </a>
-
-  </li>
-
-
-
-
-
-
-
-
-
-</ul>
+<!-- Sidebar End -->
